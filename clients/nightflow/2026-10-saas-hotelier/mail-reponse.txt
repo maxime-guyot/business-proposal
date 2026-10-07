@@ -1,0 +1,19 @@
+Bonjour,
+
+Suite à notre échange téléphonique et à votre cahier des charges, vous trouverez en pièce jointe notre proposition commerciale pour votre plateforme SaaS hôtelière.
+
+Important : ce document est une première estimation, établie sur la base de notre échange téléphonique et de votre cahier des charges. Pour être précis, nous devons mieux cadrer le projet ensemble : c'est le rôle de l'atelier de cadrage prévu dans la proposition, à l'issue duquel nous confirmerons ou ajusterons les montants avant tout engagement.
+
+L'essentiel en quelques points :
+
+- Un MVP opérationnel : missions, incidents, preuves, transmissions, application mobile et interface web, avec une livraison indicative au second trimestre prochain.
+- Deux options chiffrées à part, en sus du MVP : une option sécurité (SOS, check-in, escalade) et une option version complète (télésurveillance, paiement).
+- Après mise en production, une infogérance mensuelle, l'hébergement AWS étant estimé au réel et à la charge de NightFlow.
+
+Tous ces montants et volumes de jours sont des estimations à cadrer, détaillées dans le document joint. L'atelier de cadrage permet de figer le périmètre, le planning et le devis définitif. Quelques questions en suspens sont listées en annexe du document : elles ne bloquent pas le démarrage de l'atelier.
+
+Je reste disponible cette semaine afin de vous présenter la proposition et de répondre à vos questions : quels créneaux vous conviendraient ?
+
+https://meetings-eu1.hubspot.com/maxime55
+
+Bien à vous,

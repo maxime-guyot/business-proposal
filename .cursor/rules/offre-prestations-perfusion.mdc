@@ -1,0 +1,30 @@
+---
+description: Standards commerciaux Perfusion.dev : TJM, jalons, échéancier, forfaits récurrents, accompagnement AWS
+alwaysApply: true
+---
+
+# Offre et standards commerciaux (référence interne)
+
+## Chiffrage
+
+- **TJM de référence : 600 € HT.**
+- **Développement assisté par IA** avec revue humaine systématique : permis de réduire la charge de build, jamais chiffré publiquement (pas de « % de gain », pas de coût « sans nous » ; voir règle `confidentialite-interne`).
+- **Atelier de cadrage** : 3 jours, 1 800 € HT, déductible du montant principal si signature sous 30 jours après l'atelier.
+- Structurer les propositions en jalons livrables (cadrage/UX, socle, cœur métier, recette/déploiement/stores).
+- Fournir HT **et** TTC (TVA 20 %) ; fourchettes acceptables pour une première estimation, marquées « estimation à cadrer ».
+
+## Paiement
+
+- Échéancier type sur jalons : 30 % lancement, 40 % mise à disposition, 30 % validation de recette. L'avance partielle amorce le projet ; soldes sur jalons livrés et recettés (exigence fréquente des CDC).
+
+## Récurrent (post-production)
+
+- **Infogérance : 349 € HT / mois** (supervision/alerting, maintenance applicative, exploitation des sauvegardes, support). Hébergement **non inclus**.
+- **Hébergement AWS** : à la charge du client, au réel, ordre de grandeur indicatif 200 à 400 € HT / mois pour une stack haute dispo (Fargate + RDS Multi-AZ dédiée, S3, SES, logs, eu-west-3).
+- Évolutions hors périmètre : lots séparés, chiffrés et validés avant démarrage.
+- SLA 99,9 % / astreinte 24/7 : jamais inclus d'office, chiffrés à part.
+- Services tiers (SMS, voix, stores, télésurveillance) : facturés au réel, comptes au nom du client.
+
+## Accompagnement AWS Activate
+
+Proposer systématiquement l'accompagnement crédits AWS Activate (Founders 1k à 5k $ ; Portfolio jusqu'à 200k $ via Org ID d'un Activate Provider) : allège la facture cloud du client, ne couvre pas l'infogérance. Détail en annexe des propositions.

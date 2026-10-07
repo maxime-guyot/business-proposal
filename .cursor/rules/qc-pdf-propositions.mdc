@@ -1,0 +1,27 @@
+---
+description: Contrôle qualité avant livraison d'une proposition : regénérer le PDF, vérifier visuellement chaque page
+alwaysApply: true
+---
+
+# Contrôle qualité des propositions HTML/PDF
+
+Les propositions sont des pages A4 à hauteur fixe (`overflow: hidden`) : tout ajout de contenu peut rogner silencieusement tableaux et pieds de page.
+
+## Après chaque modification du HTML
+
+1. Regénérer le PDF (Chrome headless) :
+   `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf="<chemin>.pdf" "file://<chemin>.html"`
+2. Convertir chaque page en image : `pdftoppm -png -r 100 <pdf> page` puis **inspecter chaque page visuellement** (Read tool).
+3. Vérifier spécifiquement : rien de rogné en bas de page, ligne de pied de page visible avec sa marge, tableaux complets (dernière ligne et ligne « à cadrer » présentes).
+
+## Si une page déborde
+
+Récupérer de l'espace dans cet ordre : raccourcir les notes et formulations, puis réduire les marges via une classe dédiée sur la page, puis réduire les paddings de tableaux (classes `dense`/`xdense`). Ne jamais supprimer une information client sans validation.
+
+## Vérifications finales systématiques
+
+- Nom du PDF : `Proposition_<Client>_<aaaa-mm-jj>.pdf` (ex. `Proposition_NightFlow_2026-10-07.pdf`), date exacte du jour d'émission ; le HTML source reste `proposition.html`.
+- `grep -n "—\|–\|…"` sur le HTML : zéro résultat (voir règle no-ai-characters).
+- Arithmétique : totaux, échéanciers, jours × TJM.
+- Cohérence transversale : couverture = budget = récapitulatif = annexes (montants, dates, marqueurs d'estimation, mentions « + » des options).
+- Zéro élément interne (voir règle confidentialité-interne) et zéro promesse de propriété du code (voir règle propriete-intellectuelle).

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Proposition commerciale Perfusion.dev pour NightFlow</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --dark: #111111;
+    --dark2: #1C1D22;
+    --purple: #5128A4;
+    --purple2: #9932CD;
+    --lilac: #F4F1FA;
+    --grey: #6B6B76;
+    --line: #E4E1EC;
+  }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #23232B; font-size: 10.5pt; line-height: 1.55; }
+  .page { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .content { padding: 20mm 18mm 24mm 18mm; height: 100%; display: flex; flex-direction: column; }
+  .page.budget-page .content { padding-top: 14mm; padding-bottom: 16mm; }
+
+  .cover { background: #fff; color: var(--dark); }
+  .cover .bar { position: absolute; top: 0; left: 0; right: 0; height: 4mm; background: linear-gradient(90deg, var(--purple), var(--purple2)); }
+  .cover .inner { padding: 24mm 20mm; height: 100%; display: flex; flex-direction: column; }
+  .cover .logo { width: 58mm; margin-top: 3mm; }
+  .cover .kicker { margin-top: 24mm; font-size: 9.5pt; letter-spacing: 3.5px; text-transform: uppercase; color: var(--purple2); font-weight: 600; }
+  .cover h1 { margin-top: 8mm; font-size: 24pt; line-height: 1.22; font-weight: 700; letter-spacing: -0.3px; color: var(--dark); }
+  .cover h1 .dot { color: var(--purple2); }
+  .cover .sub { margin-top: 6mm; font-size: 11.5pt; color: var(--grey); line-height: 1.65; max-width: 155mm; }
+  .cards { margin-top: 13mm; display: flex; gap: 5mm; }
+  .card { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2.5mm 2.5mm; padding: 6.5mm 6mm; }
+  .card .big { font-size: 15pt; font-weight: 700; color: var(--purple); }
+  .card .big .u { color: var(--purple2); }
+  .card .lbl { margin-top: 2.5mm; font-size: 8.8pt; color: var(--grey); line-height: 1.5; }
+  .cover .foot { margin-top: auto; display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 6mm; font-size: 9pt; color: var(--grey); }
+  .toc { margin-top: 13mm; border: 1px solid var(--line); background: #FAF9FC; border-radius: 2.5mm; padding: 5.5mm 7mm; }
+  .toc-title { font-size: 8.5pt; letter-spacing: 2px; text-transform: uppercase; color: #8B8B96; margin-bottom: 3.5mm; }
+  .toc-items { display: flex; flex-wrap: wrap; gap: 2.5mm 6mm; }
+  .toc-items span { font-size: 9.5pt; color: #3A3A44; }
+  .toc-items span::before { content: ""; display: inline-block; width: 2mm; height: 2mm; border-radius: 0.6mm; background: var(--purple2); margin-right: 2.2mm; vertical-align: 0.3mm; }
+  .cover .foot b { color: var(--dark); font-weight: 600; }
+
+  .head { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--purple); padding-bottom: 3mm; margin-bottom: 7mm; }
+  .head .num { font-size: 10pt; font-weight: 700; color: var(--purple2); letter-spacing: 2px; }
+  .head h2 { font-size: 17pt; font-weight: 700; color: var(--dark); letter-spacing: -0.2px; }
+  .mini-logo { width: 30mm; }
+
+  h3 { font-size: 11.5pt; color: var(--purple); margin: 6mm 0 2.5mm 0; font-weight: 700; }
+  p { margin-bottom: 3mm; }
+  ul { margin: 0 0 3mm 0; padding-left: 5mm; list-style: none; }
+  ul li { padding-left: 4.5mm; position: relative; margin-bottom: 1.8mm; }
+  ul li::before { content: ""; position: absolute; left: 0; top: 2mm; width: 2.2mm; height: 2.2mm; border-radius: 0.7mm; background: var(--purple2); }
+
+  .foot { margin-top: auto; border-top: 1px solid var(--line); padding-top: 3mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--grey); }
+
+  .callout { background: var(--lilac); border-left: 1.6mm solid var(--purple2); border-radius: 0 2mm 2mm 0; padding: 5mm 6mm; margin: 4mm 0; }
+  .callout .t { font-weight: 700; color: var(--purple); margin-bottom: 1.5mm; font-size: 10.5pt; }
+
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 4mm 0; font-size: 10pt; }
+  th { background: var(--purple); color: #fff; text-align: left; padding: 3mm 4mm; font-weight: 600; font-size: 9.5pt; }
+  td { padding: 2.8mm 4mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: #FAF9FC; }
+  td.r, th.r { text-align: right; white-space: nowrap; }
+  tr.total td { background: var(--lilac); font-weight: 700; color: var(--purple); border-bottom: none; }
+
+  .steps { display: flex; gap: 4mm; margin: 4mm 0 2mm 0; }
+  .step { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2mm 2mm; padding: 4.5mm 4mm; }
+  .step .when { font-size: 8.5pt; font-weight: 700; color: var(--purple2); text-transform: uppercase; letter-spacing: 0.8px; }
+  .step .what { margin-top: 1.5mm; font-weight: 700; font-size: 10pt; }
+  .step .res { margin-top: 1.2mm; font-size: 8.8pt; color: var(--grey); line-height: 1.45; }
+
+  .sig { display: flex; gap: 6mm; margin-top: 4mm; }
+  .sigbox { flex: 1; border: 1px solid var(--line); border-radius: 2mm; padding: 4mm 5mm 9mm 5mm; }
+  .sigbox .who { font-weight: 700; color: var(--purple); margin-bottom: 3mm; }
+  .sigline { margin-top: 5mm; font-size: 9.5pt; color: var(--grey); border-bottom: 1px dotted #B9B6C4; padding-bottom: 1.2mm; }
+  .legal { margin-top: 3.5mm; font-size: 8.3pt; color: var(--grey); line-height: 1.55; border-top: 1px solid var(--line); padding-top: 3mm; }
+
+  .tight .head { margin-bottom: 5mm; padding-bottom: 2.5mm; }
+  .tight td { padding: 2mm 4mm; }
+  .tight table { margin: 2mm 0 3mm 0; }
+  .nextnote { font-size: 9.8pt; color: var(--grey); background: #FAF9FC; border: 0.3mm solid var(--line); border-radius: 2mm; padding: 2.5mm 4mm; margin: 0 0 3mm 0; }
+  .nextnote b { color: var(--purple); }
+  tr.future-head td { background: #fff; font-weight: 700; font-size: 9.5pt; color: var(--purple); border-bottom: 0.3mm solid var(--line); }
+  tr.future td { background: #FAF9FC; color: var(--grey); font-size: 9.5pt; }
+  table.small { font-size: 9.2pt; }
+  table.small td { padding: 1.8mm 4mm; }
+  .tight h3 { margin: 3.5mm 0 2mm 0; }
+  .tight .callout { margin: 3mm 0; padding: 3.5mm 5mm; }
+  .tight p { margin-bottom: 2mm; }
+  .tight ul li { margin-bottom: 1.2mm; }
+  .tight .step { padding: 3.5mm 3.5mm; }
+  .tight .sigbox { padding-bottom: 7mm; }
+  .tight .sigline { margin-top: 4mm; }
+  .tight .sig { margin-top: 3mm; }
+  .tight .legal { margin-top: 2.5mm; padding-top: 2.5mm; }
+
+  .dense td { padding: 1.6mm 4mm; }
+  .dense table { margin: 2mm 0 2.5mm 0; }
+  .dense h3 { margin: 3mm 0 1.5mm 0; }
+  .dense p { margin-bottom: 1.8mm; }
+  .dense ul li { margin-bottom: 1mm; }
+  .dense .callout { margin: 2.5mm 0; padding: 2.5mm 4.5mm; }
+  .dense .sigbox { padding: 3mm 5mm 4mm 5mm; }
+  .dense .sigline { margin-top: 3mm; }
+  .dense .sig { margin-top: 2.5mm; }
+  .dense .legal { margin-top: 2.5mm; padding-top: 2mm; }
+  .xdense td { padding: 1.3mm 4mm; }
+  .xdense .head { margin-bottom: 4mm; padding-bottom: 2mm; }
+  .xdense h3 { margin: 2.5mm 0 1.2mm 0; }
+  .xdense .callout { margin: 2mm 0; padding: 2mm 4.5mm; }
+  .xdense .sigbox { padding: 2.5mm 5mm 3mm 5mm; }
+  .xdense .sigline { margin-top: 2.2mm; }
+  .xdense .sig { margin-top: 2mm; }
+  .xdense .legal { margin-top: 2mm; padding-top: 1.8mm; font-size: 7.8pt; }
+  .dense { font-size: 10pt; line-height: 1.5; }
+  .dense table { font-size: 9.4pt; }
+  .dense table.small { font-size: 8.9pt; }
+  .dense .head { margin-bottom: 5mm; }
+  .dense .foot { padding-top: 2.5mm; }
+
+  .annexe-head { display: flex; align-items: baseline; gap: 4mm; border-bottom: 2px solid var(--purple); padding-bottom: 3mm; margin-bottom: 6mm; }
+  .annexe-head .tag { font-size: 9pt; font-weight: 700; color: #fff; background: var(--purple); padding: 1.2mm 3mm; border-radius: 1.5mm; letter-spacing: 1px; }
+  .annexe-head h2 { font-size: 15pt; font-weight: 700; color: var(--dark); }
+  .price-tag { display: inline-block; background: var(--lilac); color: var(--purple); font-weight: 700; padding: 2mm 4mm; border-radius: 1.5mm; font-size: 10pt; }
+  .two { display: flex; gap: 6mm; }
+  .two > div { flex: 1; }
+  .q-num { font-weight: 700; color: var(--purple2); margin-right: 2mm; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="page cover">
+  <div class="bar"></div>
+  <div class="inner">
+    <img class="logo" src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
+    <div class="kicker">Proposition commerciale · Première estimation</div>
+    <h1>NightFlow,<br>votre SaaS hôtelier opérationnel<span class="dot">.</span></h1>
+    <div class="sub">Une première proposition pour vous projeter : un MVP opérationnel (missions, incidents, preuves, transmissions, mobile + web), puis des options sécurité et télésurveillance. Les points encore ouverts sont listés en annexe, sans figer ce qui doit encore être tranché ensemble.</div>
+    <div class="cards">
+      <div class="card">
+        <div class="big">45 000&nbsp;€ <span class="u">HT</span></div>
+        <div class="lbl">MVP Opérationnel (estimation)<br>75 jours · fourchette 40-50 k€, à cadrer</div>
+      </div>
+      <div class="card">
+        <div class="big">T2 2027</div>
+        <div class="lbl">Livraison indicative<br>après cadrage, UX et build</div>
+      </div>
+      <div class="card">
+        <div class="big">349&nbsp;€ <span class="u">HT/mois</span></div>
+        <div class="lbl">Infogérance &amp; maintenance<br>(hors hébergement) + AWS ~200-400&nbsp;€</div>
+      </div>
+    </div>
+    <div class="toc">
+      <div class="toc-title">Contenu du document</div>
+      <div class="toc-items">
+        <span>01 L'essentiel</span><span>02 Budget</span><span>03 Exploitation</span><span>04 Planning</span><span>05 Sécurité</span><span>06 Prochaines étapes</span><span>Annexes A · B · C · D · E</span>
+      </div>
+    </div>
+    <div class="foot">
+      <div>Préparée pour <b>NightFlow</b></div>
+      <div>Présentée par <b>Perfusion.dev</b> · Maxime Guyot</div>
+      <div><b>7 octobre 2026</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ P1 ESSENTIEL ============ -->
+<div class="page tight">
+  <div class="content">
+    <div class="head">
+      <div class="num">01 · L'ESSENTIEL</div>
+      <h2>L'essentiel en une page</h2>
+      <img class="mini-logo" src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
+    </div>
+
+    <h3>Le besoin</h3>
+    <p>Suite à votre cahier des charges V1.2 et à notre échange téléphonique, NightFlow vise une plateforme SaaS B2B pour les établissements hôteliers : gérer, documenter et transmettre les opérations jour/nuit, avec une traçabilité structurée. Notre proposition démarre par un <b>MVP Opérationnel</b>, pour livrer vite un produit utilisable sur un hôtel pilote, avant les modules sécurité (PTI) et télésurveillance.</p>
+
+    <h3>Ce que NightFlow obtient avec le MVP</h3>
+    <ul>
+      <li>Une <b>application mobile React Native</b> (iOS + Android) pour le terrain : missions, checklists, incidents, preuves photo, transmissions d'équipe.</li>
+      <li>Une <b>interface web responsive</b> pour managers et administrateurs : tableaux de bord, validation, administration des établissements.</li>
+      <li>Une <b>architecture SaaS multi-tenant</b> dès le jour 1, recettée sur <b>un établissement pilote</b>.</li>
+      <li>Un <b>mode hors connexion limité</b> : consulter et créer l'essentiel du shift, capturer des preuves, synchroniser au retour réseau.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="t">Nos garanties pour cette première proposition</div>
+      <ul style="margin-bottom:0">
+        <li>Le <b>code source et le dépôt Git vous sont remis</b>, vos données restent chez NightFlow ; droits d'exploitation et réversibilité définis au contrat.</li>
+        <li>Le chiffrage MVP est une <b>estimation</b> (75 jours, affinée à l'atelier de cadrage) ; les options Sécurité et Version complète sont chiffrées à part, sans engagement.</li>
+        <li>Les sujets juridiques, PTI avancé et télésurveilleur nommé restent en <b>annexe C</b> jusqu'à validation.</li>
+      </ul>
+    </div>
+
+    <h3>Quatre jalons pour construire le MVP</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="when">Jalon 1</div>
+        <div class="what">Cadrage + UX</div>
+        <div class="res">Prototype collaboratif validé avant le build.</div>
+      </div>
+      <div class="step">
+        <div class="when">Jalon 2</div>
+        <div class="what">Socle SaaS</div>
+        <div class="res">Multi-tenant, auth, API, admin établissement.</div>
+      </div>
+      <div class="step">
+        <div class="when">Jalon 3</div>
+        <div class="what">Cœur métier</div>
+        <div class="res">Mobile + web, offline de base, dashboard.</div>
+      </div>
+      <div class="step">
+        <div class="when">Jalon 4</div>
+        <div class="what">Recette &amp; stores</div>
+        <div class="res">Déploiement, documentation, publication.</div>
+      </div>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour NightFlow</span><span>1</span></div>
+  </div>
+</div>
+
+<!-- ============ P2 BUDGET ============ -->
+<div class="page budget-page">
+  <div class="content tight dense xdense">
+    <div class="head">
+      <div class="num">02 · BUDGET</div>
+      <h2>Une estimation MVP, des options claires</h2>
+    </div>
+
+    <p>Estimation, TJM <b>600&nbsp;€ HT</b>, ancrée à <b>75 jours / 45&nbsp;000&nbsp;€ HT</b> (fourchette 40-50&nbsp;k€ HT), assistée par IA. Affinée à l'atelier de cadrage ; options non incluses.</p>
+
+    <h3>Étape préalable (estimation, déductible si signature sous 30 jours)</h3>
+    <table class="small">
+      <tr><th>Prestation</th><th class="r">Charge</th><th class="r">Montant HT</th></tr>
+      <tr><td><b>Atelier de cadrage</b> : priorités, hypothèses, parcours, risques ouverts</td><td class="r">3 jours</td><td class="r">1 800 €</td></tr>
+    </table>
+
+    <h3>MVP Opérationnel (estimation à cadrer, assistée par IA)</h3>
+    <table>
+      <tr><th>Jalon</th><th class="r">Jours</th><th class="r">Montant HT</th></tr>
+      <tr><td><b>1 · Cadrage + UX / prototype</b></td><td class="r">10</td><td class="r">6 000 €</td></tr>
+      <tr><td><b>2 · Socle</b> multi-tenant, API, auth/rôles, admin établissement</td><td class="r">20</td><td class="r">12 000 €</td></tr>
+      <tr><td><b>3 · Cœur métier</b> mobile + web, offline de base, dashboard</td><td class="r">35</td><td class="r">21 000 €</td></tr>
+      <tr><td><b>4 · Recette, déploiement, stores, documentation</b></td><td class="r">10</td><td class="r">6 000 €</td></tr>
+      <tr class="total"><td>Total MVP Opérationnel</td><td class="r">75 jours</td><td class="r">45 000 € HT<br>54 000 € TTC</td></tr>
+    </table>
+    <p class="nextnote">Ce niveau de charge s'appuie sur un développement assisté par IA avec revue humaine systématique et une équipe senior dédiée. L'estimation sera confirmée à l'issue de l'atelier de cadrage.</p>
+
+    <h3>Échéancier de règlement (MVP)</h3>
+    <table class="small">
+      <tr><th>Jalon validé par NightFlow</th><th class="r">Part</th><th class="r">Montant HT</th></tr>
+      <tr><td>Lancement du projet (après signature)</td><td class="r">30 %</td><td class="r">13 500 €</td></tr>
+      <tr><td>Mise à disposition du MVP (accès hôtel pilote)</td><td class="r">40 %</td><td class="r">18 000 €</td></tr>
+      <tr><td>Validation de recette, avant prod définitive / stores</td><td class="r">30 %</td><td class="r">13 500 €</td></tr>
+      <tr class="future"><td colspan="3">Montants HT indicatifs, TVA 20&nbsp;% en sus. Avance partielle pour amorcer le projet ; soldes sur jalons recettés (CDC).</td></tr>
+    </table>
+
+    <h3>Options (estimations à cadrer, en sus du MVP)</h3>
+    <table class="small">
+      <tr><th>Option</th><th class="r">Jours</th><th class="r">Montant HT</th></tr>
+      <tr><td><b>A · MVP + Sécurité</b> : SOS, check-in, escalade push/SMS/appels, journal sécurité</td><td class="r">30</td><td class="r">+ 18 000 €</td></tr>
+      <tr><td><b>B · Version complète</b> : API télésurveillance, rapports avancés, Stripe</td><td class="r">35</td><td class="r">+ 21 000 €</td></tr>
+      <tr class="future"><td>PTI avancé (immobilité / chute) et intégration d'un télésurveilleur nommé</td><td class="r">à cadrer</td><td class="r">à cadrer</td></tr>
+    </table>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour NightFlow</span><span>2</span></div>
+  </div>
+</div>
+
+<!-- ============ P3 EXPLOITATION ============ -->
+<div class="page">
+  <div class="content tight dense">
+    <div class="head">
+      <div class="num">03 · EXPLOITATION</div>
+      <h2>Infogérance et coûts récurrents</h2>
+    </div>
+
+    <p>Après mise en production du MVP, trois lignes de coûts récurrents : <b>infogérance</b> (notre forfait), <b>hébergement AWS</b> (facture cloud au réel), et <b>services tiers</b> (SMS, voix, stores, etc.).</p>
+
+    <h3>1 · Infogérance et maintenance : 349 € HT / mois (hébergement non inclus)</h3>
+    <p>Le forfait couvre l'<b>exploitation technique et la maintenance</b> de la plateforme. Il <b>n'inclut pas</b> les frais d'infrastructure AWS, facturés séparément au compte NightFlow.</p>
+    <table class="small">
+      <colgroup><col style="width:34%"><col style="width:66%"></colgroup>
+      <tr><th>Inclus dans l'infogérance</th><th>Ce que cela signifie</th></tr>
+      <tr><td>Supervision et alerting</td><td>Monitoring, alarmes, suivi de disponibilité de la stack Paris.</td></tr>
+      <tr><td>Maintenance applicative</td><td>Correctifs, mises à jour de dépendances, vigilance sécurité.</td></tr>
+      <tr><td>Exploitation des sauvegardes</td><td>Vérification des sauvegardes RDS/S3 et procédure de restauration.</td></tr>
+      <tr><td>Support technique</td><td>Interlocuteur unique pour incidents et questions d'exploitation.</td></tr>
+    </table>
+
+    <h3>2 · Hébergement AWS : ~200 à 400 € HT / mois (indicatif)</h3>
+    <p>Les frais cloud sont <b>à la charge de NightFlow</b>, selon les services retenus et la consommation réelle, en région <b>Paris (eu-west-3)</b>. Ordre de grandeur pour un service <b>haute disponibilité</b> avec <b>base de données redondée dédiée</b> (RDS Multi-AZ) : <b>environ 200 à 400&nbsp;€ HT par mois</b>, selon le dimensionnement (CPU, mémoire, stockage photos, trafic) et l'usage.</p>
+    <table class="small">
+      <tr><th>Poste typique</th><th>Facturation</th></tr>
+      <tr><td>ECS Fargate + ALB, RDS Multi-AZ dédiée, S3, SES, logs</td><td>Facture AWS mensuelle au réel</td></tr>
+    </table>
+
+    <h3>3 · Autres services tiers</h3>
+    <table class="small">
+      <tr><th>Poste</th><th>Traitement</th></tr>
+      <tr><td>Push (Apple / Google)</td><td>Comptes développeur NightFlow ; coûts éventuels selon usage.</td></tr>
+      <tr><td>SMS / appels (option Sécurité)</td><td>Facturés au réel via le fournisseur retenu.</td></tr>
+      <tr><td>Télésurveillance</td><td>Abonnement / API du prestataire choisi : hors périmètre jusqu'à choix confirmé.</td></tr>
+      <tr><td>Stores</td><td>Frais Apple Developer / Google Play à la charge de NightFlow.</td></tr>
+    </table>
+
+    <div class="callout">
+      <div class="t">Accompagnement crédits AWS</div>
+      <p style="margin-bottom:0">Nous accompagnons la demande de <b>crédits AWS Activate</b> pour alléger la facture d'hébergement (région Paris). Détail : <b>annexe E</b>. Ces crédits ne couvrent pas le forfait d'infogérance.</p>
+    </div>
+
+    <p class="nextnote">Les évolutions hors MVP font l'objet de <b>lots séparés</b>, chiffrés et validés avant démarrage.</p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour NightFlow</span><span>3</span></div>
+  </div>
+</div>
+
+<!-- ============ P4 PLANNING ============ -->
+<div class="page">
+  <div class="content">
+    <div class="head">
+      <div class="num">04 · PLANNING</div>
+      <h2>Un calendrier indicatif, affiné après cadrage</h2>
+    </div>
+
+    <p>Les dates ci-dessous sont une <b>première projection</b> pour ~75 jours de réalisation, avec une équipe senior et un développement assisté par IA. Le planning détaillé sera figé à l'issue de l'atelier de cadrage.</p>
+
+    <table>
+      <tr><th>Période indicative</th><th>Étape</th><th>Résultat attendu</th></tr>
+      <tr><td><b>Dès signature + 1 semaine</b></td><td>Atelier de cadrage (3 j)</td><td>Priorités, parcours, risques ouverts, hypothèses confirmées</td></tr>
+      <tr><td><b>+ 2 à 3 semaines</b></td><td>UX / prototype</td><td>Maquette collaborative validée (jalon 1)</td></tr>
+      <tr><td><b>+ 3 à 4 mois</b></td><td>Build jalons 2 et 3</td><td>Socle multi-tenant + cœur métier mobile/web</td></tr>
+      <tr><td><b>+ 2 à 3 semaines</b></td><td>Recette, déploiement, stores</td><td>MVP sur hôtel pilote, documentation, soumission stores</td></tr>
+      <tr><td><b>Cible</b></td><td>Livraison indicative</td><td><b>T2 2027</b> si lancement sous 2 à 3 semaines</td></tr>
+    </table>
+
+    <h3>Comment nous travaillerons ensemble</h3>
+    <ul>
+      <li><b>Stack</b> : API Bun/Hono + web React, mobile React Native terrain, AWS Paris (eu-west-3). Détail en annexe D.</li>
+      <li><b>IA dans la boucle</b> : accélération du code, des tests et de la doc technique, avec revue humaine systématique.</li>
+      <li><b>Visibilité</b> : jalons livrables, démos régulières, recette par critères d'acceptation.</li>
+      <li><b>Hôtel pilote</b> : un établissement réel pour valider les parcours terrain avant élargissement.</li>
+      <li><b>Décisions</b> : Maxime Guyot, interlocuteur unique de la signature à la mise en production.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="t">Ce dont nous aurons besoin de votre côté</div>
+      <p style="margin-bottom:0">Un interlocuteur décisionnaire, l'identification de l'hôtel pilote, des comptes Apple/Google Play au nom de NightFlow, et les réponses aux questions ouvertes de l'annexe C (dans la mesure du possible) pour figer le planning et le périmètre.</p>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour NightFlow</span><span>4</span></div>
+  </div>
+</div>
+
+<!-- ============ P5 SECURITE ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="head">
+      <div class="num">05 · SÉCURITÉ</div>
+      <h2>Traçabilité et maîtrise des données</h2>
+    </div>
+
+    <p>NightFlow traite des données opérationnelles d'établissements et, à terme, des alertes liées au travail isolé. La sécurité et le RGPD sont intégrés dès la conception du MVP, sans promettre ce qui doit encore être validé juridiquement.</p>
+
+    <div class="callout">
+      <div class="t">Pourquoi AWS Europe ?</div>
+      Socle cloud audité (ISO 27001, SOC 2). Pour NightFlow, <b>toute la plateforme de production est ancrée en région AWS Paris (eu-west-3)</b> : calcul, base de données, stockage des preuves, e-mails transactionnels et sauvegardes. Aucune donnée métier hors de cette région.
+    </div>
+
+    <div class="two">
+      <div>
+        <h3>Principes retenus dès le MVP</h3>
+        <ul>
+          <li>HTTPS/TLS, mots de passe hashés, RBAC (ADMIN, MANAGER, STAFF).</li>
+          <li>Isolation stricte multi-tenant par établissement.</li>
+          <li>Journal d'audit des actions importantes (création, attribution, preuve, clôture, export).</li>
+          <li>Stockage sécurisé des preuves photo, accès contrôlés.</li>
+          <li>Préparation technique du MFA (activation ultérieure).</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Cadre contractuel</h3>
+        <ul>
+          <li><b>Code source, designs et comptes remis</b> à NightFlow ; droits d'exploitation définis au contrat, selon votre CDC.</li>
+          <li><b>RGPD</b> : NightFlow responsable de traitement, Perfusion.dev sous-traitant sur le périmètre technique.</li>
+          <li>Conseil juridique / AIPD : <b>non inclus</b> sauf lot explicite.</li>
+          <li>PTI : outil logiciel et chaîne d'alerte ; <b>pas une garantie</b> de conformité employeur ni un centre de secours.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Formulation prudente (alignée sur votre CDC)</h3>
+    <p>Le journal d'audit est conçu pour être sécurisé et protégé contre les modifications non autorisées. Le terme «&nbsp;infalsifiable&nbsp;» ne sera utilisé qu'après validation technique et juridique d'un mécanisme d'intégrité adapté. L'intégration télésurveillance sera présentée comme option, sans promesse de certification avant choix du prestataire.</p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour NightFlow</span><span>5</span></div>
+  </div>
+</div>
+
+<!-- ============ P6 PROCHAINES ETAPES ============ -->
+<div class="page">
+  <div class="content tight dense xdense">
+    <div class="head">
+      <div class="num">06 · PROCHAINES ÉTAPES</div>
+      <h2>Cinq décisions pour avancer</h2>
+    </div>
+
+    <table>
+      <tr><th style="width:8mm" class="r">1</th><td><b>Valider le cadrage de cette première estimation</b> : MVP à ~45&nbsp;000&nbsp;€ HT, options A/B séparées.</td></tr>
+      <tr><th class="r">2</th><td><b>Planifier l'atelier de 3 jours</b> (1&nbsp;800&nbsp;€ HT, déductible si suite sous 30 jours).</td></tr>
+      <tr><th class="r">3</th><td><b>Identifier l'hôtel pilote</b> et l'interlocuteur contractuel (raison sociale / SIRET).</td></tr>
+      <tr><th class="r">4</th><td><b>Lancer le dossier crédits AWS Activate</b> (Founders ou Portfolio) avec notre accompagnement.</td></tr>
+      <tr><th class="r">5</th><td><b>Signer et lancer le MVP</b> : 30&nbsp;% / 40&nbsp;% / 30&nbsp;%, livraison indicative T2&nbsp;2027.</td></tr>
+    </table>
+
+    <h3>Récapitulatif contractuel proposé</h3>
+    <table class="small">
+      <tr><th>Sujet</th><th>Base proposée</th></tr>
+      <tr><td>Cadrage</td><td>Estimation : 1 800 € HT · 3 jours · déductible si suite sous 30 jours</td></tr>
+      <tr><td>MVP Opérationnel</td><td>Estimation à cadrer : 75 jours · 45 000 € HT / 54 000 € TTC (TVA 20 %, fourchette 40-50 k€, assistée par IA)</td></tr>
+      <tr><td>Règlement MVP</td><td>30 % lancement · 40 % mise à disposition · 30 % validation recette</td></tr>
+      <tr><td>Option A Sécurité</td><td>Estimation : 30 jours · + 18 000 € HT (+ 21 600 € TTC)</td></tr>
+      <tr><td>Option B Version complète</td><td>Estimation : 35 jours · + 21 000 € HT (+ 25 200 € TTC)</td></tr>
+      <tr><td>Infogérance et hébergement AWS</td><td>349 € HT / mois + AWS ~200 à 400 € HT / mois (au réel, hors infogérance)</td></tr>
+      <tr><td>Livrables et réversibilité</td><td>Code source, dépôt Git, comptes remis à NightFlow ; droits d'exploitation définis au contrat</td></tr>
+    </table>
+
+    <div class="callout">
+      <div class="t">Décision attendue</div>
+      <p style="margin-bottom:0"><b>Valider le principe de cette proposition et fixer l'atelier de cadrage</b> ; les montants seront ajustés à l'issue de l'atelier, avant engagement du MVP.</p>
+    </div>
+
+    <div class="sig">
+      <div class="sigbox">
+        <div class="who">Pour NightFlow</div>
+        <div class="sigline">Nom, fonction :</div>
+        <div class="sigline">Date :</div>
+        <div class="sigline">Signature :</div>
+      </div>
+      <div class="sigbox">
+        <div class="who">Pour Perfusion.dev</div>
+        <div class="sigline">Maxime Guyot</div>
+        <div class="sigline">Date :</div>
+        <div class="sigline">Signature :</div>
+      </div>
+    </div>
+
+    <div class="legal">
+      <b>SARL perfusion.dev</b>, 11 rue des Trois Tilleuls, 14310 Villers Bocage · Tél : +33 6 63 33 82 95 · office@perfusion.dev · Capital 1 000 €<br>
+      SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour NightFlow</span><span>6</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE A ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE A</span>
+      <h2>Périmètre du MVP Opérationnel</h2>
+    </div>
+
+    <p>Correspond au «&nbsp;MVP Opérationnel&nbsp;» de votre CDC (établissements, utilisateurs, missions, tâches, incidents, checklists, preuves, transmissions, traçabilité, dashboard, mobile + web, offline de base).</p>
+
+    <h3>Inclus</h3>
+    <ul>
+      <li>Établissements, services, équipes, zones ; rôles ADMIN / MANAGER / STAFF.</li>
+      <li>Missions et tâches (création, attribution, statuts, récurrence simple).</li>
+      <li>Checklists et contrôles avec validation horodatée et photo/commentaire.</li>
+      <li>Incidents et maintenance (workflow d'incident jusqu'à clôture complète).</li>
+      <li>Preuves photo (mobile), association aux opérations, journal d'audit.</li>
+      <li>Transmissions jour/nuit avec accusé de prise de connaissance.</li>
+      <li>Dashboard : missions du jour/retard, incidents ouverts, transmissions ; exports CSV selon faisabilité (l'export PDF des rapports est en Option B).</li>
+      <li>Offline de base : consultation et création du shift, file d'attente photos, sync au retour réseau.</li>
+      <li>Apps iOS/Android (React Native) + web managers/admin ; déploiement AWS ; doc technique et utilisateur de base.</li>
+    </ul>
+
+    <h3>Exclus du MVP (voir options / annexe C)</h3>
+    <ul>
+      <li>Module PTI (SOS, check-in, immobilité, chute) et moteur d'escalade SMS/appels.</li>
+      <li>Intégration télésurveillance, paiement Stripe, admin SaaS avancée (plans/abonnements).</li>
+      <li>SSO, PMS, multilingue, analytics avancés, SLA 24/7.</li>
+      <li>Export PDF des rapports et rapports avancés (Option B).</li>
+      <li>Offline PTI / garanties réseau dégradé pour fonctions critiques de sécurité.</li>
+    </ul>
+
+    <p style="margin-top:4mm"><span class="price-tag">Estimation MVP à cadrer : 45 000 € HT · 75 jours (assistée par IA)</span></p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour NightFlow</span><span>Annexe A</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE B ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE B</span>
+      <h2>Options A et B · après le MVP</h2>
+    </div>
+
+    <h3>Option A · MVP + Sécurité (estimation : + 18 000 € HT · 30 jours)</h3>
+    <ul>
+      <li>SOS manuel et check-in programmé («&nbsp;Tout va bien&nbsp;?&nbsp;»).</li>
+      <li>Moteur d'escalade : push, SMS, appel automatisé, contacts d'astreinte, accusés, 2e niveau.</li>
+      <li>Journal de sécurité et clôture d'alerte par rôle autorisé.</li>
+      <li>Hors option : immobilité/chute (PTI avancé), comportement offline PTI, télésurveilleur nommé.</li>
+    </ul>
+    <p class="nextnote">Coûts SMS/voix facturés au réel. Délai «&nbsp;&lt;&nbsp;10&nbsp;s&nbsp;» mesuré côté backend NightFlow selon protocole à définir en recette ; délais Apple/Google/opérateur exclus des garanties NightFlow.</p>
+
+    <h3>Option B · Vers la version complète (estimation : + 21 000 € HT · 35 jours)</h3>
+    <ul>
+      <li>API générique télésurveillance + documentation + reprise sur erreur.</li>
+      <li>Rapports avancés (dont rapport incident/sinistre structuré) et exports enrichis.</li>
+      <li>Administration SaaS : plans, abonnements, Stripe (paiement en ligne).</li>
+      <li>Durcissement sécurité et tests de charge des fonctions critiques retenues.</li>
+      <li>Hors option : intégration concrète d'un prestataire dont l'API n'est pas encore connue.</li>
+    </ul>
+
+    <h3>Correspondance indicative avec vos 17 lots</h3>
+    <table class="small">
+      <tr><th>Lots CDC</th><th>Traitement dans cette proposition</th></tr>
+      <tr><td>1 à 7, 11, 12 (partiel), 14-16 (socle)</td><td>Inclus dans l'estimation MVP</td></tr>
+      <tr><td>8 (SOS, check-in), 9 (moteur d'escalade)</td><td>Option A</td></tr>
+      <tr><td>10, 12 (avancé), 13 (paiement), durcissement</td><td>Option B</td></tr>
+      <tr><td>17 (maintenance et support initial)</td><td>Infogérance 349 € HT / mois (page 3) ; SLA 99,9 % et astreinte 24/7 à cadrer (annexe C, q. 7)</td></tr>
+      <tr><td>8 (immobilité / chute)</td><td>À cadrer (annexe C)</td></tr>
+    </table>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour NightFlow</span><span>Annexe B</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE C ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE C</span>
+      <h2>Questions en suspens</h2>
+    </div>
+
+    <p>Cette première proposition permet de se projeter. Les points ci-dessous restent à trancher pour figer le devis définitif, le planning et les responsabilités. Ils n'empêchent pas de démarrer par l'atelier de cadrage.</p>
+
+    <table class="small">
+      <tr><th style="width:8mm" class="r">#</th><th>Question</th><th>Impact</th></tr>
+      <tr><td class="r">1</td><td>Raison sociale, SIRET et interlocuteur contractuel NightFlow</td><td>Contrat, facturation</td></tr>
+      <tr><td class="r">2</td><td>Hôtel pilote (ville, taille, nombre d'utilisateurs)</td><td>Recette, volumétrie</td></tr>
+      <tr><td class="r">3</td><td>Choix / statut du télésurveilleur et disponibilité de son API</td><td>Option B, coûts récurrents</td></tr>
+      <tr><td class="r">4</td><td>Positionnement juridique PTI/DATI et responsabilités employeur</td><td>Option A, formulation commerciale</td></tr>
+      <tr><td class="r">5</td><td>Nécessité d'une AIPD / conseil RGPD externe</td><td>Budget annexe, planning</td></tr>
+      <tr><td class="r">6</td><td>Comportement PTI en défaillance (app tuée, hors réseau, GPS refusé...)</td><td>Option A / PTI avancé</td></tr>
+      <tr><td class="r">7</td><td>SLA 99,9&nbsp;% et astreinte 24/7 : oui/non, périmètre, budget</td><td>Infogérance, option</td></tr>
+      <tr><td class="r">8</td><td>Comptes Apple Developer / Google Play (propriété NightFlow)</td><td>Publication stores</td></tr>
+      <tr><td class="r">9</td><td>Volumétrie réelle vs hypothèses CDC (60 hôtels / 36 mois, photos/jour...)</td><td>Architecture, stockage</td></tr>
+      <tr><td class="r">10</td><td>Multilingue, PMS, SSO : confirmés hors MVP ?</td><td>Exclusions / roadmap</td></tr>
+      <tr><td class="r">11</td><td>Accélérateur / investisseur Activate Provider (Org ID) pour viser jusqu'à 200k&nbsp;$ de crédits ?</td><td>Annexe E, hébergement</td></tr>
+    </table>
+
+    <div class="callout">
+      <div class="t">Prochaine étape recommandée</div>
+      <p style="margin-bottom:0">Planifier l'atelier de cadrage (3 jours, 1&nbsp;800&nbsp;€ HT). Nous y trancherons autant de points que possible, puis nous émettrons le devis MVP définitif (ou confirmerons les 45&nbsp;000&nbsp;€ HT) avant engagement des jalons de réalisation.</p>
+    </div>
+
+    <p style="font-size:9pt;color:var(--grey);margin-top:3mm">Document établi sur la base du cahier des charges NightFlow V1.2 (version sécurisée pour consultation, octobre 2026) et de l'offre Custom Platform Perfusion.dev. Montants HT, TVA 20&nbsp;% en sus. Première estimation non exclusive d'ajustements après cadrage.</p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour NightFlow</span><span>Annexe C</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE D ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE D</span>
+      <h2>Recommandations techniques (1/2)</h2>
+    </div>
+
+    <p>Pour livrer NightFlow vite et durablement, nous recommandons un <b>socle SaaS multi-organisations éprouvé</b>, déployé sur une architecture AWS <b>exclusivement en région Paris (eu-west-3)</b>.</p>
+
+    <div class="callout">
+      <div class="t">Décision structurante : Europe = Paris</div>
+      <p style="margin-bottom:0">Région AWS <b>eu-west-3 (Paris)</b> pour l'API, PostgreSQL, le stockage des preuves, SES, les secrets et les sauvegardes. Les environnements staging et production restent dans cette région. Aucune réplication hors UE n'est prévue pour les données métier.</p>
+    </div>
+
+    <h3>1 · Socle applicatif</h3>
+    <table class="small">
+      <tr><th>Décision</th><th>Choix retenu</th><th>Pourquoi</th></tr>
+      <tr><td>API</td><td>Bun + Hono, validation Zod</td><td>Rapide, typé, testable, conteneurisable</td></tr>
+      <tr><td>Données</td><td>PostgreSQL 16 + Drizzle ORM (+ PostGIS si zones/geo)</td><td>Migrations maîtrisées, isolation multi-tenant par établissement</td></tr>
+      <tr><td>Auth / droits</td><td>Better Auth + RBAC (ADMIN, MANAGER, STAFF)</td><td>Sessions sécurisées, rôles par établissement, MFA préparable</td></tr>
+      <tr><td>Web managers</td><td>React + Vite + TanStack Query</td><td>Dashboards et administration efficaces</td></tr>
+      <tr><td>Mobile terrain</td><td>React Native (iOS + Android)</td><td>Une base métier, photos, push, offline de base</td></tr>
+      <tr><td>Qualité</td><td>Tests unitaires + intégration, CI GitHub Actions</td><td>Contrôle systématique avant chaque déploiement</td></tr>
+    </table>
+
+    <p class="nextnote">Le détail d'implémentation (dimensionnement RDS, quotas S3, alarmes) est affiné à l'atelier de cadrage et pendant le jalon 2 (socle).</p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour NightFlow</span><span>Annexe D</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE D (2/2) ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE D</span>
+      <h2>Recommandations techniques (2/2)</h2>
+    </div>
+
+    <h3>2 · Architecture AWS Paris (robuste et évolutive)</h3>
+    <table class="small">
+      <tr><th>Brique</th><th>Service AWS (eu-west-3)</th><th>Rôle</th></tr>
+      <tr><td>Réseau</td><td>VPC privée, sous-réseaux publics/privés</td><td>Isolation, pas d'accès direct à la base depuis Internet</td></tr>
+      <tr><td>API</td><td>ECS Fargate + Application Load Balancer</td><td>Conteneurs scalables, déploiements sans interruption</td></tr>
+      <tr><td>Base</td><td>RDS PostgreSQL Multi-AZ</td><td>Haute disponibilité, sauvegardes automatiques dans Paris</td></tr>
+      <tr><td>Preuves / fichiers</td><td>S3 (chiffrement, lifecycle)</td><td>Photos et documents, accès via URL signées</td></tr>
+      <tr><td>E-mails</td><td>Amazon SES (eu-west-3)</td><td>Magic links, notifications transactionnelles</td></tr>
+      <tr><td>Secrets</td><td>Secrets Manager / SSM</td><td>Clés hors dépôt, rotation possible</td></tr>
+      <tr><td>Observabilité</td><td>CloudWatch (logs, métriques, alarmes)</td><td>Supervision et alerting d'exploitation</td></tr>
+      <tr><td>Environnements</td><td>staging + production (Paris)</td><td>Recette isolée avant bascule hôtel pilote</td></tr>
+    </table>
+
+    <h3>3 · Principes d'évolution (sans tout reconstruire)</h3>
+    <ul>
+      <li><b>Multi-tenant dès le jour 1</b> : isolation logique par établissement, prêt pour 60 hôtels.</li>
+      <li><b>API documentée</b> : le moteur d'escalade, la télésurveillance et Stripe s'ajoutent en options sans casser le MVP.</li>
+      <li><b>Files d'attente</b> (SQS / jobs) pour sync offline, envois SMS/voix et webhooks tiers, sans bloquer l'API terrain.</li>
+      <li><b>Comptes cloud au nom de NightFlow</b> (ou transfert contractuel) : réversibilité alignée sur votre CDC.</li>
+    </ul>
+
+    <p class="nextnote">Cette annexe fixe le <b>cadre technique recommandé</b>. L'accompagnement aux <b>crédits d'hébergement AWS</b> est détaillé en <b>annexe E</b>.</p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour NightFlow</span><span>Annexe D</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE E ============ -->
+<div class="page">
+  <div class="content tight dense">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE E</span>
+      <h2>Crédits AWS · accompagnement hébergement</h2>
+    </div>
+
+    <p>Pour réduire le coût cloud du MVP et des premiers mois d'exploitation en <b>région Paris (eu-west-3)</b>, nous prévoyons un <b>accompagnement à la demande de crédits promotionnels AWS</b>. Les crédits s'imputent sur la facture AWS (ECS, RDS, S3, SES, etc.) ; ils ne remplacent pas l'infogérance Perfusion.dev.</p>
+
+    <div class="callout">
+      <div class="t">Ce que nous faisons avec vous</div>
+      <ul style="margin-bottom:0">
+        <li>Choisir le bon niveau (Founders vs Portfolio) selon financement et accélérateur.</li>
+        <li>Préparer le dossier : Builder ID, compte AWS Paid Tier, site, description produit, estimation de conso Paris.</li>
+        <li>Récupérer l'<b>Org ID</b> auprès d'un Activate Provider si vous en avez un (VC, incubateur, accélérateur).</li>
+        <li>Suivre le dépôt jusqu'à réponse AWS (délai indicatif 5 à 10 jours ouvrés).</li>
+      </ul>
+    </div>
+
+    <h3>Offres actuelles (relevé octobre 2026)</h3>
+    <table class="small">
+      <tr><th>Programme</th><th class="r">Crédits indicatifs</th><th>Pour NightFlow</th></tr>
+      <tr>
+        <td><b>AWS Activate Founders</b><br>Bootstrap / auto-financé</td>
+        <td class="r">1 000&nbsp;$ au départ<br>jusqu'à 5 000&nbsp;$</td>
+        <td>Voie par défaut si pas d'investisseur Activate</td>
+      </tr>
+      <tr>
+        <td><b>AWS Activate Portfolio</b><br>Via Activate Provider (Org ID)</td>
+        <td class="r">jusqu'à 200 000&nbsp;$<br>(souvent 25k / 100k selon stade)</td>
+        <td>À privilégier si accélérateur / VC partenaire AWS</td>
+      </tr>
+      <tr>
+        <td><b>AWS Credits for AI Startups</b><br>Sur invitation, post-Portfolio</td>
+        <td class="r">200 000&nbsp;$ et +</td>
+        <td>Hors cible MVP hôtelier (sauf pivot IA)</td>
+      </tr>
+      <tr>
+        <td><b>AWS Free Tier</b> (nouveau compte)</td>
+        <td class="r">100&nbsp;$ (+ jusqu'à 100&nbsp;$ d'activités)</td>
+        <td>Complément d'entrée, insuffisant seul en prod</td>
+      </tr>
+    </table>
+
+    <h3>Liens officiels</h3>
+    <table class="small">
+      <tr><th>Ressource</th><th>URL</th></tr>
+      <tr><td>Hub crédits Activate</td><td>https://aws.amazon.com/startups/credits/</td></tr>
+      <tr><td>Guide de candidature pas à pas</td><td>https://aws.amazon.com/aws-startups/learn/applying-for-aws-activate-credits-a-step-by-step-guide/</td></tr>
+      <tr><td>Activate Providers (Org ID)</td><td>https://startups.aws.com/providers</td></tr>
+      <tr><td>Conditions crédits promotionnels</td><td>https://aws.amazon.com/awscredits/</td></tr>
+    </table>
+
+    <p class="nextnote"><b>À retenir</b> : éligibilité et montant final décidés par AWS ; crédits en USD ; validité typique 1 à 2 ans selon le package ; cumul limité (on ne redemande pas un package inférieur ou égal à un précédent). Pour NightFlow, l'objectif réaliste sans provider est Founders (1k à 5k&nbsp;$) ; avec Org ID, viser un package Portfolio adapté au stade.</p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour NightFlow</span><span>Annexe E</span></div>
+  </div>
+</div>
+
+</body>
+</html>
+

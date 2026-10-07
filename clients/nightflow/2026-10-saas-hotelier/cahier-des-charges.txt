@@ -1,0 +1,432 @@
+NIGHTFLOW
+CAHIER DES CHARGES FONCTIONNEL ET TECHNIQUE
+Plateforme SaaS B2B de gestion opérationnelle, sécurité et traçabilité hôtelière
+Document de consultation pour agences et développeurs — Version 1.2 — version sécurisée pour consultation — Octobre 2026
+
+1. Objet du projet
+NightFlow est une plateforme SaaS B2B destinée aux établissements hôteliers. Elle permet aux équipes de jour comme de nuit de gérer, suivre, documenter et transmettre les opérations quotidiennes, avec une traçabilité structurée des actions.
+Le projet associe trois dimensions : gestion opérationnelle, sécurité des travailleurs et traçabilité/audit.
+Chaîne opérationnelle : Mission → attribution → intervention → preuve → contrôle → résolution → transmission → validation → historique.
+Chaîne sécurité : Détection → alerte → réception → accusé de réception → escalade → prise en charge → clôture → historique.
+2. Objectifs
+Centraliser missions, tâches, incidents, maintenance, contrôles, transmissions et preuves.
+Permettre une utilisation H24 par les équipes de jour et de nuit.
+Réduire les pertes d'information lors des changements d'équipe.
+Documenter les opérations par des données horodatées et des preuves associées.
+Intégrer des mécanismes adaptés aux situations de travail isolé.
+Permettre une escalade structurée et, à terme, une intégration avec un opérateur de télésurveillance tiers.
+Fournir tableaux de bord et rapports.
+Disposer d'une architecture SaaS multi-établissements sécurisée et évolutive.
+3. Gestion des établissements et utilisateurs
+Création/configuration d'un hôtel, services, équipes et zones.
+Chambres, espaces communs, locaux techniques, parkings et zones à risque.
+Contacts d'astreinte et procédures de sécurité.
+Rôles minimum : ADMIN, MANAGER, STAFF.
+Gestion des droits, sessions, activation/désactivation des comptes.
+Architecture permettant l'ajout futur du MFA.
+4. Missions, tâches et opérations
+Création : titre, description, catégorie, priorité, zone, responsable, date/heure, échéance et instructions.
+Attribution à une personne, une équipe ou un service.
+Statuts : À faire, Assignée, En cours, Terminée, À valider, Validée, Annulée.
+Notifications et historique des changements.
+Missions récurrentes quotidiennes, hebdomadaires, mensuelles ou personnalisées.
+5. Checklists et contrôles
+Création de modèles de checklist.
+Cases obligatoires/facultatives.
+Validation horodatée.
+Association possible d'une photo, d'un commentaire ou d'une anomalie.
+Historique des validations.
+6. Incidents et maintenance
+Création rapide d'incident.
+Catégories : sécurité, maintenance, équipement, chambre, nettoyage, client, panne, fuite, incendie, autre.
+Priorité, zone, description, responsable, pièces jointes et preuves.
+Workflow incident : Ouvert → Assigné → En cours → Résolu → Vérifié → Clôturé.
+Signalement et suivi des interventions de maintenance.
+Historique complet des actions.
+7. Preuves et traçabilité
+Photos prises/importées depuis le mobile.
+Plusieurs preuves par opération.
+Commentaires et documents selon besoin.
+Association de chaque preuve à une mission, un incident ou un contrôle.
+Auteur et date/heure enregistrés.
+Stockage sécurisé et contrôle des accès.
+Journal d'audit des actions importantes : connexion, création, attribution, intervention, preuve, incident, alerte, validation, clôture et export.
+Le produit doit prévoir un journal d'audit sécurisé et protégé contre les modifications non autorisées. Le terme « infalsifiable » ne doit être utilisé qu'après validation technique et juridique d'un mécanisme garantissant réellement l'intégrité des données.
+8. Transmission entre équipes
+Transmission structurée entre équipes de jour et de nuit.
+Association à une mission, un incident ou une situation.
+Accusé de prise de connaissance.
+Reprise d'une mission par l'équipe suivante.
+Historique des transmissions.
+9. Module travailleur isolé / PTI
+Module à chiffrer séparément. Il doit intégrer des mécanismes de détection et d'escalade dans l'outil de travail quotidien. La conception finale devra être validée au regard des exigences techniques, de sécurité, de protection des données et des responsabilités associées.
+9.1 SOS manuel
+Bouton SOS rapidement accessible.
+Identification de l'utilisateur et de l'établissement.
+Contexte disponible : mission en cours, zone/localisation disponible, heure.
+Déclenchement du moteur d'escalade.
+9.2 Check-in programmé
+Question configurable « Tout va bien ? ».
+Fréquence, délai de réponse et rappels configurables.
+Absence de réponse → escalade automatique.
+Journalisation de chaque check-in.
+9.3 Détection d'immobilité
+Étude accéléromètre/gyroscope.
+Seuils configurables.
+Pré-alerte et possibilité d'annulation.
+Tests spécifiques contre les faux positifs.
+9.4 Détection de chute
+Étude de faisabilité Android/iOS.
+Détection via capteurs du smartphone.
+Compte à rebours d'annulation.
+Déclenchement automatique si aucune annulation.
+Documentation des limites techniques et tests de faux positifs.
+10. Moteur d'escalade
+Notification push.
+SMS.
+Appel téléphonique automatisé.
+Contact d'astreinte.
+Accusé de réception obligatoire.
+Délai configurable.
+Escalade automatique sans réponse.
+Deuxième niveau de contact.
+Préparation d'une intégration avec un opérateur de télésurveillance tiers.
+Journalisation de chaque étape.
+Le devis doit distinguer le développement du moteur d'escalade et l'intégration avec un prestataire de télésurveillance, dont l'API reste à déterminer.
+11. Intégration télésurveillance
+API générique pour transmettre une alerte à un prestataire tiers.
+Données potentielles : établissement, utilisateur, type d'alerte, date/heure, zone/localisation disponible, niveau d'urgence et historique d'escalade.
+Retour d'accusé de réception/statut si l'API du prestataire le permet.
+Authentification et chiffrement.
+Documentation API et reprise sur erreur.
+NightFlow ne prévoit pas de créer son propre centre de télésurveillance au démarrage.
+12. Mode hors connexion
+Consultation des données nécessaires hors connexion.
+Création de missions/incidents/checklists selon périmètre défini.
+Capture temporaire des preuves.
+File d'attente locale sécurisée.
+Synchronisation automatique au retour du réseau.
+Gestion des conflits.
+Journalisation des synchronisations.
+Les fonctions critiques de sécurité devront faire l'objet de tests spécifiques en réseau dégradé. Le comportement exact du PTI hors connexion doit être défini avant commercialisation.
+13. Notifications et communications
+Push pour opérations courantes.
+SMS pour scénarios critiques.
+Appels automatiques pour scénarios critiques.
+Gestion des accusés de réception.
+Journalisation des envois et erreurs.
+Fournisseurs externes et coûts récurrents détaillés dans le devis.
+14. Tableau de bord et rapports
+Missions du jour et missions en retard.
+Incidents ouverts/critiques.
+Interventions et maintenances.
+Contrôles et checklists.
+Transmissions.
+Alertes de sécurité.
+Indicateurs : taux de réalisation, délais de résolution, incidents par catégorie, missions en retard, temps de prise en charge.
+Rapports quotidien, hebdomadaire et mensuel.
+Rapport d'incident/sécurité.
+Export PDF et CSV/Excel selon faisabilité.
+15. Rapport incident / sinistre
+Génération d'un rapport structuré : établissement, date/heure, utilisateur, description, chronologie, preuves, actions réalisées, notifications, validations et résolution, selon les droits d'accès.
+Cette fonction facilite la documentation d'un événement mais ne constitue pas, à elle seule, une garantie juridique ou assurantielle.
+16. Administration SaaS et paiement
+Gestion des établissements, utilisateurs, abonnements et plans.
+Administration des paramètres et intégrations.
+Plans prévisionnels : Starter 99 €/mois, Professional 199 €/mois, Business 349 €/mois.
+Mise en service indicative : 500 €.
+Architecture permettant de modifier ultérieurement prix et fonctionnalités.
+Paiement en ligne à chiffrer séparément, par exemple via un PSP tel que Stripe.
+Renouvellement, échec de paiement, facture, changement de formule et résiliation.
+Les tarifs sont des hypothèses commerciales et ne constituent pas des spécifications tarifaires définitives.
+17. Applications mobiles et interface Web
+Android et iOS, smartphones et adaptation tablette si retenue.
+Caméra, notifications push, capteurs nécessaires aux fonctions PTI, stockage local et synchronisation.
+Gestion des permissions système et scénarios d'arrière-plan.
+Interface Web responsive pour managers et administrateurs.
+Tableaux de bord, opérations, incidents, transmissions, rapports et audit selon droits.
+18. Architecture technique
+SaaS multi-tenant avec isolation stricte des données par établissement.
+Frontend, backend/API, base de données, stockage de fichiers, notifications, SMS/appels.
+Environnements développement/test/production séparés.
+Gestion des secrets hors dépôt de code.
+CI/CD, monitoring, sauvegardes et restauration.
+Architecture évolutive et API documentée.
+19. Sécurité et RGPD
+HTTPS/TLS.
+Hashage sécurisé des mots de passe.
+RBAC et contrôle serveur des autorisations.
+Isolation multi-tenant.
+Validation serveur et protection des API.
+Rate limiting.
+Protection contre injections et XSS.
+Gestion sécurisée des fichiers.
+Sauvegardes et restauration testée.
+Journalisation des événements de sécurité.
+Analyse des dépendances et correctifs.
+Minimisation des données.
+Gestion des droits, conservation, suppression/export.
+Encadrement des photos et données d'incident.
+Analyse spécifique de la géolocalisation et des fonctions PTI avant production.
+Le prestataire doit distinguer les prestations techniques des prestations de conseil juridique/RGPD externe.
+20. Tests et recette
+Tests unitaires et d'intégration.
+Tests fonctionnels et API.
+Tests d'autorisation et d'isolation multi-tenant.
+Tests Android/iOS.
+Tests hors connexion et synchronisation.
+Tests push/SMS/appels.
+Tests SOS, check-in, immobilité, chute et escalade.
+Tests de charge des fonctions critiques.
+Tests de sécurité.
+Recette finale avec scénarios d'acceptation.
+21. Déploiement et exploitation
+Production, domaine et HTTPS.
+Base de données et stockage sécurisé.
+Monitoring et sauvegardes automatisées.
+Procédure de restauration.
+Publication Google Play et App Store.
+Documentation d'exploitation.
+Transfert au client.
+22. Propriété intellectuelle et réversibilité
+Code source remis au client selon les conditions contractuelles.
+Dépôt Git accessible au client.
+Documentation technique et API remise.
+Schéma BDD et scripts de déploiement remis.
+Comptes cloud/infrastructure contrôlés par le client ou transférables.
+Clés et secrets gérés selon procédure sécurisée.
+Possibilité de changer de prestataire sans dépendance technique excessive.
+Les conditions de cession/licence des droits sur le code, le design et les composants spécifiques devront être définies au contrat.
+23. Maintenance et support
+Maintenance corrective.
+Mises à jour de sécurité.
+Compatibilité Android/iOS.
+Monitoring.
+Support technique.
+Gestion des incidents critiques.
+Maintenance évolutive en option.
+SLA proposés séparément.
+Coûts mensuels/annuels détaillés.
+24. Découpage demandé pour le devis
+Lot
+Périmètre
+Prix HT
+1
+UX/UI et prototype
+
+2
+Application mobile Android/iOS
+
+3
+Interface Web
+
+4
+Backend/API/base de données
+
+5
+Missions, tâches, checklists, incidents, maintenance
+
+6
+Preuves et journal d'audit
+
+7
+Transmissions
+
+8
+Module PTI
+
+9
+Moteur d'escalade / push / SMS / appels
+
+10
+API / télésurveillance
+
+11
+Hors connexion / synchronisation
+
+12
+Dashboard / rapports / exports
+
+13
+Administration SaaS / paiement
+
+14
+Sécurité / RGPD technique
+
+15
+Tests / recette / charge / sécurité
+
+16
+Déploiement / stores / documentation
+
+17
+Maintenance et support initial
+
+25. Trois niveaux de chiffrage demandés
+MVP Opérationnel : établissements, utilisateurs, missions, tâches, incidents, checklists, preuves, transmissions, traçabilité et dashboard.
+MVP + Sécurité : MVP + SOS, check-in, immobilité/chute, moteur d'escalade, SMS/appels et journal de sécurité.
+Version complète : MVP + Sécurité + intégration télésurveillance, rapports avancés, paiement, administration SaaS avancée, tests de charge et durcissement sécurité.
+26. Format du devis attendu
+Pour chaque lot, indiquer : nombre de jours/homme, taux journalier, prix HT, délai, livrables, hypothèses, dépendances externes, coûts récurrents des services tiers et exclusions.
+Indiquer également les éléments nécessitant validation juridique, RGPD, sécurité ou certification avant commercialisation.
+27. Livrables finaux
+Applications Android et iOS.
+Application Web.
+Backend/API et base de données.
+Code source et dépôt Git.
+Documentation technique et API.
+Documentation utilisateur et administrateur.
+Production, sauvegardes et monitoring.
+Rapport de tests et recette.
+Configuration sécurité.
+Documentation des intégrations.
+Publication des applications ou procédure de publication.
+Transfert de compétences et formation.
+28. Critères de sélection du prestataire
+Expérience SaaS B2B et applications mobiles.
+Architecture multi-tenant.
+Notifications et intégrations API.
+Sécurité et protection des données.
+Android/iOS/Web.
+Fonctions utilisant les capteurs mobiles.
+Références vérifiables.
+Transparence sur maintenance et services tiers.
+Propriété et réversibilité clairement définies.
+29. Points à valider avant commercialisation
+Positionnement PTI/DATI et responsabilités.
+RGPD des données salariés et de localisation.
+Architecture et procédure d'escalade/secours.
+Choix du télésurveilleur et étude de son API.
+Tests réels de chute et immobilité.
+Tests en réseau dégradé.
+Procédures de secours propres à chaque établissement.
+Éventuelles exigences de conformité ou certification applicables au service final.
+NIGHTFLOW — Cahier des charges de consultation développeur
+
+ANNEXE V1.2 — SÉCURISATION DU CAHIER DES CHARGES
+Cette annexe sécurise les points qui doivent être précisés avant consultation des prestataires. Elle complète le cahier des charges existant sans modifier son socle fonctionnel.
+A.1 — Volumétrie de référence pour le chiffrage
+Ces valeurs sont des hypothèses de dimensionnement pour le devis et non des engagements commerciaux. Le prestataire doit signaler toute hypothèse qu'il juge insuffisante.
+Paramètre
+Hypothèse de travail
+À confirmer
+Établissements à 36 mois
+60
+Oui
+Utilisateurs / établissement
+15 à 50
+Oui
+Utilisateurs simultanés / établissement
+5 à 15
+Oui
+Missions / établissement / jour
+30 à 150
+Oui
+Photos / établissement / jour
+50 à 300
+Oui
+Taille photo avant compression
+2 à 4 Mo
+Oui
+Alertes PTI / établissement / mois
+0 à 20
+Oui
+Disponibilité cible du service critique
+99,9 %
+Oui
+A.2 — PTI : comportement en cas de défaillance
+Le prestataire doit décrire et chiffrer le comportement du système lorsque le smartphone, l'application ou le réseau ne permet plus d'assurer normalement la fonction PTI.
+Application arrêtée ou tuée par le système d'exploitation.
+Smartphone verrouillé ou placé en arrière-plan.
+Batterie faible ou batterie à 0 %.
+Absence de réseau mobile/Wi-Fi.
+GPS indisponible ou localisation refusée.
+Notification push non délivrée.
+SMS ou appel impossible.
+API du prestataire de télésurveillance indisponible.
+Serveur NightFlow temporairement indisponible.
+Pour chaque scénario, préciser : détection de la défaillance, comportement attendu, délai de détection, information de l'utilisateur/manager, tentative de reprise, mécanisme de secours et limites connues.
+A.3 — Logique d'escalade PTI
+La séquence ci-dessous est un scénario de test. Les temporisations définitives doivent rester configurables et être validées en recette.
+T0 : déclenchement SOS ou détection automatique.
+T0 à T+10 s : émission de la première notification push, sous réserve des contraintes du terminal et du réseau.
+Sans accusé : SMS.
+Sans accusé : appel automatique.
+Sans prise en charge : deuxième contact d'astreinte.
+Sans prise en charge : transmission au prestataire de télésurveillance lorsque l'intégration est activée.
+Chaque étape est horodatée dans le journal d'audit.
+Seul un rôle autorisé peut clôturer l'alerte, avec statut/motif.
+Le prestataire doit distinguer émission, remise au fournisseur, livraison au terminal, affichage et accusé de réception.
+A.4 — Critère « moins de 10 secondes »
+Le délai cible inférieur à 10 secondes doit être mesuré entre la réception du déclenchement par le backend NightFlow et l'émission de la première notification par le service concerné, dans un environnement de test défini.
+Les délais dépendant d'Apple, Google, d'un opérateur mobile, d'un fournisseur SMS/appel ou d'un réseau externe doivent être identifiés séparément et ne pas être présentés comme garantis par NightFlow.
+Le prestataire doit proposer le protocole de mesure et les conditions de recette.
+A.5 — Disponibilité, sauvegarde et reprise
+Disponibilité cible du service critique : 99,9 %, hors maintenances planifiées et selon un périmètre de mesure défini.
+RPO cible à proposer et valider.
+RTO cible à proposer et valider.
+Sauvegardes automatisées.
+Tests de restauration.
+Monitoring et alerting.
+Procédure documentée de reprise après incident.
+A.6 — RGPD / AIPD
+Formulation retenue : « La nécessité d'une AIPD sera déterminée au regard des traitements effectivement mis en œuvre et des critères applicables. »
+Le prestataire doit identifier les traitements impliquant comptes salariés, photos, incidents, journaux d'audit et éventuelle localisation. Le conseil juridique/RGPD externe n'est inclus que s'il est explicitement chiffré.
+La géolocalisation doit être conçue selon un principe de minimisation, avec des règles de conservation et d'accès définies.
+A.7 — Télésurveillance : formulation sécurisée
+Formulation : « intégration avec un opérateur de télésurveillance répondant aux exigences et certifications adaptées au service retenu ».
+Le choix du prestataire n'est pas figé. L'agence doit chiffrer séparément : API générique, intégration avec un prestataire identifié si son API est disponible, et coûts récurrents éventuels.
+Aucune promesse commerciale de certification, de prise en charge humaine ou de conformité réglementaire ne doit être faite avant validation contractuelle avec le prestataire retenu.
+A.8 — Séparation MVP / Phase 2 / Options
+Périmètre
+Statut
+Objectif
+Chiffrage
+MVP opérationnel
+Obligatoire
+Missions, tâches, checklists, incidents, maintenance, preuves, transmissions, audit, dashboard, mobile + Web, offline de base
+Prix ferme
+MVP sécurité
+Option / Phase 1B
+SOS, check-in, moteur d'escalade, notifications critiques, journal sécurité
+Séparé
+PTI avancé
+Phase 2 / option
+Immobilité, chute, arrière-plan avancé, optimisation batterie
+Séparé
+Télésurveillance
+Option
+API + intégration du prestataire retenu
+Séparé
+Fonctions non essentielles
+Option
+Paiement, SSO, PMS, multilingue, analytics avancés
+Séparé
+Le prestataire peut proposer une organisation différente si elle réduit le risque ou le coût, mais doit conserver un chiffrage comparable par lot.
+A.9 — Recette et preuves
+Chaque lot possède des critères d'acceptation objectifs.
+Tests PTI Android/iOS sur un panel représentatif de terminaux.
+Tests en intérieur, sous-sol/local technique et extérieur selon scénarios.
+Tests réseau dégradé et reprise.
+Tests de faux positifs chute/immobilité.
+Tests de non-livraison des notifications.
+Tests d'escalade et de clôture.
+Tests d'isolation des données entre deux hôtels.
+Tests de restauration des sauvegardes.
+Rapport de recette remis au client.
+A.10 — Conditions commerciales du développement
+Devis détaillé par lot, HT et TTC.
+Nombre de jours/homme et taux journalier.
+Calendrier et jalons.
+Paiement par jalons livrés et recettés, sans paiement intégral à la commande.
+Liste explicite des exclusions.
+Coûts des services tiers : SMS, voix, push, cloud, stockage, monitoring, stores, télésurveillance.
+Maintenance corrective séparée de la maintenance évolutive.
+Propriété intellectuelle et accès au dépôt Git définis contractuellement.
+Procédure de réversibilité en cas de changement de prestataire.
+A.11 — Positionnement du budget
+Le cahier des charges doit faire émerger le coût réel. Toute proposition supérieure ou inférieure doit être justifiée par lots, jours/homme, niveau de qualité, tests et fonctionnalités incluses.
+Le futur prévisionnel financier NightFlow devra être recalculé à partir des devis effectivement obtenus, en distinguant développement initial, coûts récurrents, maintenance et phases ultérieures.
+A.12 — Prudence sur le positionnement sécurité
+NightFlow peut intégrer des fonctions destinées à contribuer à la protection des travailleurs isolés. Le prestataire ne doit pas présenter la solution comme une garantie juridique automatique de conformité de l'employeur, ni comme un service de secours professionnel, tant que les exigences juridiques, techniques, organisationnelles et contractuelles n'ont pas été validées.
+Le cahier des charges distingue donc : outil logiciel, mécanisme d'alerte, chaîne d'escalade et éventuelle intervention d'un opérateur tiers.

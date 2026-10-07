@@ -1,0 +1,29 @@
+---
+description: Rien d'interne dans les documents clients : coûts, marges, outils réutilisés, noms de socles
+alwaysApply: true
+---
+
+# Confidentialité interne dans les documents clients
+
+Les propositions, devis et annexes sont lus par le client. Ne jamais y faire apparaître :
+
+- Les hypothèses de marge ou de gain : pourcentage de gain attendu (ex. « ~25 % sur le build »), coût « sans nous » (ex. « sans IA, plutôt ~100 jours »), structure de coût interne.
+- Les outils, socles ou plateformes internes réutilisés et leurs noms de code : le client n'a pas à savoir ce que nous réutilisons. Présenter la stack comme une recommandation technique neutre (langages, frameworks, services).
+- Le nommage interne des modèles ou composants (ex. nom d'entité du socle interne).
+- Tout raisonnement « pourquoi c'est rentable pour nous » : la proposition donne un prix et une justification client, pas notre arithmétique interne.
+
+## Exemples
+
+❌ BAD :
+```
+Hypothèse de gain : ~25 % sur le build (jalons 2-3) via IA et socle Meetflare ; sans cela, plutôt ~100 jours.
+```
+
+✅ GOOD :
+```
+Ce niveau de charge s'appuie sur un développement assisté par IA avec revue humaine systématique et une équipe senior dédiée.
+```
+
+## Vérification
+
+Avant livraison, relire le document en se mettant à la place du client : que lui apprend-il sur notre fonctionnement interne ou nos marges ? La réponse doit être : rien.

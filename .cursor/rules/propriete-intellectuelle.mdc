@@ -1,0 +1,29 @@
+---
+description: Ne jamais promettre la propriété du code au client ; livrables et droits d'exploitation définis au contrat
+alwaysApply: true
+---
+
+# Propriété intellectuelle : rester flou dans les propositions
+
+Objectif : conserver la possibilité de réutiliser des morceaux du code pour d'autres projets. La proposition ne doit donc **ni promettre ni nier** une cession de droits : la question se règle au contrat.
+
+## Formulations autorisées
+
+- « Le code source et le dépôt Git vous sont remis »
+- « Vos données restent chez [Client] »
+- « Droits d'exploitation définis au contrat »
+- « Réversibilité alignée sur votre CDC »
+
+## Formulations interdites
+
+- « Vous restez propriétaire du code »
+- « [Client] propriétaire du code, designs et comptes »
+- « Cession exclusive et totale des droits »
+- Toute ligne de récapitulatif intitulée « Propriété » pour le code : préférer « Livrables et réversibilité »
+
+## Points de repère
+
+- La cession de droits patrimoniaux exige un écrit précis (art. L.131-3 CPI) : un document commercial ne cède rien, mais il ne doit pas créer une promesse.
+- Les droits moraux restent chez nous ; les composants open source ne sont pas cessibles.
+- Le code est livré (le CDC l'exige) : c'est le droit d'exploitation qui se négocie, pas la remise du code.
+- Les comptes du client (Apple Developer, Google Play, cloud à son nom) peuvent rester « propriété du client » sans risque.

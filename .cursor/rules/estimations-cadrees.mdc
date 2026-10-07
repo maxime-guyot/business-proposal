@@ -1,0 +1,30 @@
+---
+description: Tout montant et volume de jours affiché comme estimation à cadrer ; options marquées en sus
+alwaysApply: true
+---
+
+# Estimations à cadrer et montants d'options
+
+Tant que le devis définitif n'est pas signé après l'atelier de cadrage :
+
+## Marquer chaque montant/jour comme estimation
+
+- Chaque montant et chaque volume de jours affiché porte un marqueur d'estimation : « estimation », « à cadrer », « indicatif », « ~ ».
+- Les titres de tableaux chiffrés portent le marqueur (ex. « MVP Opérationnel (estimation à cadrer) »).
+- Les notes sous les tableaux rappellent la confirmation : « affiné/confirmé à l'issue de l'atelier de cadrage ».
+- La couverture et les récapitulatifs ne font pas exception : mêmes marqueurs.
+- Les montants récurrents fermes (forfaits) et les comptes du client ne sont pas concernés.
+
+## Options toujours « en sus »
+
+- Chaque montant d'option est précédé de « + » : « + 18 000 € HT ». Le titre de section précise « en sus du MVP » ou équivalent.
+- Ne jamais additionner silencieusement MVP et options : pas de total « MVP + options » affiché.
+
+## Cohérence avec le CDC client
+
+- Le CDC demande HT **et** TTC : afficher les deux (TVA 20 %) sur les totaux et au récapitulatif.
+- Vérifier la cohérence avec les exigences du CDC (paiement par jalons recettés, découpage par lots, exclusions explicites) avant livraison.
+
+## Vérification arithmétique
+
+Somme des lignes = total ; total = jours × TJM ; échéancier en % = total ; cohérence couverture = page budget = récapitulatif.

@@ -1,0 +1,30 @@
+---
+description: Stack technique par défaut de Perfusion.dev pour les projets SaaS (socle réutilisable, confidential client-side)
+alwaysApply: true
+---
+
+# Stack technique par défaut (référence interne)
+
+## Socle applicatif
+
+- **API** : Bun + Hono, validation Zod ; conteneurisable, typée, testée.
+- **Données** : PostgreSQL 16 + Drizzle ORM, migrations maîtrisées ; PostGIS si zones/geo.
+- **Multi-tenant** : isolation logique par organisation (modèle du socle, adaptable : organisation = établissement, équipe, etc.).
+- **Auth / droits** : Better Auth + RBAC (ADMIN, MANAGER, STAFF typiquement) ; MFA préparé techniquement, activé plus tard.
+- **Web** : React + Vite + TanStack Query (dashboards, admin).
+- **Mobile terrain** : React Native (iOS + Android), photos, push, offline de base (file d'attente locale, sync au retour réseau).
+- **Qualité** : tests unitaires + intégration, CI GitHub Actions avant chaque déploiement.
+
+## Architecture AWS (région Paris eu-west-3, exclusivement)
+
+- VPC privée (sous-réseaux publics/privés), ECS Fargate + ALB, RDS PostgreSQL Multi-AZ, S3 (chiffrement, lifecycle, URL signées), SES, Secrets Manager/SSM, CloudWatch.
+- Environnements staging + production dans la même région. Aucune donnée métier hors UE.
+- Comptes cloud au nom du client (ou transfert contractuel) pour la réversibilité.
+
+## Confidentialité
+
+Ces éléments sont une **référence interne** : dans les documents clients, ne jamais nommer le socle interne ni signaler la réutilisation (voir règle `confidentialite-interne`). Présenter la stack comme une recommandation technique neutre. Le socle sert à chiffrer vite et juste, pas à être vendu.
+
+## Évolution
+
+Le socle est conçu pour s'étendre sans reconstruction : API documentée, files d'attente (SQS/jobs) pour sync offline et traitements tiers, options ajoutées sans casser le livré.

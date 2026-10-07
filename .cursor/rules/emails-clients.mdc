@@ -1,0 +1,11 @@
+---
+description: Workflow e-mails clients : préparer le texte dans un fichier, ne jamais créer ni envoyer de brouillon Gmail
+alwaysApply: true
+---
+
+# E-mails clients : texte préparé, envoi manuel
+
+- Préparer le texte du mail dans un fichier du dossier client : `mail-<contact>.txt` (ex. `mail-reponse.txt`, `mail-m-chemla.txt`).
+- Ne **jamais** créer de brouillon Gmail ni envoyer de mail via les outils Gmail : l'utilisateur gère la rédaction finale et l'envoi lui-même.
+- Le mail type accompagne le PDF de la proposition (nommé `Proposition_<Client>_<aaaa-mm-jj>.pdf`) : rappeler à l'utilisateur de joindre le PDF, sans le faire à sa place.
+- Respecter les règles transverses sur ces textes : aucun caractère AI interdit, aucune donnée interne, montants présentés comme estimations à cadrer.
