@@ -1,0 +1,38 @@
+---
+description: Ban AI-typical characters from all written text (titles, client copy, docs)
+alwaysApply: true
+---
+
+# No AI-signature characters
+
+In any text intended to be read (client copy, titles, PDFs, emails, documentation), never use characters typically produced by AI:
+
+## Banned characters
+
+| Character | Name | Replacement |
+|---|---|---|
+| `—` | em dash | `:` or `,` or rephrase the sentence |
+| `–` | en dash | `:` or `,` or rephrase |
+| `…` | single-character ellipsis | `...` or rephrase |
+
+## Examples
+
+❌ BAD:
+```
+Maquettage — première phase : maquette collaborative
+The platform is used by banks — industrials — healthcare companies
+```
+
+✅ GOOD:
+```
+Maquettage, première phase : maquette collaborative
+The platform is used by banks, industrials and healthcare companies
+```
+
+## Exception
+
+The em dash is only allowed in proper nouns or fixed expressions that officially require it. Otherwise: rephrase.
+
+## Verification
+
+Before delivering any text (HTML/PDF/message), search for `—` and `–` in the written content and remove them. A `grep -n "—\|–"` on the modified file must return zero copy lines.

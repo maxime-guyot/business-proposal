@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  TRAME DE PROPOSITION COMMERCIALE Perfusion.dev
+  ============================================================
+  Copier ce fichier dans clients/<client>/<annee-mois>-<devis>/proposition.html,
+  puis adapter les valeurs marquées {{...}} et les sections ci-dessous :
+
+    {{CLIENT}}                     nom du client (dans tout le document)
+    {{UTILISATEUR_PILOTE}}         utilisateur pilote (ex. "M. Chemla")
+    {{PRESTATAIRE_INFORMATIQUE}}   prestataire informatique du client (connecteurs)
+
+  Sections à adapter pour chaque proposition :
+    1. Couverture : titre, sous-titre, les 3 cartes (total HT, jalon pilote, infogérance)
+    2. Page 1     : le besoin, ce que les équipes obtiennent, les 3 jalons
+    3. Page 2     : tableau des prestations (lignes, jours, montants), échéancier 30/40/30
+    4. Page 3     : exploitation (forfait d'infogérance + grille de consommation variable)
+    5. Page 4     : planning (dates à adapter : lancement, maquette, pilote, bilan)
+    6. Page 5     : sécurité + "Ce dont nous aurons besoin de votre côté"
+    7. Page 6     : prochaines étapes + récapitulatif contractuel (jours, forfait, règlement)
+    8. Annexes    : A/B/C lots (étiquettes de forfait en fin d'annexe)
+
+  Générer le PDF (depuis le dossier du devis) :
+    ../../build.sh
+  ============================================================
+-->
+
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Proposition commerciale Perfusion.dev pour {{CLIENT}}</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --dark: #111111;
+    --dark2: #1C1D22;
+    --purple: #5128A4;
+    --purple2: #9932CD;
+    --lilac: #F4F1FA;
+    --grey: #6B6B76;
+    --line: #E4E1EC;
+  }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #23232B; font-size: 10.5pt; line-height: 1.55; }
+  .page { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .content { padding: 20mm 18mm 24mm 18mm; height: 100%; display: flex; flex-direction: column; }
+
+  /* ---------- COVER (claire) ---------- */
+  .cover { background: #fff; color: var(--dark); }
+  .cover .bar { position: absolute; top: 0; left: 0; right: 0; height: 4mm; background: linear-gradient(90deg, var(--purple), var(--purple2)); }
+  .cover .inner { padding: 24mm 20mm; height: 100%; display: flex; flex-direction: column; }
+  .cover .logo { width: 58mm; margin-top: 3mm; }
+  .cover .kicker { margin-top: 24mm; font-size: 9.5pt; letter-spacing: 3.5px; text-transform: uppercase; color: var(--purple2); font-weight: 600; }
+  .cover h1 { margin-top: 8mm; font-size: 26pt; line-height: 1.22; font-weight: 700; letter-spacing: -0.3px; color: var(--dark); }
+  .cover h1 .dot { color: var(--purple2); }
+  .cover .sub { margin-top: 6mm; font-size: 11.5pt; color: var(--grey); line-height: 1.65; max-width: 148mm; }
+  .cards { margin-top: 13mm; display: flex; gap: 5mm; }
+  .card { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2.5mm 2.5mm; padding: 6.5mm 6mm; }
+  .card .big { font-size: 16pt; font-weight: 700; color: var(--purple); }
+  .card .big .u { color: var(--purple2); }
+  .card .lbl { margin-top: 2.5mm; font-size: 8.8pt; color: var(--grey); line-height: 1.5; }
+  .cover .foot { margin-top: auto; display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 6mm; font-size: 9pt; color: var(--grey); }
+  .toc { margin-top: 13mm; border: 1px solid var(--line); background: #FAF9FC; border-radius: 2.5mm; padding: 5.5mm 7mm; }
+  .toc-title { font-size: 8.5pt; letter-spacing: 2px; text-transform: uppercase; color: #8B8B96; margin-bottom: 3.5mm; }
+  .toc-items { display: flex; flex-wrap: wrap; gap: 2.5mm 6mm; }
+  .toc-items span { font-size: 9.5pt; color: #3A3A44; }
+  .toc-items span::before { content: ""; display: inline-block; width: 2mm; height: 2mm; border-radius: 0.6mm; background: var(--purple2); margin-right: 2.2mm; vertical-align: 0.3mm; }
+  .cover .foot b { color: var(--dark); font-weight: 600; }
+
+  /* ---------- LIGHT PAGES ---------- */
+  .head { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--purple); padding-bottom: 3mm; margin-bottom: 7mm; }
+  .head .num { font-size: 10pt; font-weight: 700; color: var(--purple2); letter-spacing: 2px; }
+  .head h2 { font-size: 17pt; font-weight: 700; color: var(--dark); letter-spacing: -0.2px; }
+  .mini-logo { width: 30mm; }
+
+  h3 { font-size: 11.5pt; color: var(--purple); margin: 6mm 0 2.5mm 0; font-weight: 700; }
+  p { margin-bottom: 3mm; }
+  ul { margin: 0 0 3mm 0; padding-left: 5mm; list-style: none; }
+  ul li { padding-left: 4.5mm; position: relative; margin-bottom: 1.8mm; }
+  ul li::before { content: ""; position: absolute; left: 0; top: 2mm; width: 2.2mm; height: 2.2mm; border-radius: 0.7mm; background: var(--purple2); }
+
+  .foot { margin-top: auto; border-top: 1px solid var(--line); padding-top: 3mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--grey); }
+
+  /* callout */
+  .callout { background: var(--lilac); border-left: 1.6mm solid var(--purple2); border-radius: 0 2mm 2mm 0; padding: 5mm 6mm; margin: 4mm 0; }
+  .callout .t { font-weight: 700; color: var(--purple); margin-bottom: 1.5mm; font-size: 10.5pt; }
+
+  /* tables */
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 4mm 0; font-size: 10pt; }
+  th { background: var(--purple); color: #fff; text-align: left; padding: 3mm 4mm; font-weight: 600; font-size: 9.5pt; }
+  td { padding: 2.8mm 4mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: #FAF9FC; }
+  td.r, th.r { text-align: right; white-space: nowrap; }
+  tr.total td { background: var(--lilac); font-weight: 700; color: var(--purple); border-bottom: none; }
+
+  /* timeline jalons */
+  .steps { display: flex; gap: 4mm; margin: 4mm 0 2mm 0; }
+  .step { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2mm 2mm; padding: 4.5mm 4mm; }
+  .step .when { font-size: 8.5pt; font-weight: 700; color: var(--purple2); text-transform: uppercase; letter-spacing: 0.8px; }
+  .step .what { margin-top: 1.5mm; font-weight: 700; font-size: 10pt; }
+  .step .res { margin-top: 1.2mm; font-size: 8.8pt; color: var(--grey); line-height: 1.45; }
+
+  /* signature page */
+  .sig { display: flex; gap: 6mm; margin-top: 4mm; }
+  .sigbox { flex: 1; border: 1px solid var(--line); border-radius: 2mm; padding: 4mm 5mm 9mm 5mm; }
+  .sigbox .who { font-weight: 700; color: var(--purple); margin-bottom: 3mm; }
+  .sigline { margin-top: 5mm; font-size: 9.5pt; color: var(--grey); border-bottom: 1px dotted #B9B6C4; padding-bottom: 1.2mm; }
+  .legal { margin-top: 3.5mm; font-size: 8.3pt; color: var(--grey); line-height: 1.55; border-top: 1px solid var(--line); padding-top: 3mm; }
+
+  /* compact mode for dense pages */
+  .tight .head { margin-bottom: 5mm; padding-bottom: 2.5mm; }
+  .tight td { padding: 2mm 4mm; }
+  .tight table { margin: 2mm 0 3mm 0; }
+  .nextnote { font-size: 9.8pt; color: var(--grey); background: #FAF9FC; border: 0.3mm solid var(--line); border-radius: 2mm; padding: 2.5mm 4mm; margin: 0 0 3mm 0; }
+  .nextnote b { color: var(--purple); }
+  tr.future-head td { background: #fff; font-weight: 700; font-size: 9.5pt; color: var(--purple); border-bottom: 0.3mm solid var(--line); }
+  tr.future td { background: #FAF9FC; color: var(--grey); font-size: 9.5pt; }
+  table.small { font-size: 9.2pt; }
+  table.small td { padding: 1.8mm 4mm; }
+  .tight h3 { margin: 3.5mm 0 2mm 0; }
+  .tight .callout { margin: 3mm 0; padding: 3.5mm 5mm; }
+  .tight p { margin-bottom: 2mm; }
+  .tight ul li { margin-bottom: 1.2mm; }
+  .tight .step { padding: 3.5mm 3.5mm; }
+  .tight .sigbox { padding-bottom: 7mm; }
+  .tight .sigline { margin-top: 4mm; }
+  .tight .sig { margin-top: 3mm; }
+  .tight .legal { margin-top: 2.5mm; padding-top: 2.5mm; }
+
+  .annexe-head { display: flex; align-items: baseline; gap: 4mm; border-bottom: 2px solid var(--purple); padding-bottom: 3mm; margin-bottom: 6mm; }
+  .annexe-head .tag { font-size: 9pt; font-weight: 700; color: #fff; background: var(--purple); padding: 1.2mm 3mm; border-radius: 1.5mm; letter-spacing: 1px; }
+  .annexe-head h2 { font-size: 15pt; font-weight: 700; color: var(--dark); }
+  .price-tag { display: inline-block; background: var(--lilac); color: var(--purple); font-weight: 700; padding: 2mm 4mm; border-radius: 1.5mm; font-size: 10pt; }
+  .two { display: flex; gap: 6mm; }
+  .two > div { flex: 1; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="page cover">
+  <div class="bar"></div>
+  <div class="inner">
+    <img class="logo" src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
+    <div class="kicker">Proposition commerciale</div>
+    <h1>L'IA qui automatise<br>l'ensemble de vos processus<span class="dot">.</span></h1>
+    <div class="sub">Un socle d'automatisation IA construit avec vos équipes, qui démarre par un pilote concret (la gestion des e-mails de la Direction) avant de s'étendre à l'ensemble de vos besoins. Chaque étape est validée ensemble, sans engagement sur les lots suivants.</div>
+    <div class="cards">
+      <div class="card">
+        <div class="big">12 900&nbsp;€ <span class="u">HT</span></div>
+        <div class="lbl">Phase pilote forfaitaire<br>de 21,5 jours de réalisation</div>
+      </div>
+      <div class="card">
+        <div class="big">Décembre</div>
+        <div class="lbl">Pilote réel en conditions d'usage dès les premiers jours, auprès de M.&nbsp;{{UTILISATEUR_PILOTE}}</div>
+      </div>
+      <div class="card">
+        <div class="big">490&nbsp;€ <span class="u">HT/mois</span></div>
+        <div class="lbl">Infogérance<br>dès janvier 2027,<br>10 utilisateurs max et 100 Go</div>
+      </div>
+    </div>
+    <div class="toc">
+      <div class="toc-title">Contenu du document</div>
+      <div class="toc-items">
+        <span>01 L'essentiel</span><span>02 Budget</span><span>03 Exploitation</span><span>04 Planning</span><span>05 Sécurité</span><span>06 Prochaines étapes</span><span>Annexes A · B · C</span>
+      </div>
+    </div>
+    <div class="foot">
+      <div>Préparée pour <b>{{CLIENT}}</b></div>
+      <div>Présentée par <b>Perfusion.dev</b> · Maxime Guyot</div>
+      <div><b>6 octobre 2026</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ P1 ESSENTIEL ============ -->
+<div class="page tight">
+  <div class="content">
+    <div class="head">
+      <h2>L'essentiel en une page</h2>
+      <img class="mini-logo" src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
+    </div>
+
+    <h3>Le besoin</h3>
+    <p>Les messages répétitifs mobilisent chaque jour du temps de Direction qui pourrait être consacré à des décisions à plus forte valeur. Notre proposition : <b>une phase pilote composée d'un maquettage initial et des Lots 1 et 2</b>, un premier cas d'usage concret (la préparation des réponses e-mail), pour démontrer rapidement le gain de temps réel avant d'automatiser quoi que ce soit d'autre.</p>
+
+    <h3>Ce que vos équipes obtiennent</h3>
+    <ul>
+      <li>Un <b>chat sécurisé accessible depuis un navigateur</b>, simple et familier, comparable dans son principe à ChatGPT.</li>
+      <li>Des <b>réponses appuyées sur vos documents internes</b>, dans la limite des accès autorisés pour chaque utilisateur.</li>
+      <li>Des <b>brouillons d'e-mails préparés directement dans Microsoft 365</b> : vous relisez, ajustez et envoyez. Aucun envoi automatique pendant le pilote.</li>
+      <li>Une <b>mesure simple des gains</b> (brouillons utilisés, temps économisé) pour objectiver la valeur avant toute extension.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="t">Nos garanties pour ce pilote</div>
+      <ul style="margin-bottom:0">
+        <li>Vous restez <b>propriétaire de vos données</b>, hébergées en Europe dans un environnement AWS cloisonné.</li>
+        <li>Le pilote est <b>limité à un utilisateur</b> (M.&nbsp;{{UTILISATEUR_PILOTE}}) : chaque étape est sécurisée avant d'élargir.</li>
+        <li>À la mi-décembre, <b>vous décidez librement de la suite</b> : ouverture à vos équipes dès le 1er janvier, puis automatisations suivantes.</li>
+      </ul>
+    </div>
+
+    <h3>Quatre jalons pour avancer sans risque</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="when">Semaine du 12 octobre</div>
+        <div class="what">Maquette collaborative</div>
+        <div class="res">3 jours avec vos équipes pour valider concept et interface.</div>
+      </div>
+      <div class="step">
+        <div class="when">Début décembre 2026</div>
+        <div class="what">Pilote réel</div>
+        <div class="res">Mise à disposition auprès de M.&nbsp;{{UTILISATEUR_PILOTE}} et mesure des premiers gains.</div>
+      </div>
+      <div class="step">
+        <div class="when">Mi-décembre 2026</div>
+        <div class="what">Bilan et décision</div>
+        <div class="res">Vous validez les résultats, puis choisissez les automatisations suivantes.</div>
+      </div>
+      <div class="step">
+        <div class="when">Dès le 1er janvier 2027</div>
+        <div class="what">Ouverture à vos équipes</div>
+        <div class="res">Mise en place de nouveaux utilisateurs, puis automatisations retenues.</div>
+      </div>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>1</span></div>
+  </div>
+</div>
+
+<!-- ============ P2 BUDGET ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="head">
+      <div class="num">02 · BUDGET</div>
+      <h2>Un forfait clair, réglé au fil des jalons</h2>
+    </div>
+
+    <p>Le budget ci-dessous couvre l'offre actuelle, <b>la phase pilote : le maquettage initial et les Lots 1 et 2</b>, décrits en annexes A et B. Il est forfaitaire et chaque règlement est lié à un jalon que {{CLIENT}} valide.</p>
+
+    <table>
+      <tr><th>Prestation</th><th class="r">Charge estimée</th><th class="r">Montant HT</th></tr>
+      <tr><td><b>Maquettage, première phase</b> : maquette collaborative</td><td class="r">3 jours</td><td class="r">1 800 €</td></tr>
+      <tr><td><b>Lot 1 · Socle de la plateforme IA</b> : <b>la fondation réutilisable pour vos futures automatisations</b></td><td class="r">8 jours</td><td class="r">4 800 €</td></tr>
+      <tr><td><b>Lot 2 · Assistant e-mail Direction</b> : développement, pilote et ajustements</td><td class="r">8 jours</td><td class="r">4 800 €</td></tr>
+      <tr><td><b>Déploiement</b> : mise en place du service sur AWS</td><td class="r">2,5 jours</td><td class="r">1 500 €</td></tr>
+      <tr class="total"><td>Total phase pilote (maquettage + Lots 1 et 2 + déploiement)</td><td class="r">21,5 jours</td><td class="r">12 900 € HT</td></tr>
+      <tr class="future-head"><td colspan="3">Après le pilote : lots futurs, non inclus dans ce chiffrage (dès le 1er janvier 2027)</td></tr>
+      <tr class="future"><td>Lots futurs : cas d'usage définis ensemble</td><td class="r">à cadrer</td><td class="r">à cadrer</td></tr>
+    </table>
+
+    <h3>Échéancier de règlement</h3>
+    <table>
+      <tr><th>Jalon validé par {{CLIENT}}</th><th class="r">Part</th><th class="r">Montant HT</th></tr>
+      <tr><td>Lancement du projet</td><td class="r">30 %</td><td class="r">3 870 €</td></tr>
+      <tr><td>Mise à disposition du pilote</td><td class="r">40 %</td><td class="r">5 160 €</td></tr>
+      <tr><td>Validation du lot, avant mise en production définitive</td><td class="r">30 %</td><td class="r">3 870 €</td></tr>
+    </table>
+
+    <div class="two">
+      <div>
+        <h3>Après le pilote : exploitation</h3>
+        <ul>
+          <li><b>490 € HT par mois</b> : hébergement, sauvegardes, mises à jour, support, stockage 100&nbsp;Go (10 utilisateurs max).</li>
+          <li>Consommations IA et cloud <b>facturées chaque mois</b> selon la grille tarifaire transparente (page 3).</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Ce que le pilote n'inclut pas</h3>
+        <ul>
+          <li>Nouveaux processus métier, connecteurs ou développements hors des Lots 1 et 2.</li>
+          <li>Déploiement à d'autres collaborateurs au-delà de la préparation technique.</li>
+          <li>Données de santé, sans validation préalable d'un cadre adapté.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="t">Un investissement de départ, pas un coût unique</div>
+      <p style="margin-bottom:0">Le socle est construit une fois : vos futures automatisations s'appuient dessus au lieu de repartir de zéro. C'est ce qui rend les lots suivants rapides et abordables.</p>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>2</span></div>
+  </div>
+</div>
+
+<!-- ============ P3 EXPLOITATION & CONSOMMATION ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="head">
+      <div class="num">03 · EXPLOITATION</div>
+      <h2>Exploitation et consommation, en toute clarté</h2>
+    </div>
+
+    <p>Après la validation du pilote (mi-décembre), la facturation ne comporte que <b>deux composantes</b> : un <b>forfait mensuel fixe</b> et une <b>part variable liée à votre usage réel</b>.</p>
+
+    <h3>1 · L'infogérance : forfait mensuel fixe de 490 € HT, à partir du 1er janvier 2027</h3>
+    <p>Un abonnement qui garantit une plateforme fonctionnelle, à jour et entretenue :</p>
+    <table class="small">
+      <colgroup><col style="width:34%"><col style="width:66%"></colgroup>
+      <tr><th>Inclus dans le forfait</th><th>Ce que cela signifie pour vous</th></tr>
+      <tr><td>Hébergement AWS en Europe</td><td>Environnement isolé et cloisonné, dans une région européenne.</td></tr>
+      <tr><td>Supervision et sauvegardes</td><td>La plateforme est surveillée en continu et restaurable en cas d'incident.</td></tr>
+      <tr><td>Maintenance et mises à jour</td><td>Correctifs de sécurité et maintenance des composants et connecteurs.</td></tr>
+      <tr><td>Support technique</td><td>Un interlocuteur unique pour vos questions et vos incidents.</td></tr>
+      <tr><td>Reporting mensuel</td><td>Utilisation de la plateforme et gains mesurés, présentés chaque mois.</td></tr>
+      <tr><td>Stockage documentaire</td><td>Jusqu'à 100 Go de documents, pour 10 utilisateurs maximum.</td></tr>
+    </table>
+
+    <h3>2 · La part variable : consommations IA et cloud</h3>
+    <p>Chaque question posée à l'IA et chaque document traité mobilisent des services cloud facturés par les fournisseurs. Notre <b>tarif d'usage, ci-dessous</b>, est calé sur les tarifs AWS en vigueur :</p>
+    <table class="small" style="table-layout:fixed">
+      <colgroup><col style="width:30%"><col style="width:24%"><col style="width:13%"><col style="width:13%"><col style="width:20%"></colgroup>
+      <tr><th>Modèle</th><th>Point fort</th><th class="r">Entrée<br>(€/M&nbsp;tokens)</th><th class="r">Sortie<br>(€/M&nbsp;tokens)</th><th class="r">100 e-mails</th></tr>
+      <tr><td>Claude Sonnet 5 · Anthropic</td><td>Qualité maximale</td><td class="r">2,10&nbsp;€</td><td class="r">10,60&nbsp;€</td><td class="r">≈ 1,05&nbsp;€</td></tr>
+      <tr><td>Claude Haiku 4.5 · Anthropic</td><td>Rapide, économique</td><td class="r">1,05&nbsp;€</td><td class="r">5,30&nbsp;€</td><td class="r">≈ 0,55&nbsp;€</td></tr>
+      <tr><td>Amazon Nova Pro</td><td>Documents longs</td><td class="r">0,85&nbsp;€</td><td class="r">3,40&nbsp;€</td><td class="r">≈ 0,40&nbsp;€</td></tr>
+      <tr><td>Amazon Nova Lite</td><td>Grand volume</td><td class="r">0,06&nbsp;€</td><td class="r">0,26&nbsp;€</td><td class="r">≈ 0,03&nbsp;€</td></tr>
+      <tr><td>Mistral Large 3 · Mistral AI</td><td>Alternative européenne</td><td class="r">0,55&nbsp;€</td><td class="r">1,60&nbsp;€</td><td class="r">≈ 0,25&nbsp;€</td></tr>
+      <tr class="future"><td colspan="5">D'autres modèles sont accessibles à la demande ; la grille peut être révisée si les tarifs des fournisseurs de modèles évoluent.</td></tr>
+    </table>
+    <p style="font-size:9pt;color:var(--grey)">En clair : « entrée » = ce que l'IA lit, « sortie » = ce qu'elle rédige, et les prix sont exprimés par million de tokens (« M&nbsp;tokens »). Un e-mail coûte environ 3&nbsp;000 tokens lus et 400 tokens rédigés.</p>
+    <ul>
+      <li><b>Facturation mensuelle de l'usage réel</b> : la consommation variable est relevée et facturée chaque mois, au tarif de la grille ci-dessus.</li>
+    </ul>
+
+    <p class="nextnote">En dehors de ces deux lignes : évolutions et connecteurs font l'objet de <b>lots séparés</b>, chiffrés à l'avance.</p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>3</span></div>
+  </div>
+</div>
+
+<!-- ============ P4 PLANNING ============ -->
+<div class="page">
+  <div class="content">
+    <div class="head">
+      <div class="num">04 · PLANNING</div>
+      <h2>Un calendrier à validation progressive</h2>
+    </div>
+
+    <p>Chaque étape produit un livrable vérifiable avant de passer à la suivante. La maquette d'abord, un seul utilisateur ensuite, la décision d'extension en dernier : aucun déploiement prématuré.</p>
+
+    <table>
+      <tr><th>Période</th><th>Étape</th><th>Résultat attendu</th></tr>
+      <tr><td><b>Semaine du 12 octobre</b></td><td>3 jours de maquette collaborative</td><td>Conception avec Maxime Guyot et vos équipes : concept, interface, périmètre validés</td></tr>
+      <tr><td><b>Fin octobre à fin novembre</b></td><td>Réalisation des lots 1 et 2</td><td>Socle, accès, base documentaire et assistant e-mail développés, intégrés et testés</td></tr>
+      <tr><td><b>Début décembre</b></td><td>Pilote sur un utilisateur</td><td>Mise à disposition auprès de M.&nbsp;{{UTILISATEUR_PILOTE}} uniquement</td></tr>
+      <tr><td><b>Début à mi-décembre</b></td><td>Usage réel et ajustements</td><td>Retours d'usage, corrections, mesure des gains</td></tr>
+      <tr><td><b>Mi-décembre</b></td><td>Bilan et décision</td><td>Décision d'extension et définition du lot correspondant</td></tr>
+      <tr><td><b>Dès le 1er janvier 2027</b></td><td>Nouveaux utilisateurs et autres lots</td><td>Mise en place de nouveaux utilisateurs, lancement progressif des automatisations retenues avec {{CLIENT}}</td></tr>
+    </table>
+
+    <p style="font-size:9pt;color:var(--grey)">Les dates détaillées seront confirmées au lancement, selon la disponibilité des accès Microsoft 365, des documents retenus et des interlocuteurs de {{CLIENT}}.</p>
+
+    <h3>Comment nous travaillerons ensemble</h3>
+    <ul>
+      <li><b>Conception avec vos équipes</b> : trois jours d'ateliers en octobre pour construire la maquette et valider le périmètre, éviter tout dérapage.</li>
+      <li><b>Périmètre documentaire validé conjointement</b> : vous choisissez les documents et les accès mis à disposition.</li>
+      <li><b>Recueil structuré des retours</b> de M.&nbsp;{{UTILISATEUR_PILOTE}} pendant le pilote individuel.</li>
+      <li><b>Bilan formel à la mi-décembre</b>, puis ouverture à de nouveaux utilisateurs dès le 1er janvier 2027.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="t">Ce dont nous aurons besoin de votre côté</div>
+      <p style="margin-bottom:0">La disponibilité des équipes et de M.&nbsp;{{UTILISATEUR_PILOTE}} pour les ateliers d'octobre, celle de la société {{PRESTATAIRE_INFORMATIQUE}} pour l'accès aux connecteurs, un compte Microsoft 365 à connecter, un premier périmètre de documents autorisés et un interlocuteur décisionnaire pour chaque validation.</p>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>4</span></div>
+  </div>
+</div>
+
+<!-- ============ P4 SECURITE ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="head">
+      <div class="num">05 · SÉCURITÉ</div>
+      <h2>Vos données, sous votre contrôle</h2>
+    </div>
+
+    <p>La protection des informations de {{CLIENT}} est intégrée dès la conception. La plateforme fonctionne dans un environnement AWS cloisonné, <b>hébergé dans une région européenne</b>, accessible uniquement aux composants et aux utilisateurs que vous autorisez.</p>
+
+    <div class="callout">
+      <div class="t">Pourquoi AWS ?</div>
+      Leader mondial du cloud, audité selon les référentiels <b>ISO 27001</b> et <b>SOC 2</b>, avec des régions en <b>France et dans l'Union européenne</b>. Ses services d'IA d'entreprise (Amazon Bedrock) garantissent que vos contenus ne servent jamais à entraîner les modèles. C'est le socle utilisé au quotidien par des banques, des industriels et des organisations publiques exigeantes. AWS est également certifié <b>HDS</b> (hébergement de données de santé), un atout si le périmètre s'étend un jour à ce type de données.
+    </div>
+
+    <div class="two">
+      <div>
+        <h3>Principes retenus</h3>
+        <ul>
+          <li><b>Hébergement en Europe</b> : les données sont hébergées et traitées dans une région AWS située dans l'Union européenne, selon l'architecture retenue pour le projet.</li>
+          <li><b>Chiffrement des données</b> : en transit et au repos.</li>
+          <li>Accès limités au strict nécessaire, autorisations par rôle.</li>
+          <li><b>{{CLIENT}} reste propriétaire de ses données</b> et décide de ce que la plateforme peut utiliser.</li>
+          <li>Modèles d'IA intégrés via AWS Bedrock : <b>vos contenus ne servent jamais à entraîner les modèles</b>.</li>
+          <li>Pas de données de santé sans validation préalable du cadre applicable.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Cadre contractuel</h3>
+        <ul>
+          <li><b>Accord de confidentialité réciproque</b> signé avant tout accès à vos données ou systèmes : documents, e-mails, informations métier et financières limités aux besoins de la mission.</li>
+          <li><b>Cadre RGPD clair</b> : {{CLIENT}} responsable du traitement, Perfusion.dev sous-traitant, dans la limite du périmètre validé.</li>
+          <li><b>Responsabilités partagées</b> : {{CLIENT}} valide les sources, les comptes connectés et les catégories d'informations utilisables ; Perfusion.dev met en œuvre les accès convenus et signale toute adaptation nécessaire.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>L'exploitation au quotidien</h3>
+    <p>À compter de la validation du pilote (mi-décembre), l'exploitation repose sur <b>deux lignes seulement</b> : un <b>forfait d'infogérance</b> de 490&nbsp;€ HT par mois à partir du 1er janvier 2027 (hébergement, supervision, sauvegardes, maintenance, support, reporting, 100&nbsp;Go) et les consommations IA et cloud facturées à l'usage selon une grille tarifaire transparente. <b>Le détail complet figure en page 3.</b></p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>5</span></div>
+  </div>
+</div>
+
+<!-- ============ P5 PROCHAINES ETAPES ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="head">
+      <div class="num">06 · PROCHAINES ÉTAPES</div>
+      <h2>Cinq décisions pour démarrer</h2>
+    </div>
+
+    <table>
+      <tr><th style="width:8mm" class="r">1</th><td><b>Valider le pilote</b> : cas d'usage e-mail, premier utilisateur (M.&nbsp;{{UTILISATEUR_PILOTE}}) et critères de réussite.</td></tr>
+      <tr><th class="r">2</th><td><b>Planifier les 3 jours de maquette</b> avec Maxime Guyot et les équipes, en octobre 2026.</td></tr>
+      <tr><th class="r">3</th><td><b>Préparer les accès</b> : compte Microsoft 365, documents autorisés, responsables internes désignés.</td></tr>
+      <tr><th class="r">4</th><td><b>Lancer le pilote début décembre</b> et mesurer les premiers gains en conditions réelles.</td></tr>
+      <tr><th class="r">5</th><td><b>Faire le bilan à la mi-décembre</b> et décider de l'extension du dispositif.</td></tr>
+    </table>
+
+    <h3>Les points à valider et contractualiser</h3>
+    <table>
+      <tr><th>Sujet</th><th>Base proposée</th></tr>
+      <tr><td>Pilote</td><td>Maquettage, déploiement AWS + Lots 1 et 2 : 21,5 jours, forfait de 12 900 € HT</td></tr>
+      <tr><td>Règlement</td><td>30 % au lancement · 40 % à la mise à disposition du pilote · 30 % à la validation</td></tr>
+      <tr><td>Infogérance</td><td>490 € HT par mois à partir du 1er janvier 2027, jusqu'à 10 utilisateurs et 100 Go</td></tr>
+      <tr><td>Consommations</td><td>Tarif d'usage IA et cloud selon une grille transparente (page 3), relevé et facturé chaque mois</td></tr>
+      <tr><td>Confidentialité</td><td>Accord réciproque : AWS Europe, chiffrement en transit et au repos, accès validés</td></tr>
+      <tr><td>Lots futurs</td><td>Cadrage, budget et validation distincts avant chaque lancement</td></tr>
+    </table>
+
+    <div class="callout">
+      <div class="t">Décision attendue</div>
+      <p style="margin-bottom:0"><b>Valider le devis, signer l'accord de confidentialité et fixer la réunion de lancement.</b> Le projet peut démarrer dès la semaine du 12 octobre.</p>
+    </div>
+
+    <div class="sig">
+      <div class="sigbox">
+        <div class="who">Pour {{CLIENT}}</div>
+        <div class="sigline">Nom, fonction :</div>
+        <div class="sigline">Date :</div>
+        <div class="sigline">Signature :</div>
+      </div>
+      <div class="sigbox">
+        <div class="who">Pour Perfusion.dev</div>
+        <div class="sigline">Maxime Guyot</div>
+        <div class="sigline">Date :</div>
+        <div class="sigline">Signature :</div>
+      </div>
+    </div>
+
+    <div class="legal">
+      <b>SARL perfusion.dev</b>, 11 rue des Trois Tilleuls, 14310 Villers Bocage<br>
+      Tél : +33 6 63 33 82 95 · office@perfusion.dev<br>
+      SARL au capital de 1 000 € · SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919
+    </div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE A ============ -->
+<div class="page">
+  <div class="content">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE A</span>
+      <h2>Lot 1 · Le socle de la plateforme</h2>
+    </div>
+
+    <p>Le socle technique crée la fondation commune à toutes les automatisations futures : elle est construite une fois, puis enrichie lot après lot, sans reconstruction à chaque nouveau besoin.</p>
+
+    <h3>Socle technique et accès maîtrisés</h3>
+    <ul>
+      <li>Environnement d'exécution cloisonné, hébergé sur AWS en Europe.</li>
+      <li>Authentification des utilisateurs et gestion des rôles.</li>
+      <li>Cloisonnement des accès : chacun n'utilise que les données et fonctions autorisées.</li>
+      <li>Interface web conversationnelle, accessible depuis un navigateur.</li>
+      <li>Architecture prête à accueillir de nouveaux utilisateurs, connecteurs et automatisations.</li>
+    </ul>
+
+    <h3>Base documentaire et recherche contextuelle</h3>
+    <p>La plateforme retrouve les passages utiles dans les documents autorisés, puis s'appuie sur eux pour enrichir les réponses produites, plutôt que de fournir des réponses génériques.</p>
+    <ul>
+      <li>Connexion à un premier périmètre documentaire validé par {{CLIENT}}.</li>
+      <li>Import et indexation des principaux formats bureautiques, notamment PDF et Word.</li>
+      <li>Recherche contextuelle dans les documents autorisés, préparation des droits par utilisateur.</li>
+      <li>Capacité initiale allant jusqu'à 100 Go de documents.</li>
+    </ul>
+
+    <h3>Connexion à Microsoft 365</h3>
+    <p>Le pilote connecte un premier compte Microsoft 365 pour lire les messages nécessaires au traitement et créer des brouillons dans la messagerie. L'architecture permettra ensuite d'ajouter individuellement d'autres collaborateurs.</p>
+
+    <p style="margin-top:6mm"><span class="price-tag">Forfait du lot 1 : 4 800 € HT · 8 jours de réalisation</span></p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>Annexe A</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE B ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE B</span>
+      <h2>Lot 2 · L'assistant e-mail de la Direction</h2>
+    </div>
+
+    <p>La phase démarre par <b>3 jours de maquette collaborative</b> avec vos équipes (semaine du 12 octobre) pour valider le concept et l'interface. Le premier cas d'usage est ensuite déployé début décembre auprès d'un seul utilisateur, M.&nbsp;{{UTILISATEUR_PILOTE}}. Objectif : réduire le temps consacré aux messages répétitifs, tout en maintenant une validation humaine systématique.</p>
+
+    <h3>Comment fonctionne l'assistant</h3>
+    <table>
+      <tr><th style="width:8mm" class="r">1</th><td>Analyse le message reçu, son contexte et l'historique de l'échange.</td></tr>
+      <tr><th class="r">2</th><td>Détermine si une réponse semble nécessaire.</td></tr>
+      <tr><th class="r">3</th><td>Recherche, si utile, les informations pertinentes dans les documents internes autorisés.</td></tr>
+      <tr><th class="r">4</th><td>Génère une proposition de réponse adaptée.</td></tr>
+      <tr><th class="r">5</th><td>Crée automatiquement un brouillon dans Microsoft 365.</td></tr>
+      <tr><th class="r">6</th><td>Laisse l'utilisateur relire, modifier et valider avant tout envoi.</td></tr>
+    </table>
+
+    <div class="callout">
+      <div class="t">Aucun envoi automatique pendant cette première phase</div>
+      <p style="margin-bottom:0">L'utilisateur conserve la maîtrise complète de chaque réponse envoyée.</p>
+    </div>
+
+    <h3>Personnalisation pendant le pilote</h3>
+    <p>Les retours d'usage permettront d'ajuster progressivement le ton, le niveau de détail, les catégories de messages à traiter, les correspondants particuliers et l'exploitation du contexte documentaire.</p>
+
+    <h3>Mesure du retour sur investissement</h3>
+    <table>
+      <tr><th>Indicateur</th><th>Finalité</th></tr>
+      <tr><td>Brouillons générés et utilisés</td><td>Mesurer l'adoption réelle</td></tr>
+      <tr><td>Niveau de modification des brouillons</td><td>Apprécier la pertinence des propositions</td></tr>
+      <tr><td>Traitements automatisés</td><td>Suivre le volume pris en charge</td></tr>
+      <tr><td>Temps économisé estimé</td><td>Évaluer le retour sur investissement</td></tr>
+    </table>
+
+    <p style="margin-top:6mm"><span class="price-tag">Forfait du lot 2 : 4 800 € HT · 8 jours de réalisation</span></p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>Annexe B</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE C ============ -->
+<div class="page">
+  <div class="content">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE C</span>
+      <h2>La trajectoire après le pilote</h2>
+    </div>
+
+    <p>Le pilote e-mail est le premier usage de la plateforme. Dès le 1er janvier 2027, la plateforme pourra accueillir de nouveaux utilisateurs, et les autres processus retenus avec {{CLIENT}} pourront être intégrés progressivement, chacun avec son périmètre, son budget et son planning validés séparément.</p>
+
+    <h3>Cas d'usage déjà envisagés avec {{CLIENT}}</h3>
+    <ul>
+      <li>Extension de l'assistant e-mail aux collaborateurs, avec résumés et priorisation.</li>
+      <li>Gestion et optimisation des plannings selon les contraintes internes.</li>
+      <li>Assistance à la rédaction de documents administratifs et juridiques.</li>
+      <li>Analyse et comparaison des factures fournisseurs et de l'évolution des coûts.</li>
+      <li>Exploitation de données comptables et création de rappels métiers.</li>
+      <li>Automatisations SMS, logistiques ou liées aux tournées.</li>
+    </ul>
+
+    <h3>Ordres de grandeur indicatifs</h3>
+    <p>Grâce au socle déjà en place, chaque nouveau module s'ajoute à la plateforme existante au lieu d'exiger un nouveau projet :</p>
+    <table>
+      <tr><th>Type de lot futur</th><th class="r">Montant indicatif HT</th></tr>
+      <tr><td>Cas d'usage métier ciblé, s'appuyant sur le socle existant (ex. rédaction de documents, analyse des factures fournisseurs)</td><td class="r">À partir de 2 000 € HT</td></tr>
+      <tr><td>Projet métier plus large, à découper si besoin (ex. gestion des plannings, optimisation des tournées)</td><td class="r">Généralement à partir de 4 000 € HT, selon le périmètre</td></tr>
+    </table>
+    <p><b>Ordres de grandeur non contractuels</b>, établis sur la base des besoins identifiés à ce jour. Chaque lot peut commencer par un périmètre restreint, puis être enrichi après validation des premiers gains.</p>
+
+    <div class="callout">
+      <div class="t">Ce que cette première phase vous apporte</div>
+      <p style="margin-bottom:0">Un outil utilisable rapidement, un gain de temps mesuré sur un cas réel, et la liberté de décider des automatisations suivantes. Chaque nouveau cas d'usage enrichit la même plateforme, sans remettre en cause l'investissement initial.</p>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>Annexe C</span></div>
+  </div>
+</div>
+
+</body>
+</html>
