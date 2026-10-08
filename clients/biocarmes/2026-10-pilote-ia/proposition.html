@@ -99,11 +99,20 @@
   .tight p { margin-bottom: 2mm; }
   .tight ul li { margin-bottom: 1.2mm; }
   .tight .step { padding: 3.5mm 3.5mm; }
-  .tight .sigbox { padding-bottom: 3.5mm; }
+  .tight .sigbox { padding-bottom: 2.5mm; }
   .tight .sigline { margin-top: 2.2mm; }
   .tight .sig { margin-top: 2.5mm; }
   .tight .legal { margin-top: 2mm; padding-top: 2mm; line-height: 1.4; }
   .pb14 .content { padding-bottom: 10mm; }
+  .devis-sig { margin-top: 2mm; }
+  .devis-sig .sigbox { padding-top: 2.5mm; padding-bottom: 1.5mm; }
+  .devis-sig .sigline { margin-top: 1.5mm; }
+
+  .devis-head { display: flex; gap: 4mm; margin: 0 0 3mm 0; }
+  .devis-head .dbox { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-left: 1.2mm solid var(--purple2); border-radius: 0 2mm 2mm 0; padding: 2.5mm 4mm; }
+  .dbox .dlab { font-size: 7.5pt; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple2); font-weight: 700; }
+  .dbox .dval { font-size: 11pt; font-weight: 700; color: var(--dark); margin-top: 0.8mm; }
+  .dbox .dsub { font-size: 8.8pt; color: var(--grey); margin-top: 0.5mm; }
 
   .annexe-head { display: flex; align-items: baseline; gap: 4mm; border-bottom: 2px solid var(--purple); padding-bottom: 3mm; margin-bottom: 6mm; }
   .annexe-head .tag { font-size: 9pt; font-weight: 700; color: #fff; background: var(--purple); padding: 1.2mm 3mm; border-radius: 1.5mm; letter-spacing: 1px; }
@@ -133,14 +142,14 @@
         <div class="lbl">Pilote réel en conditions d'usage dès les premiers jours, auprès de M.&nbsp;Chemla</div>
       </div>
       <div class="card">
-        <div class="big">25&nbsp;€ <span class="u">HT/mois</span></div>
-        <div class="lbl">par utilisateur, 5&nbsp;€ de consommation IA inclus<br>dès janvier 2027,<br>20 utilisateurs et 100 Go</div>
+        <div class="big">20&nbsp;€ <span class="u">HT/mois</span></div>
+        <div class="lbl">par utilisateur, 10&nbsp;€ de consommation IA inclus<br>dès janvier 2027,<br>20 utilisateurs et 100 Go</div>
       </div>
     </div>
     <div class="toc">
       <div class="toc-title">Contenu du document</div>
       <div class="toc-items">
-        <span>01 L'essentiel</span><span>02 Budget</span><span>03 Exploitation</span><span>04 Planning</span><span>05 Sécurité</span><span>06 Prochaines étapes</span><span>Annexes A · B · C</span>
+        <span>01 Devis</span><span>02 L'essentiel</span><span>03 Budget</span><span>04 Exploitation</span><span>05 Planning</span><span>06 Sécurité</span><span>07 Prochaines étapes</span><span>Annexes A · B · C</span>
       </div>
     </div>
     <div class="foot">
@@ -148,6 +157,78 @@
       <div>Présentée par <b>Perfusion.dev</b> · Maxime Guyot</div>
       <div><b>8 octobre 2026</b></div>
     </div>
+  </div>
+</div>
+
+<!-- ============ 01 DEVIS ============ -->
+<div class="page tight pb14">
+  <div class="content">
+    <div class="head">
+      <div class="num">01 · DEVIS</div>
+      <h2>Devis de la phase pilote</h2>
+    </div>
+
+    <div class="devis-head">
+      <div class="dbox">
+        <div class="dlab">Émetteur</div>
+        <div class="dval">SARL perfusion.dev</div>
+        <div class="dsub">Maxime Guyot · maxime.guyot@perfusion.dev</div>
+      </div>
+      <div class="dbox">
+        <div class="dlab">Client</div>
+        <div class="dval">SELAS BIOCARMES</div>
+        <div class="dsub">7 rue des Carmes, 14000 Caen</div>
+      </div>
+    </div>
+    <p style="font-size:9pt;color:var(--grey);margin-top:0">Devis établi le 8 octobre 2026, valable jusqu'au 7 novembre 2026 · Règlement par virement en trois échéances.</p>
+
+    <table class="small xdense">
+      <tr><th>Prestation</th><th class="r">Charge estimée</th><th class="r">Montant HT</th></tr>
+      <tr><td>Maquettage, première phase : maquette collaborative</td><td class="r">3 jours</td><td class="r">1 800 €</td></tr>
+      <tr><td>Lot 1 · Socle de la plateforme IA</td><td class="r">8 jours</td><td class="r">4 800 €</td></tr>
+      <tr><td>Lot 2 · Assistant e-mail Direction</td><td class="r">8 jours</td><td class="r">4 800 €</td></tr>
+      <tr><td>Déploiement : mise en place du service sur AWS</td><td class="r">2,5 jours</td><td class="r">1 500 €</td></tr>
+      <tr class="total"><td>Total HT</td><td class="r">21,5 jours</td><td class="r">12 900 €</td></tr>
+      <tr><td>TVA 20 %</td><td class="r"></td><td class="r">2 580 €</td></tr>
+      <tr class="total"><td>Total TTC</td><td class="r"></td><td class="r">15 480 €</td></tr>
+    </table>
+
+    <table class="small xdense">
+      <tr class="future-head"><td colspan="2">À partir du 1er janvier 2027</td></tr>
+      <tr><th>Poste récurrent</th><th class="r">Tarif</th></tr>
+      <tr><td>Abonnement par utilisateur : 10 € de consommation IA inclus, support · pour 20 utilisateurs : 400 € HT par mois</td><td class="r">20 € HT / mois et par utilisateur</td></tr>
+      <tr><td>Consommation IA au-delà de l'inclus : grille tarifaire en page 4</td><td class="r">à l'usage</td></tr>
+    </table>
+
+    <h3>Échéancier de règlement, par virement</h3>
+    <table class="small xdense">
+      <tr><th>Jalon validé par Biocarmes</th><th class="r">Part</th><th class="r">Montant HT</th><th class="r">Montant TTC</th></tr>
+      <tr><td>Lancement du projet</td><td class="r">30 %</td><td class="r">3 870 €</td><td class="r">4 644 €</td></tr>
+      <tr><td>Mise à disposition du pilote</td><td class="r">40 %</td><td class="r">5 160 €</td><td class="r">6 192 €</td></tr>
+      <tr><td>Validation du lot, avant mise en production définitive</td><td class="r">30 %</td><td class="r">3 870 €</td><td class="r">4 644 €</td></tr>
+      <tr class="total"><td>Total</td><td class="r">100 %</td><td class="r">12 900 €</td><td class="r">15 480 €</td></tr>
+    </table>
+
+    <p style="font-size:9pt;color:var(--grey)"><b>Facturation</b> : facture à chaque jalon validé avec coordonnées de virement ; référence : Biocarmes + jalon.</p>
+
+    <p class="nextnote"><b>Estimation à cadrer</b> : montants confirmés après la maquette ; lots futurs en devis séparés.</p>
+
+    <div class="sig devis-sig">
+      <div class="sigbox">
+        <div class="who">Signature du client</div>
+        <div class="sigline">Nom, fonction :</div>
+        <div class="sigline">Date :</div>
+        <div class="sigline">Signature :</div>
+      </div>
+    </div>
+
+    <div class="legal">
+      <b>SARL perfusion.dev</b>, 11 rue des Trois Tilleuls, 14310 Villers Bocage · Tél : +33 6 63 33 82 95 · maxime.guyot@perfusion.dev<br>
+      SARL au capital de 1 000 € · SIRET 919 991 919 00011 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919<br>
+      Pénalités de retard : taux directeur BCE + 10 points · Indemnité forfaitaire de recouvrement : 40 €.
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>1</span></div>
   </div>
 </div>
 
@@ -203,7 +284,7 @@
       </div>
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>1</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>2</span></div>
   </div>
 </div>
 
@@ -211,7 +292,7 @@
 <div class="page">
   <div class="content tight">
     <div class="head">
-      <div class="num">02 · BUDGET</div>
+      <div class="num">03 · BUDGET</div>
       <h2>Un forfait clair, réglé au fil des jalons</h2>
     </div>
 
@@ -228,20 +309,12 @@
       <tr class="future"><td>Lots futurs : cas d'usage définis ensemble</td><td class="r">à cadrer</td><td class="r">à cadrer</td></tr>
     </table>
 
-    <h3>Échéancier de règlement</h3>
-    <table>
-      <tr><th>Jalon validé par Biocarmes</th><th class="r">Part</th><th class="r">Montant HT</th></tr>
-      <tr><td>Lancement du projet</td><td class="r">30 %</td><td class="r">3 870 €</td></tr>
-      <tr><td>Mise à disposition du pilote</td><td class="r">40 %</td><td class="r">5 160 €</td></tr>
-      <tr><td>Validation du lot, avant mise en production définitive</td><td class="r">30 %</td><td class="r">3 870 €</td></tr>
-    </table>
-
     <div class="two">
       <div>
         <h3>Après le pilote : exploitation</h3>
         <ul>
-          <li><b>25 € HT par mois et par utilisateur</b> : hébergement, sauvegardes, support, 5 € de consommation IA inclus. Pour 20 utilisateurs : 500 € HT par mois.</li>
-          <li>Consommation IA <b>au-delà de l'inclus</b> : facturée chaque mois à l'usage, selon la grille (page 3).</li>
+          <li><b>20 € HT par mois et par utilisateur</b> : hébergement, sauvegardes, support, 10 € de consommation IA inclus. Pour 20 utilisateurs : 400 € HT par mois.</li>
+          <li>Consommation IA <b>au-delà de l'inclus</b> : facturée chaque mois à l'usage, selon la grille (page 4).</li>
         </ul>
       </div>
       <div>
@@ -259,7 +332,7 @@
       <p style="margin-bottom:0">Le socle est construit une fois : vos futures automatisations s'appuient dessus au lieu de repartir de zéro. C'est ce qui rend les lots suivants rapides et abordables.</p>
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>2</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>3</span></div>
   </div>
 </div>
 
@@ -267,18 +340,18 @@
 <div class="page">
   <div class="content tight">
     <div class="head">
-      <div class="num">03 · EXPLOITATION</div>
+      <div class="num">04 · EXPLOITATION</div>
       <h2>Exploitation et consommation, en toute clarté</h2>
     </div>
 
     <p>Après le pilote (mi-décembre), deux lignes de facturation seulement : un <b>abonnement mensuel par utilisateur</b> et une <b>part variable liée à l'usage réel</b>.</p>
 
-    <h3>1 · L'abonnement : 25 € HT par mois et par utilisateur, à partir du 1er janvier 2027</h3>
-    <p>Une plateforme fonctionnelle, à jour et entretenue. Pour 20 utilisateurs : <b>500 € HT par mois</b> :</p>
+    <h3>1 · L'abonnement : 20 € HT par mois et par utilisateur, à partir du 1er janvier 2027</h3>
+    <p>Une plateforme fonctionnelle, à jour et entretenue. Pour 20 utilisateurs : <b>400 € HT par mois</b> :</p>
     <table class="small xdense">
       <colgroup><col style="width:34%"><col style="width:66%"></colgroup>
       <tr><th>Inclus dans l'abonnement</th><th>Ce que cela signifie pour vous</th></tr>
-      <tr><td>Consommation IA incluse</td><td><b>5 € par utilisateur et par mois</b>. <b>Estimation</b> : environ 270 e-mails préparés (Claude Haiku 4.5), à confirmer sur l'usage réel.</td></tr>
+      <tr><td>Consommation IA incluse</td><td><b>10 € par utilisateur et par mois</b>. <b>Estimation</b> : environ 540 e-mails préparés (Claude Haiku 4.5), à confirmer sur l'usage réel.</td></tr>
       <tr><td>Hébergement AWS en Europe</td><td>Environnement isolé et cloisonné, dans une région européenne.</td></tr>
       <tr><td>Supervision et sauvegardes</td><td>La plateforme est surveillée en continu et restaurable en cas d'incident.</td></tr>
       <tr><td>Maintenance et mises à jour</td><td>Correctifs de sécurité et maintenance des composants et connecteurs.</td></tr>
@@ -288,7 +361,7 @@
     </table>
 
     <h3>2 · La part variable : consommation au-delà de l'inclus</h3>
-    <p>Chaque utilisateur dispose de <b>5 € de consommation IA par mois</b>, déjà inclus. <b>Au-delà, facturation à l'usage</b>. Le tarif ci-dessous couvre la préparation d'un e-mail :</p>
+    <p>Chaque utilisateur dispose de <b>10 € de consommation IA par mois</b>, déjà inclus. <b>Au-delà, facturation à l'usage</b>. Le tarif ci-dessous couvre la préparation d'un e-mail :</p>
     <table class="small xdense" style="table-layout:fixed">
       <colgroup><col style="width:30%"><col style="width:22%"><col style="width:14%"><col style="width:14%"><col style="width:20%"></colgroup>
       <tr><th>Modèle</th><th>Point fort</th><th class="r">Entrée<br>(€/M&nbsp;tokens)</th><th class="r">Sortie<br>(€/M&nbsp;tokens)</th><th class="r">Estimation<br>100 e-mails<br>préparés</th></tr>
@@ -301,12 +374,12 @@
     </table>
     <p style="font-size:9pt;color:var(--grey)"><b>Estimation des consommations d'e-mails</b>, à confirmer sur l'usage réel. « 100 e-mails préparés » : calcul indicatif (lecture, recherche, reclassement, rédaction, une retouche pour environ un e-mail sur quatre). Lecture par un modèle léger si la rédaction est plus coûteuse. « Entrée » : ce que l'IA lit. « Sortie » : ce qu'elle rédige. Région européenne.</p>
     <ul>
-      <li><b>Facturation mensuelle de l'usage réel</b> : au-delà des 5 € inclus par utilisateur, consommation relevée et facturée au tarif de la grille. Dans l'inclus, <b>rien à payer en plus</b>.</li>
+      <li><b>Facturation mensuelle de l'usage réel</b> : au-delà des 10 € inclus par utilisateur, consommation relevée et facturée au tarif de la grille. Dans l'inclus, <b>rien à payer en plus</b>.</li>
     </ul>
 
-    <p class="nextnote"><b>Estimation</b> : les 5 € inclus couvrent un usage régulier de l'assistant e-mail, à confirmer sur l'usage réel. Évolutions et connecteurs : <b>lots séparés</b>, chiffrés à l'avance.</p>
+    <p class="nextnote"><b>Estimation</b> : les 10 € inclus couvrent un usage régulier de l'assistant e-mail, à confirmer sur l'usage réel. Évolutions et connecteurs : <b>lots séparés</b>, chiffrés à l'avance.</p>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>3</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>4</span></div>
   </div>
 </div>
 
@@ -314,7 +387,7 @@
 <div class="page">
   <div class="content">
     <div class="head">
-      <div class="num">04 · PLANNING</div>
+      <div class="num">05 · PLANNING</div>
       <h2>Un calendrier à validation progressive</h2>
     </div>
 
@@ -345,7 +418,7 @@
       <p style="margin-bottom:0">La disponibilité des équipes et de M.&nbsp;Chemla pour les ateliers d'octobre, celle de la société Master2i pour l'accès aux connecteurs, un compte Microsoft 365 à connecter, un premier périmètre de documents autorisés et un interlocuteur décisionnaire pour chaque validation.</p>
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>4</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>5</span></div>
   </div>
 </div>
 
@@ -353,7 +426,7 @@
 <div class="page">
   <div class="content tight">
     <div class="head">
-      <div class="num">05 · SÉCURITÉ</div>
+      <div class="num">06 · SÉCURITÉ</div>
       <h2>Vos données, sous votre contrôle</h2>
     </div>
 
@@ -387,9 +460,9 @@
     </div>
 
     <h3>L'exploitation au quotidien</h3>
-    <p>À compter de la validation du pilote (mi-décembre), l'exploitation repose sur <b>deux lignes seulement</b> : un <b>abonnement de 25&nbsp;€ HT par mois et par utilisateur</b> à partir du 1er janvier 2027 (hébergement, supervision, sauvegardes, maintenance, support, reporting, 100&nbsp;Go, 5&nbsp;€ de consommation IA inclus par utilisateur) et la consommation au-delà de l'inclus, facturée à l'usage selon une grille tarifaire transparente. <b>Le détail complet figure en page 3.</b></p>
+    <p>À compter de la validation du pilote (mi-décembre), l'exploitation repose sur <b>deux lignes seulement</b> : un <b>abonnement de 20&nbsp;€ HT par mois et par utilisateur</b> à partir du 1er janvier 2027 (hébergement, supervision, sauvegardes, maintenance, support, reporting, 100&nbsp;Go, 10&nbsp;€ de consommation IA inclus par utilisateur) et la consommation au-delà de l'inclus, facturée à l'usage selon une grille tarifaire transparente. <b>Le détail complet figure en page 4.</b></p>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>5</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>6</span></div>
   </div>
 </div>
 
@@ -397,7 +470,7 @@
 <div class="page pb14">
   <div class="content tight">
     <div class="head">
-      <div class="num">06 · PROCHAINES ÉTAPES</div>
+      <div class="num">07 · PROCHAINES ÉTAPES</div>
       <h2>Cinq décisions pour démarrer</h2>
     </div>
 
@@ -414,8 +487,8 @@
       <tr><th>Sujet</th><th>Base proposée</th></tr>
       <tr><td>Pilote</td><td>Maquettage, déploiement AWS + Lots 1 et 2 : 21,5 jours, forfait de 12 900 € HT</td></tr>
       <tr><td>Règlement</td><td>30 % au lancement · 40 % à la mise à disposition du pilote · 30 % à la validation</td></tr>
-      <tr><td>Abonnement</td><td>25 € HT par mois et par utilisateur, 5 € de consommation IA inclus ; 20 utilisateurs : 500 € HT par mois, dès le 1er janvier 2027, 100 Go</td></tr>
-      <tr><td>Consommations</td><td>Au-delà des 5 € inclus : facturation à l'usage selon la grille (page 3)</td></tr>
+      <tr><td>Abonnement</td><td>20 € HT par mois et par utilisateur, 10 € de consommation IA inclus ; 20 utilisateurs : 400 € HT par mois, dès le 1er janvier 2027, 100 Go</td></tr>
+      <tr><td>Consommations</td><td>Au-delà des 10 € inclus : facturation à l'usage selon la grille (page 4)</td></tr>
       <tr><td>Confidentialité</td><td>Accord réciproque : AWS Europe, chiffrement en transit et au repos, accès validés</td></tr>
       <tr><td>Lots futurs</td><td>Cadrage, budget et validation distincts avant chaque lancement</td></tr>
     </table>
@@ -425,28 +498,7 @@
       <p style="margin-bottom:0"><b>Valider le devis, signer l'accord de confidentialité et fixer la réunion de lancement.</b> Le projet peut démarrer dès la semaine du 12 octobre.</p>
     </div>
 
-    <div class="sig">
-      <div class="sigbox">
-        <div class="who">Pour Biocarmes</div>
-        <div class="sigline">Nom, fonction :</div>
-        <div class="sigline">Date :</div>
-        <div class="sigline">Signature :</div>
-      </div>
-      <div class="sigbox">
-        <div class="who">Pour Perfusion.dev</div>
-        <div class="sigline">Maxime Guyot</div>
-        <div class="sigline">Date :</div>
-        <div class="sigline">Signature :</div>
-      </div>
-    </div>
-
-    <div class="legal">
-      <b>SARL perfusion.dev</b>, 11 rue des Trois Tilleuls, 14310 Villers Bocage<br>
-      Tél : +33 6 63 33 82 95 · office@perfusion.dev<br>
-      SARL au capital de 1 000 € · SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919
-    </div>
-
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>6</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>7</span></div>
   </div>
 </div>
 
