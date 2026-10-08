@@ -92,15 +92,18 @@
   tr.future td { background: #FAF9FC; color: var(--grey); font-size: 9.5pt; }
   table.small { font-size: 9.2pt; }
   table.small td { padding: 1.8mm 4mm; }
-  .tight h3 { margin: 3.5mm 0 2mm 0; }
+  table.small.xdense th, table.small.xdense td { padding: 1.1mm 3.5mm; }
+  .xdense th, .xdense td { padding: 1.6mm 3.5mm; line-height: 1.35; }
+  .tight h3 { margin: 2.8mm 0 1.6mm 0; }
   .tight .callout { margin: 3mm 0; padding: 3.5mm 5mm; }
   .tight p { margin-bottom: 2mm; }
   .tight ul li { margin-bottom: 1.2mm; }
   .tight .step { padding: 3.5mm 3.5mm; }
-  .tight .sigbox { padding-bottom: 7mm; }
-  .tight .sigline { margin-top: 4mm; }
-  .tight .sig { margin-top: 3mm; }
-  .tight .legal { margin-top: 2.5mm; padding-top: 2.5mm; }
+  .tight .sigbox { padding-bottom: 3.5mm; }
+  .tight .sigline { margin-top: 2.2mm; }
+  .tight .sig { margin-top: 2.5mm; }
+  .tight .legal { margin-top: 2mm; padding-top: 2mm; line-height: 1.4; }
+  .pb14 .content { padding-bottom: 10mm; }
 
   .annexe-head { display: flex; align-items: baseline; gap: 4mm; border-bottom: 2px solid var(--purple); padding-bottom: 3mm; margin-bottom: 6mm; }
   .annexe-head .tag { font-size: 9pt; font-weight: 700; color: #fff; background: var(--purple); padding: 1.2mm 3mm; border-radius: 1.5mm; letter-spacing: 1px; }
@@ -130,8 +133,8 @@
         <div class="lbl">Pilote réel en conditions d'usage dès les premiers jours, auprès de M.&nbsp;Chemla</div>
       </div>
       <div class="card">
-        <div class="big">490&nbsp;€ <span class="u">HT/mois</span></div>
-        <div class="lbl">Infogérance<br>dès janvier 2027,<br>10 utilisateurs max et 100 Go</div>
+        <div class="big">25&nbsp;€ <span class="u">HT/mois</span></div>
+        <div class="lbl">par utilisateur, 5&nbsp;€ de consommation IA inclus<br>dès janvier 2027,<br>20 utilisateurs et 100 Go</div>
       </div>
     </div>
     <div class="toc">
@@ -143,7 +146,7 @@
     <div class="foot">
       <div>Préparée pour <b>Biocarmes</b></div>
       <div>Présentée par <b>Perfusion.dev</b> · Maxime Guyot</div>
-      <div><b>6 octobre 2026</b></div>
+      <div><b>8 octobre 2026</b></div>
     </div>
   </div>
 </div>
@@ -237,8 +240,8 @@
       <div>
         <h3>Après le pilote : exploitation</h3>
         <ul>
-          <li><b>490 € HT par mois</b> : hébergement, sauvegardes, mises à jour, support, stockage 100&nbsp;Go (10 utilisateurs max).</li>
-          <li>Consommations IA et cloud <b>facturées chaque mois</b> selon la grille tarifaire transparente (page 3).</li>
+          <li><b>25 € HT par mois et par utilisateur</b> : hébergement, sauvegardes, support, 5 € de consommation IA inclus. Pour 20 utilisateurs : 500 € HT par mois.</li>
+          <li>Consommation IA <b>au-delà de l'inclus</b> : facturée chaque mois à l'usage, selon la grille (page 3).</li>
         </ul>
       </div>
       <div>
@@ -268,39 +271,40 @@
       <h2>Exploitation et consommation, en toute clarté</h2>
     </div>
 
-    <p>Après la validation du pilote (mi-décembre), la facturation ne comporte que <b>deux composantes</b> : un <b>forfait mensuel fixe</b> et une <b>part variable liée à votre usage réel</b>.</p>
+    <p>Après le pilote (mi-décembre), deux lignes de facturation seulement : un <b>abonnement mensuel par utilisateur</b> et une <b>part variable liée à l'usage réel</b>.</p>
 
-    <h3>1 · L'infogérance : forfait mensuel fixe de 490 € HT, à partir du 1er janvier 2027</h3>
-    <p>Un abonnement qui garantit une plateforme fonctionnelle, à jour et entretenue :</p>
-    <table class="small">
+    <h3>1 · L'abonnement : 25 € HT par mois et par utilisateur, à partir du 1er janvier 2027</h3>
+    <p>Une plateforme fonctionnelle, à jour et entretenue. Pour 20 utilisateurs : <b>500 € HT par mois</b> :</p>
+    <table class="small xdense">
       <colgroup><col style="width:34%"><col style="width:66%"></colgroup>
-      <tr><th>Inclus dans le forfait</th><th>Ce que cela signifie pour vous</th></tr>
+      <tr><th>Inclus dans l'abonnement</th><th>Ce que cela signifie pour vous</th></tr>
+      <tr><td>Consommation IA incluse</td><td><b>5 € par utilisateur et par mois</b>, soit environ 270 e-mails préparés avec Claude Haiku 4.5, le modèle économique de la grille.</td></tr>
       <tr><td>Hébergement AWS en Europe</td><td>Environnement isolé et cloisonné, dans une région européenne.</td></tr>
       <tr><td>Supervision et sauvegardes</td><td>La plateforme est surveillée en continu et restaurable en cas d'incident.</td></tr>
       <tr><td>Maintenance et mises à jour</td><td>Correctifs de sécurité et maintenance des composants et connecteurs.</td></tr>
       <tr><td>Support technique</td><td>Un interlocuteur unique pour vos questions et vos incidents.</td></tr>
       <tr><td>Reporting mensuel</td><td>Utilisation de la plateforme et gains mesurés, présentés chaque mois.</td></tr>
-      <tr><td>Stockage documentaire</td><td>Jusqu'à 100 Go de documents, pour 10 utilisateurs maximum.</td></tr>
+      <tr><td>Stockage documentaire</td><td>Jusqu'à 100 Go de documents, pour l'ensemble de vos utilisateurs.</td></tr>
     </table>
 
-    <h3>2 · La part variable : consommations IA et cloud</h3>
-    <p>Chaque question posée à l'IA et chaque document traité mobilisent des services cloud facturés par les fournisseurs. Notre <b>tarif d'usage, ci-dessous</b>, est calé sur les tarifs AWS en vigueur :</p>
-    <table class="small" style="table-layout:fixed">
-      <colgroup><col style="width:30%"><col style="width:24%"><col style="width:13%"><col style="width:13%"><col style="width:20%"></colgroup>
-      <tr><th>Modèle</th><th>Point fort</th><th class="r">Entrée<br>(€/M&nbsp;tokens)</th><th class="r">Sortie<br>(€/M&nbsp;tokens)</th><th class="r">100 e-mails</th></tr>
-      <tr><td>Claude Sonnet 5 · Anthropic</td><td>Qualité maximale</td><td class="r">2,10&nbsp;€</td><td class="r">10,60&nbsp;€</td><td class="r">≈ 1,05&nbsp;€</td></tr>
-      <tr><td>Claude Haiku 4.5 · Anthropic</td><td>Rapide, économique</td><td class="r">1,05&nbsp;€</td><td class="r">5,30&nbsp;€</td><td class="r">≈ 0,55&nbsp;€</td></tr>
-      <tr><td>Amazon Nova Pro</td><td>Documents longs</td><td class="r">0,85&nbsp;€</td><td class="r">3,40&nbsp;€</td><td class="r">≈ 0,40&nbsp;€</td></tr>
-      <tr><td>Amazon Nova Lite</td><td>Grand volume</td><td class="r">0,06&nbsp;€</td><td class="r">0,26&nbsp;€</td><td class="r">≈ 0,03&nbsp;€</td></tr>
-      <tr><td>Mistral Large 3 · Mistral AI</td><td>Alternative européenne</td><td class="r">0,55&nbsp;€</td><td class="r">1,60&nbsp;€</td><td class="r">≈ 0,25&nbsp;€</td></tr>
-      <tr class="future"><td colspan="5">D'autres modèles sont accessibles à la demande ; la grille peut être révisée si les tarifs des fournisseurs de modèles évoluent.</td></tr>
+    <h3>2 · La part variable : consommation au-delà de l'inclus</h3>
+    <p>Chaque utilisateur dispose de <b>5 € de consommation IA par mois</b>, déjà inclus. <b>Au-delà, facturation à l'usage</b>. Préparer un e-mail mobilise plusieurs services : lecture du message, recherche dans la base documentaire, reclassement des extraits, rédaction et, parfois, une retouche. Le <b>tarif d'usage</b> ci-dessous les couvre :</p>
+    <table class="small xdense" style="table-layout:fixed">
+      <colgroup><col style="width:30%"><col style="width:22%"><col style="width:14%"><col style="width:14%"><col style="width:20%"></colgroup>
+      <tr><th>Modèle</th><th>Point fort</th><th class="r">Entrée<br>(€/M&nbsp;tokens)</th><th class="r">Sortie<br>(€/M&nbsp;tokens)</th><th class="r">100 e-mails<br>préparés</th></tr>
+      <tr><td>Claude Sonnet 5 · Anthropic</td><td>Qualité maximale</td><td class="r">2,62&nbsp;€</td><td class="r">13,12&nbsp;€</td><td class="r">≈ 3,15&nbsp;€</td></tr>
+      <tr><td>Claude Haiku 4.5 · Anthropic</td><td>Rapide, économique</td><td class="r">1,31&nbsp;€</td><td class="r">6,56&nbsp;€</td><td class="r">≈ 1,86&nbsp;€</td></tr>
+      <tr><td>Amazon Nova Pro</td><td>Documents longs</td><td class="r">1,10&nbsp;€</td><td class="r">4,39&nbsp;€</td><td class="r">≈ 1,56&nbsp;€</td></tr>
+      <tr><td>Amazon Nova Lite</td><td>Grand volume</td><td class="r">0,08&nbsp;€</td><td class="r">0,33&nbsp;€</td><td class="r">≈ 0,36&nbsp;€</td></tr>
+      <tr><td>Mistral Large 3 · Mistral AI</td><td>Alternative européenne</td><td class="r">0,60&nbsp;€</td><td class="r">1,79&nbsp;€</td><td class="r">≈ 1,12&nbsp;€</td></tr>
+      <tr class="future"><td colspan="5">D'autres modèles sont accessibles à la demande. La grille peut être révisée si les tarifs des fournisseurs évoluent.</td></tr>
     </table>
-    <p style="font-size:9pt;color:var(--grey)">En clair : « entrée » = ce que l'IA lit, « sortie » = ce qu'elle rédige, et les prix sont exprimés par million de tokens (« M&nbsp;tokens »). Un e-mail coûte environ 3&nbsp;000 tokens lus et 400 tokens rédigés.</p>
+    <p style="font-size:9pt;color:var(--grey)">« Entrée » : ce que l'IA lit. « Sortie » : ce qu'elle rédige, raisonnement compris. « 100 e-mails préparés » : lecture, recherche documentaire, reclassement, rédaction, et une retouche pour environ un e-mail sur quatre. Lecture par un modèle léger si le modèle de rédaction est plus coûteux. Tarifs indicatifs, région européenne.</p>
     <ul>
-      <li><b>Facturation mensuelle de l'usage réel</b> : la consommation variable est relevée et facturée chaque mois, au tarif de la grille ci-dessus.</li>
+      <li><b>Facturation mensuelle de l'usage réel</b> : au-delà des 5 € inclus par utilisateur, consommation relevée et facturée au tarif de la grille. Dans l'inclus, <b>rien à payer en plus</b>.</li>
     </ul>
 
-    <p class="nextnote">En dehors de ces deux lignes : évolutions et connecteurs font l'objet de <b>lots séparés</b>, chiffrés à l'avance.</p>
+    <p class="nextnote">Les 5 € inclus par utilisateur couvrent un usage régulier de l'assistant e-mail. Hors ces deux lignes : évolutions et connecteurs en <b>lots séparés</b>, chiffrés à l'avance.</p>
 
     <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>3</span></div>
   </div>
@@ -383,35 +387,35 @@
     </div>
 
     <h3>L'exploitation au quotidien</h3>
-    <p>À compter de la validation du pilote (mi-décembre), l'exploitation repose sur <b>deux lignes seulement</b> : un <b>forfait d'infogérance</b> de 490&nbsp;€ HT par mois à partir du 1er janvier 2027 (hébergement, supervision, sauvegardes, maintenance, support, reporting, 100&nbsp;Go) et les consommations IA et cloud facturées à l'usage selon une grille tarifaire transparente. <b>Le détail complet figure en page 3.</b></p>
+    <p>À compter de la validation du pilote (mi-décembre), l'exploitation repose sur <b>deux lignes seulement</b> : un <b>abonnement de 25&nbsp;€ HT par mois et par utilisateur</b> à partir du 1er janvier 2027 (hébergement, supervision, sauvegardes, maintenance, support, reporting, 100&nbsp;Go, 5&nbsp;€ de consommation IA inclus par utilisateur) et la consommation au-delà de l'inclus, facturée à l'usage selon une grille tarifaire transparente. <b>Le détail complet figure en page 3.</b></p>
 
     <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>5</span></div>
   </div>
 </div>
 
 <!-- ============ P5 PROCHAINES ETAPES ============ -->
-<div class="page">
+<div class="page pb14">
   <div class="content tight">
     <div class="head">
       <div class="num">06 · PROCHAINES ÉTAPES</div>
       <h2>Cinq décisions pour démarrer</h2>
     </div>
 
-    <table>
+    <table class="xdense">
       <tr><th style="width:8mm" class="r">1</th><td><b>Valider le pilote</b> : cas d'usage e-mail, premier utilisateur (M.&nbsp;Chemla) et critères de réussite.</td></tr>
       <tr><th class="r">2</th><td><b>Planifier les 3 jours de maquette</b> avec Maxime Guyot et les équipes, en octobre 2026.</td></tr>
-      <tr><th class="r">3</th><td><b>Préparer les accès</b> : compte Microsoft 365, documents autorisés, responsables internes désignés.</td></tr>
+      <tr><th class="r">3</th><td><b>Préparer les accès</b> : compte Microsoft 365, documents autorisés, responsables désignés.</td></tr>
       <tr><th class="r">4</th><td><b>Lancer le pilote début décembre</b> et mesurer les premiers gains en conditions réelles.</td></tr>
       <tr><th class="r">5</th><td><b>Faire le bilan à la mi-décembre</b> et décider de l'extension du dispositif.</td></tr>
     </table>
 
     <h3>Les points à valider et contractualiser</h3>
-    <table>
+    <table class="xdense">
       <tr><th>Sujet</th><th>Base proposée</th></tr>
       <tr><td>Pilote</td><td>Maquettage, déploiement AWS + Lots 1 et 2 : 21,5 jours, forfait de 12 900 € HT</td></tr>
       <tr><td>Règlement</td><td>30 % au lancement · 40 % à la mise à disposition du pilote · 30 % à la validation</td></tr>
-      <tr><td>Infogérance</td><td>490 € HT par mois à partir du 1er janvier 2027, jusqu'à 10 utilisateurs et 100 Go</td></tr>
-      <tr><td>Consommations</td><td>Tarif d'usage IA et cloud selon une grille transparente (page 3), relevé et facturé chaque mois</td></tr>
+      <tr><td>Abonnement</td><td>25 € HT par mois et par utilisateur, 5 € de consommation IA inclus ; 20 utilisateurs : 500 € HT par mois, dès le 1er janvier 2027, 100 Go</td></tr>
+      <tr><td>Consommations</td><td>Au-delà des 5 € inclus : facturation à l'usage selon la grille (page 3)</td></tr>
       <tr><td>Confidentialité</td><td>Accord réciproque : AWS Europe, chiffrement en transit et au repos, accès validés</td></tr>
       <tr><td>Lots futurs</td><td>Cadrage, budget et validation distincts avant chaque lancement</td></tr>
     </table>
@@ -441,6 +445,8 @@
       Tél : +33 6 63 33 82 95 · office@perfusion.dev<br>
       SARL au capital de 1 000 € · SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919
     </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>6</span></div>
   </div>
 </div>
 
