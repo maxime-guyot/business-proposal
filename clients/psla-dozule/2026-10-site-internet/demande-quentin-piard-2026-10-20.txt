@@ -1,0 +1,35 @@
+De : Quentin PIARD <quentin.piard@gmail.com>
+À : maxime.guyot@perfusion.dev
+Date : 20/10/2026 21h45 (Paris)
+Objet : Site internet PSLA Dozulé
+
+Salut Maxime,
+
+J'espère que tu vas bien !
+
+Je suis désolé j'ai été sous l'eau ces derniers temps. Je reviens vers toi concernant le site internet.
+
+Comme je te l'ai dit on aimerait développer un site internet pour le PSLA.
+
+L'idée serait d'avoir un site clair, agréable et utilisable sur téléphone, qui permette aux patients de trouver facilement les professionnels, leurs coordonnées, les infos pratiques et les liens pour prendre rendez-vous.
+
+On voudrait aussi présenter le PSLA et l'équipe, et pouvoir mettre en avant nos actualités : actions de prévention, ateliers, dépistages, etc.
+
+On pourrait imaginer un espace réservé aux professionnels pour partager des documents et un calendrier commun.
+
+Voilà ce que ça donnerait en fonctionnalités :
+
+- Annuaire des professionnels : profession, coordonnées, lieu de consultation, horaires et lien de prise de rendez-vous lorsqu'il existe.
+- Informations pratiques : plan d'accès, stationnement, accessibilité et contacts des différents cabinets.
+- Présentation du PSLA : présentation de l'équipe, des professions représentées et des projets communs.
+- Actualités et prévention : annonce des ateliers, actions de dépistage, campagnes de vaccination et événements.
+- Orientation des patients : informations pour savoir qui contacter selon le besoin et présentation des modalités de soins non programmés, à définir avec l'équipe.
+- Mise à jour simple : interface permettant à quelques membres de l'équipe de modifier facilement les fiches des professionnels, les informations pratiques et les actualités.
+
+Je serais preneur de ton avis sur ce qui serait pertinent, la façon de le construire et une idée du budget et des délais, y compris pour l'hébergement et la maintenance.
+
+On peut s'appeler ou se caler un moment pour en parler ! Par contre on prend l'avion demain pour Marrakech, donc ce sera par mail ou Whatsapp.
+
+Bisous !
+Bonne soirée
+Quentin

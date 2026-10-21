@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Proposition commerciale Perfusion.dev pour le PSLA de Dozulé</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --dark: #111111;
+    --dark2: #1C1D22;
+    --purple: #5128A4;
+    --purple2: #9932CD;
+    --lilac: #F4F1FA;
+    --grey: #6B6B76;
+    --line: #E4E1EC;
+  }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, 'Liberation Sans', sans-serif; color: #23232B; font-size: 10.5pt; line-height: 1.55; }
+  .page { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .content { padding: 20mm 18mm 24mm 18mm; height: 100%; display: flex; flex-direction: column; }
+  .page.budget-page .content { padding-top: 13mm; padding-bottom: 16mm; }
+  .budget-page h3 { margin: 2.2mm 0 1mm 0; }
+  .budget-page table { margin: 1.2mm 0 1.6mm 0; }
+  .budget-page .nextnote { margin: 1.2mm 0 1.6mm 0; padding: 1.8mm 3.5mm; }
+
+  .cover { background: #fff; color: var(--dark); }
+  .cover .bar { position: absolute; top: 0; left: 0; right: 0; height: 4mm; background: linear-gradient(90deg, var(--purple), var(--purple2)); }
+  .cover .inner { padding: 24mm 20mm; height: 100%; display: flex; flex-direction: column; }
+  .cover .logo { width: 58mm; margin-top: 3mm; }
+  .cover .kicker { margin-top: 22mm; font-size: 9.5pt; letter-spacing: 3.5px; text-transform: uppercase; color: var(--purple2); font-weight: 600; }
+  .cover h1 { margin-top: 8mm; font-size: 26pt; line-height: 1.22; font-weight: 700; letter-spacing: -0.3px; color: var(--dark); }
+  .cover h1 .dot { color: var(--purple2); }
+  .cover .sub { margin-top: 6mm; font-size: 11.5pt; color: var(--grey); line-height: 1.65; max-width: 158mm; }
+  .cards { margin-top: 12mm; display: flex; gap: 5mm; }
+  .card { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2.5mm 2.5mm; padding: 6mm 5.5mm; }
+  .card .big { font-size: 15pt; font-weight: 700; color: var(--purple); }
+  .card .big .u { color: var(--purple2); }
+  .card .lbl { margin-top: 2.5mm; font-size: 8.8pt; color: var(--grey); line-height: 1.45; }
+  .cover .foot { margin-top: auto; display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 6mm; font-size: 9pt; color: var(--grey); }
+  .toc { margin-top: 12mm; border: 1px solid var(--line); background: #FAF9FC; border-radius: 2.5mm; padding: 5.5mm 7mm; }
+  .toc-title { font-size: 8.5pt; letter-spacing: 2px; text-transform: uppercase; color: #8B8B96; margin-bottom: 3.5mm; }
+  .toc-items { display: flex; flex-wrap: wrap; gap: 2.5mm 6mm; }
+  .toc-items span { font-size: 9.5pt; color: #3A3A44; }
+  .toc-items span::before { content: ""; display: inline-block; width: 2mm; height: 2mm; border-radius: 0.6mm; background: var(--purple2); margin-right: 2.2mm; vertical-align: 0.3mm; }
+  .cover .foot b { color: var(--dark); font-weight: 600; }
+
+  .head { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--purple); padding-bottom: 3mm; margin-bottom: 7mm; }
+  .head .num { font-size: 10pt; font-weight: 700; color: var(--purple2); letter-spacing: 2px; }
+  .head h2 { font-size: 16pt; font-weight: 700; color: var(--dark); letter-spacing: -0.2px; }
+  .mini-logo { width: 30mm; }
+
+  h3 { font-size: 11.5pt; color: var(--purple); margin: 6mm 0 2.5mm 0; font-weight: 700; }
+  p { margin-bottom: 3mm; }
+  ul { margin: 0 0 3mm 0; padding-left: 5mm; list-style: none; }
+  ul li { padding-left: 4.5mm; position: relative; margin-bottom: 1.8mm; }
+  ul li::before { content: ""; position: absolute; left: 0; top: 2mm; width: 2.2mm; height: 2.2mm; border-radius: 0.7mm; background: var(--purple2); }
+
+  .foot { margin-top: auto; border-top: 1px solid var(--line); padding-top: 3mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--grey); }
+
+  .callout { background: var(--lilac); border-left: 1.6mm solid var(--purple2); border-radius: 0 2mm 2mm 0; padding: 5mm 6mm; margin: 4mm 0; }
+  .callout .t { font-weight: 700; color: var(--purple); margin-bottom: 1.5mm; font-size: 10.5pt; }
+
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 4mm 0; font-size: 10pt; }
+  th { background: var(--purple); color: #fff; text-align: left; padding: 3mm 4mm; font-weight: 600; font-size: 9.5pt; }
+  td { padding: 2.8mm 4mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: #FAF9FC; }
+  td.r, th.r { text-align: right; white-space: nowrap; }
+  tr.total td { background: var(--lilac); font-weight: 700; color: var(--purple); border-bottom: none; }
+
+  .steps { display: flex; gap: 4mm; margin: 4mm 0 2mm 0; }
+  .step { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2mm 2mm; padding: 4.5mm 4mm; }
+  .step .when { font-size: 8.5pt; font-weight: 700; color: var(--purple2); text-transform: uppercase; letter-spacing: 0.8px; }
+  .step .what { margin-top: 1.5mm; font-weight: 700; font-size: 10pt; }
+  .step .res { margin-top: 1.2mm; font-size: 8.8pt; color: var(--grey); line-height: 1.45; }
+
+  .sig { display: flex; gap: 6mm; margin-top: 4mm; }
+  .sigbox { flex: 1; border: 1px solid var(--line); border-radius: 2mm; padding: 4mm 5mm 9mm 5mm; }
+  .sigbox .who { font-weight: 700; color: var(--purple); margin-bottom: 3mm; }
+  .sigline { margin-top: 5mm; font-size: 9.5pt; color: var(--grey); border-bottom: 1px dotted #B9B6C4; padding-bottom: 1.2mm; }
+  .legal { margin-top: 3.5mm; font-size: 8.3pt; color: var(--grey); line-height: 1.55; border-top: 1px solid var(--line); padding-top: 3mm; }
+
+  .tight .head { margin-bottom: 5mm; padding-bottom: 2.5mm; }
+  .tight td { padding: 2mm 4mm; }
+  .tight table { margin: 2mm 0 3mm 0; }
+  .nextnote { font-size: 9.8pt; color: var(--grey); background: #FAF9FC; border: 0.3mm solid var(--line); border-radius: 2mm; padding: 2.5mm 4mm; margin: 0 0 3mm 0; }
+  .nextnote b { color: var(--purple); }
+  tr.future-head td { background: #fff; font-weight: 700; font-size: 9.5pt; color: var(--purple); border-bottom: 0.3mm solid var(--line); }
+  tr.future td { background: #FAF9FC; color: var(--grey); font-size: 9.5pt; }
+  table.small { font-size: 9.2pt; }
+  table.small td { padding: 1.8mm 4mm; }
+  .tight h3 { margin: 3.5mm 0 2mm 0; }
+  .tight .callout { margin: 3mm 0; padding: 3.5mm 5mm; }
+  .tight p { margin-bottom: 2mm; }
+  .tight ul li { margin-bottom: 1.2mm; }
+  .tight .step { padding: 3.5mm 3.5mm; }
+  .tight .sigbox { padding-bottom: 7mm; }
+  .tight .sigline { margin-top: 4mm; }
+  .tight .sig { margin-top: 3mm; }
+  .tight .legal { margin-top: 2.5mm; padding-top: 2.5mm; }
+
+  .dense td { padding: 1.6mm 4mm; }
+  .dense table { margin: 2mm 0 2.5mm 0; }
+  .dense h3 { margin: 3mm 0 1.5mm 0; }
+  .dense p { margin-bottom: 1.8mm; }
+  .dense ul li { margin-bottom: 1mm; }
+  .dense .callout { margin: 2.5mm 0; padding: 2.5mm 4.5mm; }
+  .dense .sigbox { padding: 3mm 5mm 4mm 5mm; }
+  .dense .sigline { margin-top: 3mm; }
+  .dense .sig { margin-top: 2.5mm; }
+  .dense .legal { margin-top: 2.5mm; padding-top: 2mm; }
+  .xdense td { padding: 1.3mm 3.5mm; }
+  .budget-page .xdense td { padding-top: 1mm; padding-bottom: 1mm; }
+  .budget-page th { padding-top: 1.6mm; padding-bottom: 1.6mm; }
+  .xdense .head { margin-bottom: 4mm; padding-bottom: 2mm; }
+  .xdense h3 { margin: 2.5mm 0 1.2mm 0; }
+  .xdense .callout { margin: 2mm 0; padding: 2mm 4.5mm; }
+  .xdense .sigbox { padding: 2.5mm 5mm 3mm 5mm; }
+  .xdense .sigline { margin-top: 2.2mm; }
+  .xdense .sig { margin-top: 2mm; }
+  .xdense .legal { margin-top: 2mm; padding-top: 1.8mm; font-size: 7.8pt; }
+  .dense { font-size: 10pt; line-height: 1.5; }
+  .dense table { font-size: 9.4pt; }
+  .dense table.small { font-size: 8.9pt; }
+  .dense .head { margin-bottom: 5mm; }
+  .dense .foot { padding-top: 2.5mm; }
+
+  .annexe-head { display: flex; align-items: baseline; gap: 4mm; border-bottom: 2px solid var(--purple); padding-bottom: 3mm; margin-bottom: 6mm; }
+  .annexe-head .tag { font-size: 9pt; font-weight: 700; color: #fff; background: var(--purple); padding: 1.2mm 3mm; border-radius: 1.5mm; letter-spacing: 1px; }
+  .annexe-head h2 { font-size: 15pt; font-weight: 700; color: var(--dark); }
+  .price-tag { display: inline-block; background: var(--lilac); color: var(--purple); font-weight: 700; padding: 2mm 4mm; border-radius: 1.5mm; font-size: 10pt; }
+  .two { display: flex; gap: 6mm; }
+  .two > div { flex: 1; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="page cover">
+  <div class="bar"></div>
+  <div class="inner">
+    <img class="logo" src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
+    <div class="kicker">Proposition commerciale · Première estimation</div>
+    <h1>Un site clair pour<br>le PSLA de Dozulé<span class="dot">.</span></h1>
+    <div class="sub">Estimation pour le site du pôle de santé libéral ambulatoire de Dozulé, en Normandie. Les patients trouvent un professionnel, un lieu, un horaire et le lien de rendez-vous. Quelques personnes de l'équipe mettent le site à jour elles-mêmes. Le prix est celui d'un site de pôle, avec un maintien léger.</div>
+    <div class="cards">
+      <div class="card">
+        <div class="big">4&nbsp;800&nbsp;€ <span class="u">HT</span></div>
+        <div class="lbl">Site du pôle, estimation<br>8 jours, à cadrer<br>5&nbsp;760&nbsp;€ toutes taxes comprises</div>
+      </div>
+      <div class="card">
+        <div class="big">4 semaines</div>
+        <div class="lbl">Mise en ligne indicative<br>décembre 2026 si le démarrage<br>a lieu en novembre</div>
+      </div>
+      <div class="card">
+        <div class="big">50&nbsp;€ <span class="u">HT</span></div>
+        <div class="lbl">par mois, maintien et hébergement<br>soit 60&nbsp;€ toutes taxes comprises<br>nom de domaine à part</div>
+      </div>
+    </div>
+    <div class="toc">
+      <div class="toc-title">Contenu du document</div>
+      <div class="toc-items">
+        <span>01 L'essentiel</span><span>02 Budget</span><span>03 Exploitation</span><span>04 Planning</span><span>05 Données de santé</span><span>06 Prochaines étapes</span><span>Annexes A · B · C</span>
+      </div>
+    </div>
+    <div class="foot">
+      <div>Préparée pour <b>le PSLA de Dozulé</b></div>
+      <div>Présentée par <b>Perfusion.dev</b> · Maxime Guyot</div>
+      <div><b>21 octobre 2026</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 01 ESSENTIEL ============ -->
+<div class="page tight">
+  <div class="content">
+    <div class="head">
+      <div class="num">01 · L'ESSENTIEL</div>
+      <h2>L'essentiel en une page</h2>
+      <img class="mini-logo" src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
+    </div>
+
+    <h3>Le besoin</h3>
+    <p>Le 20 octobre 2026, Quentin Piard a décrit le site du pôle. Il doit être clair sur un téléphone. Un patient y trouve le bon professionnel, ses coordonnées, son lieu, ses horaires et, lorsqu'il existe, son lien de rendez-vous. Le site présente aussi le pôle, les actualités de prévention et la façon de s'orienter, y compris pour les soins non programmés. Quelques personnes doivent pouvoir corriger ces pages sans compétence technique.</p>
+
+    <h3>Ce que nous recommandons</h3>
+    <p>Un <b>site public</b>, avec une <b>interface de mise à jour</b> simple. C'est le bon outil tant que les cabinets sont répartis sur plusieurs lieux. Le jour où un lieu commun ouvrira, on changera les adresses dans l'interface. On ne refera pas le site. Les sites de pôles qui servent vraiment tiennent en peu de pages : l'équipe, les téléphones, les horaires, l'accès, les actions de prévention.</p>
+
+    <div class="callout">
+      <div class="t">Notre avis</div>
+      <ul style="margin-bottom:0">
+        <li>Faire ce site, et le rendre modifiable par l'équipe. Un horaire faux fait plus de tort qu'une page manquante.</li>
+        <li>Laisser chaque rendez-vous sur Doctolib ou l'outil déjà choisi par le professionnel. Le site affiche le lien.</li>
+        <li>Garder documents partagés et calendrier interne pour plus tard. Un dossier déjà en place suffit en attendant.</li>
+      </ul>
+    </div>
+
+    <h3>Ce que les patients obtiennent</h3>
+    <ul>
+      <li>Un <b>annuaire</b> par profession et par lieu, avec horaires et lien de rendez-vous.</li>
+      <li>Les <b>informations pratiques</b> : adresse, plan d'accès, stationnement, accessibilité, téléphone.</li>
+      <li>La <b>présentation</b> du pôle, des professions et des projets.</li>
+      <li>Les <b>actualités</b> et une page d'<b>orientation</b>, dont les soins non programmés, rédigée avec l'équipe.</li>
+    </ul>
+
+    <h3>Quatre jalons, un seul prix</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="when">Jalon 1</div>
+        <div class="what">Cadrage et maquette</div>
+        <div class="res">Pages et interface validées avant la réalisation.</div>
+      </div>
+      <div class="step">
+        <div class="when">Jalon 2</div>
+        <div class="what">Socle du site</div>
+        <div class="res">Mise en page, comptes, hébergement.</div>
+      </div>
+      <div class="step">
+        <div class="when">Jalon 3</div>
+        <div class="what">Contenus vivants</div>
+        <div class="res">Annuaire, actualités, orientation, mise à jour.</div>
+      </div>
+      <div class="step">
+        <div class="when">Jalon 4</div>
+        <div class="what">Mise en ligne</div>
+        <div class="res">Textes réels, formation, ouverture.</div>
+      </div>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>1</span></div>
+  </div>
+</div>
+
+<!-- ============ 02 BUDGET ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="head">
+      <div class="num">02 · BUDGET</div>
+      <h2>Un site, un prix lisible</h2>
+    </div>
+
+    <p>Estimation au taux de <b>600&nbsp;€ hors taxes</b>, ancrée à <b>8 jours</b> : <b>4&nbsp;800&nbsp;€ hors taxes</b>, soit <b>5&nbsp;760&nbsp;€ toutes taxes comprises</b> (taxe 960&nbsp;€). Le cadrage est compris dans ces 8 jours. Il n'est pas facturé à part. L'option n'est pas additionnée.</p>
+
+    <h3>Site du pôle (estimation à cadrer)</h3>
+    <table>
+      <tr><th>Jalon</th><th class="r">Jours (estimation)</th><th class="r">Montant HT (estimation)</th></tr>
+      <tr><td><b>1 · Cadrage et maquette</b> des pages et de l'interface</td><td class="r">2 jours</td><td class="r">1&nbsp;200&nbsp;€</td></tr>
+      <tr><td><b>2 · Socle du site</b> : mise en page, comptes, hébergement</td><td class="r">2 jours</td><td class="r">1&nbsp;200&nbsp;€</td></tr>
+      <tr><td><b>3 · Annuaire, actualités, orientation, mise à jour</b></td><td class="r">3 jours</td><td class="r">1&nbsp;800&nbsp;€</td></tr>
+      <tr><td><b>4 · Recette, formation et mise en ligne</b></td><td class="r">1 jour</td><td class="r">600&nbsp;€</td></tr>
+      <tr class="total"><td>Total, dont taxe 960&nbsp;€</td><td class="r">8 jours</td><td class="r">4&nbsp;800&nbsp;€ HT<br>5&nbsp;760&nbsp;€ TTC</td></tr>
+    </table>
+    <p class="nextnote">Ce niveau de charge s'appuie sur un développement assisté par IA avec revue humaine systématique et une équipe senior dédiée. Montants confirmés à l'issue du cadrage. Pour un site de pôle ou de maison de santé, la création se situe en général entre 1&nbsp;500 et 6&nbsp;000&nbsp;€ hors taxes. Cette estimation est dans ce cadre.</p>
+
+    <h3>Échéancier (estimation à cadrer)</h3>
+    <table class="small">
+      <tr><th>Jalon validé par le pôle</th><th class="r">Part</th><th class="r">Montant HT</th><th class="r">Montant TTC</th></tr>
+      <tr><td>Lancement, après signature</td><td class="r">30&nbsp;%</td><td class="r">1&nbsp;440&nbsp;€</td><td class="r">1&nbsp;728&nbsp;€</td></tr>
+      <tr><td>Mise à disposition du site</td><td class="r">40&nbsp;%</td><td class="r">1&nbsp;920&nbsp;€</td><td class="r">2&nbsp;304&nbsp;€</td></tr>
+      <tr><td>Validation de recette</td><td class="r">30&nbsp;%</td><td class="r">1&nbsp;440&nbsp;€</td><td class="r">1&nbsp;728&nbsp;€</td></tr>
+      <tr class="total"><td>Total</td><td class="r">100&nbsp;%</td><td class="r">4&nbsp;800&nbsp;€</td><td class="r">5&nbsp;760&nbsp;€</td></tr>
+    </table>
+
+    <h3>Option en sus du site (estimation à cadrer)</h3>
+    <table class="small">
+      <tr><th>Option</th><th class="r">Jours (estimation)</th><th class="r">Montant (estimation)</th></tr>
+      <tr><td><b>Espace professionnels</b> : documents partagés et calendrier commun, sans donnée de patient. Nous le déconseillons pour l'ouverture. Détail en annexe B.</td><td class="r">4 jours</td><td class="r">+ 2&nbsp;400&nbsp;€ HT<br>+ 2&nbsp;880&nbsp;€ TTC</td></tr>
+    </table>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>2</span></div>
+  </div>
+</div>
+
+<!-- ============ 03 EXPLOITATION ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="head">
+      <div class="num">03 · EXPLOITATION</div>
+      <h2>Un maintien léger</h2>
+    </div>
+
+    <p>Après la mise en ligne, une seule ligne mensuelle : le <b>maintien du site</b>, hébergement compris pour un site de cette taille. Le nom de domaine reste un compte du pôle, à part.</p>
+
+    <h3>Maintien et hébergement : 50&nbsp;€ hors taxes par mois</h3>
+    <p>Soit <b>60&nbsp;€ toutes taxes comprises</b> par mois, ou <b>600&nbsp;€ hors taxes par an</b> (720&nbsp;€ toutes taxes comprises). Sans engagement de durée. Le pôle peut arrêter à l'issue d'un mois commencé.</p>
+    <table class="small">
+      <colgroup><col style="width:36%"><col style="width:64%"></colgroup>
+      <tr><th>Inclus</th><th>Ce que cela signifie</th></tr>
+      <tr><td>Hébergement du site</td><td>Le site reste en ligne, en France, pour le volume d'un site de pôle.</td></tr>
+      <tr><td>Certificat et sauvegardes</td><td>Connexion chiffrée, copies de secours, remise en ligne si besoin.</td></tr>
+      <tr><td>Mises à jour de sécurité</td><td>Le site livré reste à jour.</td></tr>
+      <tr><td>Aide limitée</td><td>Un interlocuteur si le site ne s'affiche plus. Les textes, l'équipe les change elle-même.</td></tr>
+    </table>
+    <p class="nextnote">Le nom de domaine coûte quelques euros par an, sur un compte du pôle. Doctolib, ou tout autre outil de rendez-vous, reste l'abonnement de chaque professionnel. Une astreinte de nuit n'est pas incluse.</p>
+
+    <h3>Ce que ce prix ne cherche pas à couvrir</h3>
+    <p>Un hébergement de haute disponibilité, ou un hébergement certifié de données de santé, changerait le maintien et le budget. Ce n'est pas nécessaire pour des pages publiques. Nous ne le proposons pas.</p>
+
+    <div class="callout">
+      <div class="t">Crédits d'hébergement</div>
+      <p style="margin-bottom:0">Les crédits Amazon Web Services Activate visent des jeunes entreprises qui construisent un produit. Un pôle de santé n'en est en général pas éligible. Le budget de cette proposition n'en dépend pas. Si l'hébergement était un jour déplacé chez Amazon Web Services, nous pourrions préparer une demande. Ce n'est pas le montage retenu ici.</p>
+    </div>
+
+    <p class="nextnote">Une évolution hors du site, y compris l'espace professionnels, est un <b>lot séparé</b>, chiffré avant de commencer.</p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>3</span></div>
+  </div>
+</div>
+
+<!-- ============ 04 PLANNING ============ -->
+<div class="page">
+  <div class="content">
+    <div class="head">
+      <div class="num">04 · PLANNING</div>
+      <h2>Environ quatre semaines</h2>
+    </div>
+
+    <p>Première projection pour 8 jours de réalisation. Les dates se figent au cadrage, selon la disponibilité des textes et des accords de publication.</p>
+
+    <table>
+      <tr><th>Moment indicatif</th><th>Étape</th><th>Résultat</th></tr>
+      <tr><td><b>Semaine 1</b></td><td>Cadrage et maquette</td><td>Pages, annuaire et interface validés</td></tr>
+      <tr><td><b>Semaines 2 et 3</b></td><td>Réalisation</td><td>Site utilisable, avec les premiers contenus</td></tr>
+      <tr><td><b>Semaine 4</b></td><td>Formation et mise en ligne</td><td>Rédacteurs autonomes, site ouvert au public</td></tr>
+      <tr><td><b>Cible</b></td><td>Ouverture</td><td><b>Décembre 2026</b> si le démarrage a lieu en novembre, sinon janvier 2027</td></tr>
+    </table>
+
+    <h3>Comment nous travaillerons</h3>
+    <ul>
+      <li><b>Un interlocuteur</b> : Maxime Guyot, jusqu'à la mise en ligne.</li>
+      <li><b>La maquette d'abord</b>. La réalisation commence une fois les pages validées.</li>
+      <li><b>Les textes viennent de l'équipe</b>. Nous les mettons en page. Nous ne rédigeons pas la conduite à tenir.</li>
+      <li><b>Plusieurs lieux</b> dès le départ. Un changement d'adresse se fait dans l'interface.</li>
+      <li><b>Les textes restent factuels</b> : horaires, accès, prévention. Pas de promesse de résultat.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="t">Ce dont nous aurons besoin</div>
+      <p style="margin-bottom:0">Une personne décisionnaire, la liste des professionnels avec l'accord de chacun pour publier ses coordonnées, les textes, les photos, le plan d'accès, les liens de rendez-vous, le nom de domaine, et deux ou trois personnes pour la formation.</p>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>4</span></div>
+  </div>
+</div>
+
+<!-- ============ 05 DONNEES DE SANTE ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="head">
+      <div class="num">05 · DONNÉES DE SANTÉ</div>
+      <h2>La limite à tenir</h2>
+    </div>
+
+    <p>Le site informe. Il ne suit pas un patient. Cette limite évite un <b>hébergement certifié de données de santé</b>, qui est un autre contrat et un autre budget. Certains prestataires le présentent comme obligatoire pour tout site de soin. Il l'est à partir du moment où le site conserve une information de santé sur une personne. Une page d'horaires n'y est pas soumise.</p>
+
+    <div class="two">
+      <div>
+        <h3>Dans ce site</h3>
+        <ul>
+          <li>Annuaire, horaires, lieux, téléphones, liens de rendez-vous.</li>
+          <li>Présentation du pôle et des projets.</li>
+          <li>Annonces d'ateliers, de dépistages et de vaccinations.</li>
+          <li>Page d'orientation, dont les soins non programmés, validée par l'équipe.</li>
+          <li>Comptes des personnes qui mettent à jour.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Ce qui changerait le cadre</h3>
+        <ul>
+          <li>Un dossier, un compte patient, un motif de consultation.</li>
+          <li>Une prise de rendez-vous dans le site.</li>
+          <li>Un formulaire où le patient décrit ce qu'il a.</li>
+          <li>Une inscription nominative à un dépistage.</li>
+          <li>Un document ou un calendrier qui cite un patient.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="t">Orientation et soins non programmés</div>
+      <p style="margin-bottom:0">La page dit qui appeler, à quelle heure, dans quel lieu, et dans quels cas joindre le 15. Le texte est validé par l'équipe avant la mise en ligne. Ce n'est pas un questionnaire de symptômes.</p>
+    </div>
+
+    <h3>Rendez-vous</h3>
+    <p>Chaque fiche peut montrer un lien vers Doctolib ou vers l'outil du professionnel. L'identité du patient et le motif restent dans cet outil. Le site du pôle n'en garde pas de copie. Il n'y a pas de formulaire de contact : les patients y écrivent souvent un symptôme. Les téléphones et les liens de rendez-vous suffisent.</p>
+
+    <h3>Espace professionnels</h3>
+    <p>L'option sert pour des comptes rendus sans nom de patient, des supports de prévention et le calendrier des actions du pôle. Elle ne sert plus dès qu'un fichier identifie une personne et un soin. À ce moment-là, il faut un hébergement certifié. Nous ne le chiffrons pas dans cette proposition. En attendant, un dossier partagé déjà utilisé par l'équipe reste le bon outil.</p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>5</span></div>
+  </div>
+</div>
+
+<!-- ============ 06 PROCHAINES ETAPES ============ -->
+<div class="page">
+  <div class="content tight dense xdense">
+    <div class="head">
+      <div class="num">06 · PROCHAINES ÉTAPES</div>
+      <h2>Cinq décisions pour avancer</h2>
+    </div>
+
+    <table>
+      <tr><th style="width:8mm" class="r">1</th><td><b>Retenir le principe</b> : site du pôle à 4&nbsp;800&nbsp;€ hors taxes (estimation), option à part.</td></tr>
+      <tr><th class="r">2</th><td><b>Fixer le démarrage</b> du cadrage, idéalement en novembre 2026.</td></tr>
+      <tr><th class="r">3</th><td><b>Désigner</b> la personne décisionnaire et deux ou trois personnes qui mettront à jour.</td></tr>
+      <tr><th class="r">4</th><td><b>Confirmer la limite</b> : aucune donnée de patient, rendez-vous laissés à l'outil de chaque professionnel.</td></tr>
+      <tr><th class="r">5</th><td><b>Laisser l'option de côté</b> pour l'ouverture. Elle pourra s'ajouter plus tard.</td></tr>
+    </table>
+
+    <h3>Récapitulatif</h3>
+    <table class="small">
+      <tr><th>Sujet</th><th>Base proposée</th></tr>
+      <tr><td>Site du pôle</td><td>Estimation à cadrer : 8 jours · 4&nbsp;800&nbsp;€ HT · 5&nbsp;760&nbsp;€ TTC. Cadrage compris.</td></tr>
+      <tr><td>Règlement</td><td>30&nbsp;% au lancement · 40&nbsp;% à la mise à disposition · 30&nbsp;% à la validation</td></tr>
+      <tr><td>Option espace professionnels</td><td>Estimation, en sus, déconseillée pour l'ouverture : 4 jours · + 2&nbsp;400&nbsp;€ HT · + 2&nbsp;880&nbsp;€ TTC</td></tr>
+      <tr><td>Maintien et hébergement</td><td>50&nbsp;€ HT par mois (60&nbsp;€ TTC), soit 600&nbsp;€ HT par an. Sans engagement de durée.</td></tr>
+      <tr><td>Nom de domaine</td><td>Compte du pôle, quelques euros par an, hors maintien</td></tr>
+      <tr><td>Mise en ligne</td><td>Indicative : environ 4 semaines. Décembre 2026 si démarrage en novembre.</td></tr>
+      <tr><td>Livrables et réversibilité</td><td>Code source et dépôt Git remis. Droits d'exploitation définis au contrat.</td></tr>
+      <tr><td>Données de santé</td><td>Hors périmètre. Un hébergement certifié serait un projet distinct.</td></tr>
+    </table>
+
+    <div class="callout">
+      <div class="t">Décision attendue</div>
+      <p style="margin-bottom:0"><b>Valider le principe et fixer le démarrage.</b> Le montant sera confirmé à l'issue du cadrage, avant le reste de la réalisation.</p>
+    </div>
+
+    <div class="sig">
+      <div class="sigbox">
+        <div class="who">Pour le PSLA de Dozulé</div>
+        <div class="sigline">Nom, fonction :</div>
+        <div class="sigline">Date :</div>
+        <div class="sigline">Signature :</div>
+      </div>
+      <div class="sigbox">
+        <div class="who">Pour Perfusion.dev</div>
+        <div class="sigline">Maxime Guyot</div>
+        <div class="sigline">Date :</div>
+        <div class="sigline">Signature :</div>
+      </div>
+    </div>
+
+    <div class="legal">
+      <b>SARL perfusion.dev</b>, 11 rue des Trois Tilleuls, 14310 Villers Bocage · Téléphone : +33 6 63 33 82 95 · office@perfusion.dev · Capital 1&nbsp;000&nbsp;€<br>
+      SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>6</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE A ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE A</span>
+      <h2>Périmètre du site</h2>
+    </div>
+
+    <p>Le site public du pôle, et l'interface qui permet à deux ou trois personnes de le tenir à jour. Prévu pour plusieurs cabinets.</p>
+
+    <h3>Inclus</h3>
+    <ul>
+      <li>Accueil, présentation du pôle, des professions et des projets.</li>
+      <li>Annuaire par profession et par lieu. Fiche avec profession, coordonnées, lieu, horaires, courte présentation et lien de rendez-vous lorsqu'il existe.</li>
+      <li>Informations pratiques : adresse, plan d'accès fourni par le pôle, stationnement, accessibilité, téléphone.</li>
+      <li>Actualités : titre, date, texte, image, catégorie parmi atelier, dépistage, vaccination, événement ou autre.</li>
+      <li>Page d'orientation, dont les soins non programmés, avec le texte validé par l'équipe.</li>
+      <li>Interface de mise à jour dans le navigateur, pour quelques comptes.</li>
+      <li>Affichage lisible sur téléphone, titres de pages propres, contrastes corrects.</li>
+      <li>Mise en ligne sur le nom de domaine du pôle, formation courte, intégration des premiers contenus fournis. Hypothèse : les pages de l'arborescence et une première poignée d'actualités.</li>
+    </ul>
+
+    <h3>Hors du site</h3>
+    <ul>
+      <li>Prise de rendez-vous interne, comptes patients, formulaire de symptôme, inscription nominative.</li>
+      <li>Espace documents et calendrier réservé (annexe B).</li>
+      <li>Rédaction des textes médicaux. Elle reste à l'équipe.</li>
+      <li>Audit d'accessibilité formel, lettre d'information, application à installer, autres langues.</li>
+      <li>Hébergement certifié de données de santé, astreinte de nuit.</li>
+      <li>Nom de domaine et abonnements de rendez-vous, qui restent des comptes du pôle.</li>
+    </ul>
+
+    <p style="margin-top:4mm"><span class="price-tag">Estimation à cadrer : 4&nbsp;800&nbsp;€ HT · 5&nbsp;760&nbsp;€ TTC · 8 jours</span></p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>Annexe A</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE B ============ -->
+<div class="page">
+  <div class="content">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE B</span>
+      <h2>Option · espace professionnels</h2>
+    </div>
+
+    <p>Quentin Piard évoque un espace réservé, pour des documents et un calendrier commun. L'idée viendra peut-être plus tard. Pour ouvrir le site, elle n'est pas le bon premier pas. L'équipe a déjà de quoi s'échanger des fichiers. Un second outil, au moment où le pôle se construit, a toutes les chances de rester vide ou de recevoir un compte rendu qui cite un patient.</p>
+
+    <h3>Si l'option est retenue plus tard (estimation)</h3>
+    <ul>
+      <li>Comptes réservés aux professionnels du pôle.</li>
+      <li>Dossiers de documents, dépôt et téléchargement.</li>
+      <li>Calendrier des réunions, des actions de prévention et des permanences de la structure.</li>
+      <li>Rappel à la connexion : aucune information de patient.</li>
+    </ul>
+
+    <h3>Ce qui resterait dehors</h3>
+    <ul>
+      <li>Agendas de consultations.</li>
+      <li>Courriers, résultats, dossiers, toute pièce qui nomme un patient.</li>
+      <li>Messagerie de soins et synchronisation avec Doctolib.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="t">Notre recommandation</div>
+      <p style="margin-bottom:0">Ouvrir d'abord le site public. Reprendre cette option seulement le jour où l'équipe accepte une règle écrite : zéro patient dans les fichiers et dans le calendrier. Sinon, le sujet devient un hébergement certifié de données de santé, hors de cette proposition.</p>
+    </div>
+
+    <p>Si l'option est signée, le règlement suit le même rythme : 30&nbsp;% au lancement, 40&nbsp;% à la mise à disposition, 30&nbsp;% à la validation. Ces montants ne s'ajoutent pas au site.</p>
+
+    <p style="margin-top:4mm"><span class="price-tag">En sus, estimation à cadrer : + 2&nbsp;400&nbsp;€ HT · + 2&nbsp;880&nbsp;€ TTC · 4 jours</span></p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>Annexe B</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE C ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE C</span>
+      <h2>Points à confirmer</h2>
+    </div>
+
+    <p>Ces points se tranchent au cadrage, avant de figer le montant. Ils n'empêchent pas de fixer la date de démarrage.</p>
+
+    <table class="small">
+      <tr><th style="width:8mm" class="r">#</th><th>Point</th><th>Effet</th></tr>
+      <tr><td class="r">1</td><td>Raison sociale, numéro SIREN et adresse de facturation. Base proposée : la société interprofessionnelle de soins ambulatoires, siège 111 Grande Rue, 14430 Dozulé.</td><td>Contrat, factures</td></tr>
+      <tr><td class="r">2</td><td>Nom de domaine : déjà choisi, ou à créer au nom du pôle.</td><td>Mise en ligne</td></tr>
+      <tr><td class="r">3</td><td>Liste des professionnels, lieux, horaires, liens de rendez-vous, et accord de publication de chacun.</td><td>Annuaire</td></tr>
+      <tr><td class="r">4</td><td>Deux ou trois personnes qui mettront le site à jour, et qui suivront la formation.</td><td>Jalon 4</td></tr>
+      <tr><td class="r">5</td><td>Qui rédige et qui valide les textes de présentation, de prévention et de soins non programmés.</td><td>Contenus</td></tr>
+      <tr><td class="r">6</td><td>Horaires, lieux et numéros à publier pour les soins non programmés.</td><td>Page d'orientation</td></tr>
+      <tr><td class="r">7</td><td>Outil de rendez-vous de chaque professionnel.</td><td>Liens des fiches</td></tr>
+      <tr><td class="r">8</td><td>Photos, plan d'accès et droit de les publier.</td><td>Pages pratiques</td></tr>
+      <tr><td class="r">9</td><td>Volume des premiers textes, au-delà des pages de base et de quelques actualités.</td><td>Charge du jalon 4</td></tr>
+    </table>
+
+    <div class="callout">
+      <div class="t">Prochaine étape</div>
+      <p style="margin-bottom:0">Fixer le démarrage. Le cadrage est compris dans l'estimation de 4&nbsp;800&nbsp;€ hors taxes. Le montant est confirmé à la fin de ce cadrage, avant le reste de la réalisation.</p>
+    </div>
+
+    <p style="font-size:9pt;color:var(--grey);margin-top:3mm">Document établi le 21 octobre 2026 à partir du message de Quentin Piard du 20 octobre 2026. Montants hors taxes, taxe sur la valeur ajoutée à 20&nbsp;%. Première estimation, à confirmer après le cadrage. L'identité de facturation du point 1 est à vérifier avant le contrat.</p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>Annexe C</span></div>
+  </div>
+</div>
+
+</body>
+</html>
