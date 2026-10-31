@@ -8,6 +8,7 @@ alwaysApply: true
 Les propositions, devis et annexes sont lus par le client. Ne jamais y faire apparaître :
 
 - Les hypothèses de marge ou de gain : pourcentage de gain attendu (ex. « ~25 % sur le build »), coût « sans nous » (ex. « sans IA, plutôt ~100 jours »), structure de coût interne.
+- L'usage de l'IA dans notre production : ne jamais mentionner le développement assisté par IA, ni justifier un délai, un prix ou un volume de jours par l'IA, dans les documents clients et les mails clients (ni « IA », ni « intelligence artificielle », ni « assisté par IA »). Le client n'a pas à connaître nos méthodes de production ; présenter la vitesse comme le résultat de l'équipe et du process (senior, jalons, recette).
 - Les outils, socles ou plateformes internes réutilisés et leurs noms de code : le client n'a pas à savoir ce que nous réutilisons. Présenter la stack comme une recommandation technique neutre (langages, frameworks, services).
 - Le nommage interne des modèles ou composants (ex. nom d'entité du socle interne).
 - Tout raisonnement « pourquoi c'est rentable pour nous » : la proposition donne un prix et une justification client, pas notre arithmétique interne.
@@ -19,11 +20,21 @@ Les propositions, devis et annexes sont lus par le client. Ne jamais y faire app
 Hypothèse de gain : ~25 % sur le build (jalons 2-3) via IA et socle Meetflare ; sans cela, plutôt ~100 jours.
 ```
 
+❌ BAD :
+```
+Ce délai court est rendu possible par un développement assisté par IA avec revue humaine.
+```
+
 ✅ GOOD :
 ```
-Ce niveau de charge s'appuie sur un développement assisté par IA avec revue humaine systématique et une équipe senior dédiée.
+Ce niveau de charge s'appuie sur une équipe senior dédiée, des jalons livrables et une recette par critères d'acceptation.
+```
+
+✅ GOOD :
+```
+Délai : livraison indicative en janvier 2027 si lancement sous deux semaines.
 ```
 
 ## Vérification
 
-Avant livraison, relire le document en se mettant à la place du client : que lui apprend-il sur notre fonctionnement interne ou nos marges ? La réponse doit être : rien.
+Avant livraison, relire le document en se mettant à la place du client : que lui apprend-il sur notre fonctionnement interne ou nos marges ? La réponse doit être : rien. Chercher dans le document et le mail : « IA », « intelligence artificielle », « assisté » : zéro résultat.

@@ -1,0 +1,37 @@
+Objet : HEATSPOT : devis complémentaire, contrôle d'identité + vestiaire digital
+
+Bonjour Yann,
+
+Merci pour ton message. Voici notre réponse, détaillée dans la proposition jointe (Proposition_HEATSPOT_2026-10-31.pdf).
+
+Ce que nous proposons, en deux briques greffées sur le socle existant :
+
+1. Contrôle d'identité et profils à risque
+- Vérification volontaire (pièce d'identité + selfie) via Stripe Identity, depuis l'app et depuis le site de billetterie.
+- Statut « identité vérifiée » visible par les équipes lors du contrôle.
+- Red flag posé par le videur depuis l'app de contrôle : motif prédéfini, commentaire factuel, horodatage, visible automatiquement au prochain contrôle du même clubber.
+
+2. Vestiaire digital
+- Un ticket = un numéro de vestiaire = un cintre numéroté, avec restitution en un geste et gestion du parc (vestiaires, cintres) par club.
+
+Chiffrage (estimation, à cadrer à l'atelier) :
+- Atelier de cadrage : 3 jours, 1 800 € HT, facturé sans remise (parcours et UX inclus).
+- Les deux briques : 32 jours, 19 200 € HT (23 040 € TTC), dont nous déduisons les 8 100 € HT d'encours disponibles sur ton devis n° 19 de maintenance, soit un net à payer de 11 100 € HT (13 320 € TTC), échéancier 30 / 40 / 30 % sur jalons recettés.
+
+Délai : livraison indicative en janvier 2027 si lancement sous deux semaines.
+
+Un point d'attention, traité en amont (page Conformité de la proposition) : le partage des red flags entre clubs est envisageable, mais c'est le point le plus sensible juridiquement. Nous proposons une approche en deux temps : signalements internes à chaque club dès la mise en production, puis activation du partage entre clubs après validation juridique (convention de partage, information des personnes, analyse d'impact). Nous te recommandons un avis juridique externe sur ce point ; nous pouvons t'accompagner si utile.
+
+Prochaine étape : caler l'atelier de cadrage de 3 jours. Dis-moi tes disponibilités.
+
+Bonne journée,
+
+Maxime
+
+--
+Maxime Guyot
+Perfusion.dev
++33 6 63 33 82 95
+office@perfusion.dev
+
+[Rappel : joindre Proposition_HEATSPOT_2026-10-31.pdf au mail.]

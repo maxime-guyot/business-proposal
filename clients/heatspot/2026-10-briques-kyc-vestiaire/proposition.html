@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Devis complémentaire Perfusion.dev pour HEATSPOT</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --dark: #111111;
+    --dark2: #1C1D22;
+    --accent: #5128A4;
+    --accent2: #9932CD;
+    --lilac: #F4F1FA;
+    --grey: #6B6B76;
+    --line: #E4E1EC;
+  }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #23232B; font-size: 10.5pt; line-height: 1.55; }
+  .page { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .content { padding: 20mm 18mm 24mm 18mm; height: 100%; display: flex; flex-direction: column; }
+  .page.budget-page .content { padding-top: 14mm; padding-bottom: 16mm; }
+
+  .cover { background: #fff; color: var(--dark); }
+  .cover .bar { position: absolute; top: 0; left: 0; right: 0; height: 4mm; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+  .cover .inner { padding: 24mm 20mm; height: 100%; display: flex; flex-direction: column; }
+  .cover .logo { width: 58mm; margin-top: 3mm; }
+  .cover .kicker { margin-top: 22mm; font-size: 9.5pt; letter-spacing: 3.5px; text-transform: uppercase; color: var(--accent2); font-weight: 600; }
+  .cover h1 { margin-top: 8mm; font-size: 23pt; line-height: 1.22; font-weight: 700; letter-spacing: -0.3px; color: var(--dark); }
+  .cover h1 .dot { color: var(--accent2); }
+  .cover .sub { margin-top: 6mm; font-size: 11.5pt; color: var(--grey); line-height: 1.65; max-width: 158mm; }
+  .cards { margin-top: 11mm; display: flex; gap: 5mm; }
+  .card { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-top: 1.4mm solid var(--accent2); border-radius: 0 0 2.5mm 2.5mm; padding: 6mm 6mm; }
+  .card .big { font-size: 14.5pt; font-weight: 700; color: var(--accent); }
+  .card .big .u { color: var(--accent2); }
+  .card .lbl { margin-top: 2.5mm; font-size: 8.8pt; color: var(--grey); line-height: 1.5; }
+  .cover .foot { margin-top: auto; display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 6mm; font-size: 9pt; color: var(--grey); }
+  .toc { margin-top: 11mm; border: 1px solid var(--line); background: #FAF9FC; border-radius: 2.5mm; padding: 5.5mm 7mm; }
+  .toc-title { font-size: 8.5pt; letter-spacing: 2px; text-transform: uppercase; color: #8B8B96; margin-bottom: 3.5mm; }
+  .toc-items { display: flex; flex-wrap: wrap; gap: 2.5mm 6mm; }
+  .toc-items span { font-size: 9.5pt; color: #3A3A44; }
+  .toc-items span::before { content: ""; display: inline-block; width: 2mm; height: 2mm; border-radius: 0.6mm; background: var(--accent2); margin-right: 2.2mm; vertical-align: 0.3mm; }
+  .cover .foot b { color: var(--dark); font-weight: 600; }
+
+  .head { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--accent); padding-bottom: 3mm; margin-bottom: 7mm; }
+  .head .num { font-size: 10pt; font-weight: 700; color: var(--accent2); letter-spacing: 2px; }
+  .head h2 { font-size: 17pt; font-weight: 700; color: var(--dark); letter-spacing: -0.2px; }
+  .mini-logo { width: 30mm; }
+
+  h3 { font-size: 11.5pt; color: var(--accent); margin: 6mm 0 2.5mm 0; font-weight: 700; }
+  p { margin-bottom: 3mm; }
+  ul { margin: 0 0 3mm 0; padding-left: 5mm; list-style: none; }
+  ul li { padding-left: 4.5mm; position: relative; margin-bottom: 1.8mm; }
+  ul li::before { content: ""; position: absolute; left: 0; top: 2mm; width: 2.2mm; height: 2.2mm; border-radius: 0.7mm; background: var(--accent2); }
+
+  .foot { margin-top: auto; border-top: 1px solid var(--line); padding-top: 3mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--grey); }
+
+  .callout { background: var(--lilac); border-left: 1.6mm solid var(--accent2); border-radius: 0 2mm 2mm 0; padding: 5mm 6mm; margin: 4mm 0; }
+  .callout .t { font-weight: 700; color: var(--accent); margin-bottom: 1.5mm; font-size: 10.5pt; }
+
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 4mm 0; font-size: 10pt; }
+  th { background: var(--accent); color: #fff; text-align: left; padding: 3mm 4mm; font-weight: 600; font-size: 9.5pt; }
+  td { padding: 2.8mm 4mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: #FAF9FC; }
+  td.r, th.r { text-align: right; white-space: nowrap; }
+  tr.total td { background: var(--lilac); font-weight: 700; color: var(--accent); border-bottom: none; }
+
+  .steps { display: flex; gap: 4mm; margin: 4mm 0 2mm 0; }
+  .step { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-top: 1.4mm solid var(--accent2); border-radius: 0 0 2mm 2mm; padding: 4.5mm 4mm; }
+  .step .when { font-size: 8.5pt; font-weight: 700; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.8px; }
+  .step .what { margin-top: 1.5mm; font-weight: 700; font-size: 10pt; }
+  .step .res { margin-top: 1.2mm; font-size: 8.8pt; color: var(--grey); line-height: 1.45; }
+
+  .sig { display: flex; gap: 6mm; margin-top: 4mm; }
+  .sigbox { flex: 1; border: 1px solid var(--line); border-radius: 2mm; padding: 4mm 5mm 9mm 5mm; }
+  .sigbox .who { font-weight: 700; color: var(--accent); margin-bottom: 3mm; }
+  .sigline { margin-top: 5mm; font-size: 9.5pt; color: var(--grey); border-bottom: 1px dotted #B9B6C4; padding-bottom: 1.2mm; }
+  .legal { margin-top: 3.5mm; font-size: 8.3pt; color: var(--grey); line-height: 1.55; border-top: 1px solid var(--line); padding-top: 3mm; }
+
+  .tight .head { margin-bottom: 5mm; padding-bottom: 2.5mm; }
+  .tight td { padding: 2mm 4mm; }
+  .tight table { margin: 2mm 0 3mm 0; }
+  .nextnote { font-size: 9.8pt; color: var(--grey); background: #FAF9FC; border: 0.3mm solid var(--line); border-radius: 2mm; padding: 2.5mm 4mm; margin: 0 0 3mm 0; }
+  .nextnote b { color: var(--accent); }
+  tr.future td { background: #FAF9FC; color: var(--grey); font-size: 9.5pt; }
+  table.small { font-size: 9.2pt; }
+  table.small td { padding: 1.8mm 4mm; }
+  .tight h3 { margin: 3.5mm 0 2mm 0; }
+  .tight .callout { margin: 3mm 0; padding: 3.5mm 5mm; }
+  .tight p { margin-bottom: 2mm; }
+  .tight ul li { margin-bottom: 1.2mm; }
+  .tight .sigbox { padding-bottom: 7mm; }
+  .tight .sigline { margin-top: 4mm; }
+  .tight .sig { margin-top: 3mm; }
+  .tight .legal { margin-top: 2.5mm; padding-top: 2.5mm; }
+
+  .dense td { padding: 1.6mm 4mm; }
+  .dense table { margin: 2mm 0 2.5mm 0; }
+  .dense h3 { margin: 3mm 0 1.5mm 0; }
+  .dense p { margin-bottom: 1.8mm; }
+  .dense ul li { margin-bottom: 1mm; }
+  .dense .callout { margin: 2.5mm 0; padding: 2.5mm 4.5mm; }
+  .dense { font-size: 10pt; line-height: 1.5; }
+  .dense table { font-size: 9.4pt; }
+  .dense table.small { font-size: 8.9pt; }
+  .dense .head { margin-bottom: 5mm; }
+  .dense .foot { padding-top: 2.5mm; }
+
+  .annexe-head { display: flex; align-items: baseline; gap: 4mm; border-bottom: 2px solid var(--accent); padding-bottom: 3mm; margin-bottom: 6mm; }
+  .annexe-head .tag { font-size: 9pt; font-weight: 700; color: #fff; background: var(--accent); padding: 1.2mm 3mm; border-radius: 1.5mm; letter-spacing: 1px; }
+  .annexe-head h2 { font-size: 15pt; font-weight: 700; color: var(--dark); }
+  .price-tag { display: inline-block; background: var(--lilac); color: var(--accent); font-weight: 700; padding: 2mm 4mm; border-radius: 1.5mm; font-size: 10pt; }
+  .two { display: flex; gap: 6mm; }
+  .two > div { flex: 1; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="page cover">
+  <div class="bar"></div>
+  <div class="inner">
+    <img class="logo" src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
+    <div class="kicker">Devis complémentaire · Estimation</div>
+    <h1>HEATSPOT : contrôle d'identité,<br>red flags et vestiaire digital<span class="dot">.</span></h1>
+    <div class="sub">Deux briques à ajouter à votre socle existant : un contrôle d'identité volontaire avec signalement des profils à risque, et un vestiaire digital où un ticket correspond à un numéro de vestiaire et à un cintre numéroté. Le partage des signalements entre clubs est traité avec une approche prudente, détaillée en page Conformité.</div>
+    <div class="cards">
+      <div class="card">
+        <div class="big">11 100&nbsp;€ <span class="u">HT</span></div>
+        <div class="lbl">Les deux briques, net après déduction de l'encours maintenance (estimation à cadrer)<br>32 jours · 19 200 € HT avant déduction</div>
+      </div>
+      <div class="card">
+        <div class="big">Janvier 2027</div>
+        <div class="lbl">Livraison indicative<br>si lancement sous 2 semaines</div>
+      </div>
+      <div class="card">
+        <div class="big">1&nbsp;800&nbsp;€ <span class="u">HT</span></div>
+        <div class="lbl">Atelier de cadrage, 3 jours<br>facturé, sans remise</div>
+      </div>
+    </div>
+    <div class="toc">
+      <div class="toc-title">Contenu du document</div>
+      <div class="toc-items">
+        <span>01 L'essentiel</span><span>02 Budget</span><span>03 Conformité RGPD</span><span>04 Planning</span><span>05 Prochaines étapes</span><span>Annexes A · B</span>
+      </div>
+    </div>
+    <div class="foot">
+      <div>Préparée pour <b>HEATSPOT</b></div>
+      <div>Présentée par <b>Perfusion.dev</b> · Maxime Guyot</div>
+      <div><b>31 octobre 2026</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ P1 ESSENTIEL ============ -->
+<div class="page tight">
+  <div class="content">
+    <div class="head">
+      <div class="num">01 · L'ESSENTIEL</div>
+      <h2>L'essentiel en une page</h2>
+      <img class="mini-logo" src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
+    </div>
+
+    <h3>Le besoin</h3>
+    <p>Suite à votre demande, ce devis complémentaire couvre <b>deux briques</b> qui viennent se greffer sur le socle HEATSPOT existant, sans toucher au cœur de la plateforme :</p>
+    <ul>
+      <li><b>Contrôle d'identité et profils à risque</b> : un parcours de vérification volontaire (pièce d'identité + selfie) depuis l'app mobile et le site de billetterie, et un signalement « red flag » posé par le videur depuis l'app de contrôle, visible au prochain contrôle du même clubber.</li>
+      <li><b>Vestiaire digital</b> : un ticket = un numéro de vestiaire = un cintre numéroté. L'app associe le ticket au vestiaire et au cintre remis, puis libère l'ensemble à la restitution.</li>
+    </ul>
+
+    <h3>Ce que HEATSPOT obtient</h3>
+    <ul>
+      <li>Un <b>statut « identité vérifiée »</b> fiable, affiché aux équipes sur place lors du contrôle, sans ralentir les entrées des clubbers vérifiés.</li>
+      <li>Un <b>signalement structuré et opposable</b> : motifs prédéfinis, faits horodatés, auteur identifié, visible immédiatement lors du contrôle suivant.</li>
+      <li>Un <b>vestiaire traçé de bout en bout</b> : plus de litiges sur les numéros, une vision en temps réel des vestiaires et cintres disponibles par club.</li>
+      <li>Un <b>cadre RGPD travaillé dès la conception</b> : information des personnes, durées de conservation, droit de contestation (page 03).</li>
+    </ul>
+
+    <div class="callout">
+      <div class="t">Nos garanties pour ce devis</div>
+      <ul style="margin-bottom:0">
+        <li>Le <b>code source et le dépôt Git vous sont remis</b>, vos données restent chez HEATSPOT ; droits d'exploitation et réversibilité définis au contrat.</li>
+        <li>Le chiffrage est une <b>estimation</b> (32 jours, confirmée à l'issue de l'atelier de cadrage) ; le SLA et l'astreinte 24/7 restent à cadrer, jamais inclus d'office.</li>
+        <li>Le partage des red flags entre clubs suit une <b>approche en deux temps</b>, conditionnée à la validation juridique (page 03).</li>
+      </ul>
+    </div>
+
+    <h3>Quatre jalons pour livrer les deux briques</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="when">Jalon 1</div>
+        <div class="what">Contrôle d'identité</div>
+        <div class="res">KYC Stripe Identity, statut vérifié, suivi back-office.</div>
+      </div>
+      <div class="step">
+        <div class="when">Jalon 2</div>
+        <div class="what">Red flags</div>
+        <div class="res">Signalements, contrôle suivant, partage réseau, garde-fous.</div>
+      </div>
+      <div class="step">
+        <div class="when">Jalon 3</div>
+        <div class="what">Vestiaire digital</div>
+        <div class="res">Ticket, vestiaire, cintre numéroté, gestion du parc.</div>
+      </div>
+      <div class="step">
+        <div class="when">Jalon 4</div>
+        <div class="what">Recette &amp; déploiement</div>
+        <div class="res">Tests, mise en production, documentation.</div>
+      </div>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>1</span></div>
+  </div>
+</div>
+
+<!-- ============ P2 BUDGET ============ -->
+<div class="page budget-page">
+  <div class="content tight dense xdense">
+    <div class="head">
+      <div class="num">02 · BUDGET</div>
+      <h2>Une estimation claire, brique par brique</h2>
+    </div>
+
+    <p>Estimation, TJM <b>600&nbsp;€ HT</b>, ancrée à <b>32 jours / 19&nbsp;200&nbsp;€ HT</b> (fourchette 17 à 21&nbsp;k€ HT). Confirmée à l'issue de l'atelier de cadrage.</p>
+
+    <h3>Étape préalable (facturée, sans remise)</h3>
+    <table class="small">
+      <tr><th>Prestation</th><th class="r">Charge</th><th class="r">Montant HT</th></tr>
+      <tr><td><b>Atelier de cadrage</b> : parcours et écrans clés, règles de fichage, motifs, cadre RGPD, priorités</td><td class="r">3 jours</td><td class="r">1 800 €</td></tr>
+    </table>
+
+    <h3>Les deux briques (estimation à cadrer)</h3>
+    <table>
+      <tr><th>Jalon</th><th class="r">Jours</th><th class="r">Montant HT</th></tr>
+      <tr><td><b>1 · Contrôle d'identité</b> : Stripe Identity, statut vérifié, back-office, RGPD</td><td class="r">10</td><td class="r">6 000 €</td></tr>
+      <tr><td><b>2 · Red flags</b> : signalement, motifs, contrôle suivant, partage réseau</td><td class="r">9</td><td class="r">5 400 €</td></tr>
+      <tr><td><b>3 · Vestiaire digital</b> : ticket, vestiaire, cintre, restitution, gestion du parc</td><td class="r">8</td><td class="r">4 800 €</td></tr>
+      <tr><td><b>4 · Recette, déploiement, documentation</b></td><td class="r">5</td><td class="r">3 000 €</td></tr>
+      <tr class="total"><td>Total briques</td><td class="r">32 jours</td><td class="r">19 200 € HT<br>23 040 € TTC</td></tr>
+    </table>
+
+    <h3>Déduction de l'encours de maintenance (estimation)</h3>
+    <table class="small">
+      <tr><th>Ligne</th><th class="r">Montant HT</th></tr>
+      <tr><td>Solde disponible sur le devis n° 19 (maintenance en cours)</td><td class="r">- 8 100 €</td></tr>
+      <tr class="total"><td>Net à payer pour les briques</td><td class="r">11 100 € HT<br>13 320 € TTC</td></tr>
+    </table>
+    <p class="nextnote">Charge calibrée avec une équipe senior dédiée ; estimation confirmée à l'issue de l'atelier.</p>
+
+    <h3>Échéancier de règlement (briques, sur le net)</h3>
+    <table class="small">
+      <tr><th>Jalon validé par HEATSPOT</th><th class="r">Part</th><th class="r">Montant HT</th></tr>
+      <tr><td>Lancement du projet (après signature)</td><td class="r">30 %</td><td class="r">3 330 €</td></tr>
+      <tr><td>Mise à disposition des briques en recette</td><td class="r">40 %</td><td class="r">4 440 €</td></tr>
+      <tr><td>Validation de recette, avant mise en production</td><td class="r">30 %</td><td class="r">3 330 €</td></tr>
+      <tr class="future"><td colspan="3">Montants HT, TVA 20&nbsp;% en sus, calculés sur le net après déduction. Atelier (1&nbsp;800&nbsp;€ HT) facturé séparément, non déductible.</td></tr>
+    </table>
+
+    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>2</span></div>
+  </div>
+</div>
+
+<!-- ============ P3 CONFORMITE ============ -->
+<div class="page tight">
+  <div class="content">
+    <div class="head">
+      <div class="num">03 · CONFORMITÉ</div>
+      <h2>Des briques conçues pour rester dans les rails</h2>
+    </div>
+
+    <p>Le contrôle d'identité et les signalements touchent à des données personnelles sensibles pour vos clubbers. Nous avons conçu les deux briques autour des exigences documentées par la CNIL, en particulier sa position sur les « listes noires ».</p>
+
+    <div class="two">
+      <div>
+        <h3>Contrôle d'identité volontaire</h3>
+        <ul>
+          <li><b>Base légale : le consentement</b>. Le parcours est volontaire, lancé depuis l'app ou la billetterie ; personne n'est contraint de se vérifier.</li>
+          <li><b>Minimisation</b> : seules les données nécessaires sont extraites ; les images du document et du selfie sont conservées chez Stripe, jamais sur nos serveurs, avec suppression programmatique possible.</li>
+          <li><b>Information et droits</b> : finalité, durée de conservation et droits (accès, effacement) expliqués dans le parcours ; durée de conservation à fixer à l'atelier.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Red flags : les garde-fous</h3>
+        <ul>
+          <li><b>Faits, pas opinions</b> : motifs prédéfinis de gravité certaine (agression, vol, dégradation, refus de contrôle...) ; pas de données pénales ni de condamnations (art. 10 RGPD).</li>
+          <li><b>Transparence</b> : information à trois niveaux, à la collecte, lors de l'incident et au moment du fichage, avec possibilité de faire des observations.</li>
+          <li><b>Contestation et oubli</b> : procédure de contestation, examen des recours et durée de conservation limitée avec purge automatique.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Partage entre clubs : une approche en deux temps</h3>
+    <p>Le partage des red flags entre clubs du réseau HEATSPOT est <b>envisageable</b> (intérêt légitime : sécurité des personnes et des biens, périmètre limité aux professionnels du réseau), mais c'est le point le plus sensible juridiquement : la CNIL exclut la mutualisation de ses référentiels standards et attend information des destinataires, convention de partage et analyse d'impact (AIPD). Nous proposons donc :</p>
+    <ul>
+      <li><b>Temps 1 (dès la mise en production)</b> : red flags internes à chaque club, visibles au prochain contrôle sur place. Valeur immédiate, risque juridique maîtrisé.</li>
+      <li><b>Temps 2 (après validation)</b> : activation du partage entre clubs du réseau, une fois la convention de partage, l'information des personnes et l'AIPD validées, idéalement avec un avis juridique externe.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="t">Ce qui est inclus et ce qui ne l'est pas</div>
+      <p style="margin-bottom:0">Nous livrons les briques <b>avec les garde-fous techniques</b> : motifs prédéfinis, double lecture au contrôle, journal d'audit, purge automatique, paramétrage de l'activation du partage (désactivable par défaut). En revanche, l'<b>AIPD formelle</b> et le <b>conseil juridique externe</b> ne sont pas inclus ; ils peuvent faire l'objet d'un lot séparé si vous souhaitez les confier à un tiers ou à nous-mêmes.</p>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>3</span></div>
+  </div>
+</div>
+
+<!-- ============ P4 PLANNING ============ -->
+<div class="page">
+  <div class="content">
+    <div class="head">
+      <div class="num">04 · PLANNING</div>
+      <h2>Un calendrier calibré pour 1 à 2 mois</h2>
+    </div>
+
+    <p>Les dates ci-dessous sont une <b>projection</b> pour 32 jours de réalisation, avec une équipe senior dédiée. Le planning détaillé sera figé à l'issue de l'atelier de cadrage.</p>
+
+    <table>
+      <tr><th>Période indicative</th><th>Étape</th><th>Résultat attendu</th></tr>
+      <tr><td><b>Semaine 1</b></td><td>Signature + atelier de cadrage (3 j)</td><td>Parcours et écrans clés, règles de fichage, motifs, cadre RGPD</td></tr>
+      <tr><td><b>Semaines 2 à 4</b></td><td>Contrôle d'identité (jalon 1)</td><td>KYC Stripe Identity actif sur app et billetterie</td></tr>
+      <tr><td><b>Semaines 4 à 6</b></td><td>Red flags (jalon 2) + vestiaire (jalon 3)</td><td>Signalements et vestiaire digital opérationnels</td></tr>
+      <tr><td><b>Semaine 7</b></td><td>Recette, déploiement, doc (jalon 4)</td><td>Mise en production sur les clubs pilotes</td></tr>
+      <tr><td><b>Cible</b></td><td>Livraison indicative</td><td><b>Janvier 2027</b> si lancement sous 2 semaines</td></tr>
+    </table>
+
+    <h3>Comment nous travaillerons ensemble</h3>
+    <ul>
+      <li><b>Extension du socle existant</b> : les briques s'ajoutent à la plateforme HEATSPOT sans refonte ; l'app mobile, la billetterie et le back-office restent vos points d'entrée.</li>
+      <li><b>Qualité</b> : code testé, revues systématiques, documentation à jour.</li>
+      <li><b>Visibilité</b> : jalons livrables, démos régulières, recette par critères d'acceptation.</li>
+      <li><b>Décisions</b> : Maxime Guyot, interlocuteur unique de la signature à la mise en production.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="t">Ce dont nous aurons besoin de votre côté</div>
+      <p style="margin-bottom:0">L'accès au dépôt et aux environnements de la plateforme existante, un compte Stripe au nom de HEATSPOT avec Identity activé, un interlocuteur métier pour figer les motifs de signalement et les règles de gestion du vestiaire, et la fourniture des cintres numérotés par vos équipes.</p>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>4</span></div>
+  </div>
+</div>
+
+<!-- ============ P5 PROCHAINES ETAPES ============ -->
+<div class="page tight dense xdense">
+  <div class="content">
+    <div class="head">
+      <div class="num">05 · PROCHAINES ÉTAPES</div>
+      <h2>Cinq décisions pour avancer</h2>
+    </div>
+
+    <table>
+      <tr><th style="width:8mm" class="r">1</th><td><b>Valider le principe de ce devis</b> : deux briques, 11&nbsp;100&nbsp;€ HT net après déduction de l'encours maintenance.</td></tr>
+      <tr><th class="r">2</th><td><b>Planifier l'atelier de cadrage</b> (3 jours, 1&nbsp;800&nbsp;€ HT facturé, sans remise).</td></tr>
+      <tr><th class="r">3</th><td><b>Figer les motifs de signalement</b> et la durée de conservation avec votre interlocuteur métier.</td></tr>
+      <tr><th class="r">4</th><td><b>Activer Stripe Identity</b> sur le compte Stripe de HEATSPOT (ou nous donner accès pour le faire).</td></tr>
+      <tr><th class="r">5</th><td><b>Signer et lancer</b> : 30&nbsp;% / 40&nbsp;% / 30&nbsp;%, livraison indicative janvier&nbsp;2027.</td></tr>
+    </table>
+
+    <h3>Récapitulatif contractuel proposé</h3>
+    <table class="small">
+      <tr><th>Sujet</th><th>Base proposée</th></tr>
+      <tr><td>Atelier de cadrage</td><td>3 jours · 1 800 € HT (2 160 € TTC), facturé sans remise</td></tr>
+      <tr><td>Briques identité, red flags et vestiaire</td><td>Estimation à cadrer : 32 jours · 19 200 € HT / 23 040 € TTC (TVA 20 %, fourchette 17 à 21 k€)</td></tr>
+      <tr><td>Encours maintenance (devis n° 19)</td><td>8 100 € HT déduits des briques · net à payer 11 100 € HT / 13 320 € TTC</td></tr>
+      <tr><td>Règlement briques</td><td>30 % lancement · 40 % mise à disposition · 30 % validation recette, sur le net</td></tr>
+      <tr><td>Vérifications Stripe Identity</td><td>Facturées au réel sur le compte HEATSPOT (annexe B)</td></tr>
+      <tr><td>Livrables et réversibilité</td><td>Code source et dépôt Git remis à HEATSPOT ; droits d'exploitation définis au contrat</td></tr>
+    </table>
+
+    <div class="callout">
+      <div class="t">Décision attendue</div>
+      <p style="margin-bottom:0"><b>Valider le principe et fixer la date de l'atelier de cadrage</b> ; montants confirmés à l'issue de l'atelier, avant engagement des jalons.</p>
+    </div>
+
+    <div class="sig">
+      <div class="sigbox">
+        <div class="who">Pour HEATSPOT</div>
+        <div class="sigline">Nom, fonction :</div>
+        <div class="sigline">Date :</div>
+        <div class="sigline">Signature :</div>
+      </div>
+      <div class="sigbox">
+        <div class="who">Pour Perfusion.dev</div>
+        <div class="sigline">Maxime Guyot</div>
+        <div class="sigline">Date :</div>
+        <div class="sigline">Signature :</div>
+      </div>
+    </div>
+
+    <div class="legal">
+      <b>SARL perfusion.dev</b>, 11 rue des Trois Tilleuls, 14310 Villers Bocage · Tél : +33 6 63 33 82 95 · office@perfusion.dev · Capital 1 000 €<br>
+      SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>5</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE A ============ -->
+<div class="page tight">
+  <div class="content">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE A</span>
+      <h2>Périmètre des deux briques</h2>
+    </div>
+
+    <h3>Brique Contrôle d'identité · inclus</h3>
+    <ul>
+      <li>Parcours de vérification volontaire depuis l'app mobile et le site de billetterie (document d'identité + selfie via Stripe Identity).</li>
+      <li>Statut « identité vérifiée » associé au profil du clubber, visible par les équipes lors du contrôle.</li>
+      <li>Back-office : suivi des vérifications (en cours, validées, échouées), relances, gestion des échecs.</li>
+      <li>Garde-fous RGPD : consentement explicite, information, durées de conservation paramétrables, suppression.</li>
+    </ul>
+
+    <h3>Brique Red flags · inclus</h3>
+    <ul>
+      <li>Signalement posé par le videur ou le staff depuis l'app de contrôle : motif prédéfini, commentaire factuel, horodatage, auteur.</li>
+      <li>Mise en avant automatique du signalement lors du prochain contrôle du même clubber.</li>
+      <li>Partage entre clubs du réseau HEATSPOT : technique livrée mais désactivée par défaut, activée après validation juridique (page 03).</li>
+      <li>Journal d'audit des signalements et des consultations, purge automatique à l'échéance fixée à l'atelier.</li>
+    </ul>
+
+    <h3>Brique Vestiaire digital · inclus</h3>
+    <ul>
+      <li>Attribution d'un ticket à l'entrée, associé à un numéro de vestiaire et à un cintre numéroté remis au clubber.</li>
+      <li>Restitution : vérification et libération du vestiaire et du cintre en un geste.</li>
+      <li>Gestion du parc par club : vestiaires, cintres, disponibilité en temps réel, incidents de base (perte de ticket, cintre non rendu, à préciser à l'atelier).</li>
+      <li>Vision back-office et vue simplifiée sur l'app mobile.</li>
+    </ul>
+
+    <h3>Exclus (hors périmètre de ce devis)</h3>
+    <ul>
+      <li>Vérification d'identité systématique à l'entrée (non volontaire) et contrôle aux bornes matériels.</li>
+      <li>Listes officielles de sanctions ou d'interdictions administratives ; données judiciaires.</li>
+      <li>Serrures connectées, étiquettes RFID ou lecteurs dédiés : le vestiaire digital repose sur les cintres numérotés fournis par HEATSPOT.</li>
+      <li>AIPD formelle et conseil juridique externe (lot séparé possible) ; SLA 99,9&nbsp;% et astreinte 24/7 (à cadrer).</li>
+    </ul>
+
+    <p style="margin-top:4mm"><span class="price-tag">Estimation briques à cadrer : 19 200 € HT · 32 jours</span></p>
+
+    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>Annexe A</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE B ============ -->
+<div class="page tight">
+  <div class="content">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE B</span>
+      <h2>Stripe Identity · coûts au réel</h2>
+    </div>
+
+    <p>La vérification d'identité s'appuie sur <b>Stripe Identity</b>, le service de vérification de Stripe (pièces d'identité de plus de 100 pays, contrôle document + selfie, disponible en France). Le compte est <b>souscrit au nom de HEATSPOT</b> : vous gardez la maîtrise du contrat, des données et des coûts.</p>
+
+    <div class="callout">
+      <div class="t">Tarification constatée (octobre 2026)</div>
+      <ul style="margin-bottom:0">
+        <li><b>Vérification document + selfie : 1,25 €</b> par vérification complétée.</li>
+        <li><b>50 premières vérifications offertes</b> ; tarification personnalisée à négocier avec Stripe au-delà de 2 000 vérifications par mois.</li>
+        <li>Facturation directement par Stripe sur votre compte, au réel : aucun coût pour nous sur ce poste.</li>
+      </ul>
+    </div>
+
+    <h3>Ordre de grandeur pour HEATSPOT</h3>
+    <table class="small">
+      <tr><th>Hypothèse mensuelle de vérifications volontaires</th><th class="r">Coût indicatif</th></tr>
+      <tr><td>500 vérifications / mois</td><td class="r">~ 625 €</td></tr>
+      <tr><td>1 000 vérifications / mois</td><td class="r">~ 1 250 €</td></tr>
+      <tr><td>2 000 vérifications / mois et plus</td><td class="r">tarification personnalisée à négocier avec Stripe</td></tr>
+    </table>
+    <p class="nextnote">Montants indicatifs hors taxes selon la facturation Stripe. Le volume réel dépendra de l'adoption du parcours volontaire par vos clubbers : l'atelier de cadrage permettra de dimensionner au plus juste.</p>
+
+    <h3>Points RGPD à connaître</h3>
+    <ul>
+      <li>Les images du document et du selfie sont <b>stockées par Stripe</b>, pas sur vos serveurs ni les nôtres.</li>
+      <li>Stripe propose un <b>flux de consentement explicite</b> et la <b>suppression programmatique</b> des données de vérification.</li>
+      <li>Stripe agit comme <b>sous-traitant</b> ; HEATSPOT reste responsable de traitement, avec HEATSPOT mentionné comme destinataire des résultats de vérification.</li>
+    </ul>
+
+    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>Annexe B</span></div>
+  </div>
+</div>
+
+</body>
+</html>

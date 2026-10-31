@@ -8,7 +8,7 @@ alwaysApply: true
 ## Chiffrage
 
 - **TJM de référence : 600 € HT.**
-- **Développement assisté par IA** avec revue humaine systématique : permis de réduire la charge de build, jamais chiffré publiquement (pas de « % de gain », pas de coût « sans nous » ; voir règle `confidentialite-interne`).
+- **Développement assisté par IA** avec revue humaine systématique : permis de réduire la charge de build, **jamais mentionné au client** (ni « IA », ni justification de délai par l'IA ; voir règle `confidentialite-interne`).
 - **Atelier de cadrage** : 3 jours, 1 800 € HT, déductible du montant principal si signature sous 30 jours après l'atelier.
 - Structurer les propositions en jalons livrables (cadrage/UX, socle, cœur métier, recette/déploiement/stores).
 - Fournir HT **et** TTC (TVA 20 %) ; fourchettes acceptables pour une première estimation, marquées « estimation à cadrer ».
