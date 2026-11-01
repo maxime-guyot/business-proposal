@@ -75,11 +75,6 @@
   .step .what { margin-top: 1.5mm; font-weight: 700; font-size: 10pt; }
   .step .res { margin-top: 1.2mm; font-size: 8.8pt; color: var(--grey); line-height: 1.45; }
 
-  /* signature page */
-  .sig { display: flex; gap: 6mm; margin-top: 4mm; }
-  .sigbox { flex: 1; border: 1px solid var(--line); border-radius: 2mm; padding: 4mm 5mm 9mm 5mm; }
-  .sigbox .who { font-weight: 700; color: var(--purple); margin-bottom: 3mm; }
-  .sigline { margin-top: 5mm; font-size: 9.5pt; color: var(--grey); border-bottom: 1px dotted #B9B6C4; padding-bottom: 1.2mm; }
   .legal { margin-top: 3.5mm; font-size: 8.3pt; color: var(--grey); line-height: 1.55; border-top: 1px solid var(--line); padding-top: 3mm; }
 
   /* compact mode for dense pages */
@@ -99,20 +94,7 @@
   .tight p { margin-bottom: 2mm; }
   .tight ul li { margin-bottom: 1.2mm; }
   .tight .step { padding: 3.5mm 3.5mm; }
-  .tight .sigbox { padding-bottom: 2.5mm; }
-  .tight .sigline { margin-top: 2.2mm; }
-  .tight .sig { margin-top: 2.5mm; }
-  .tight .legal { margin-top: 2mm; padding-top: 2mm; line-height: 1.4; }
   .pb14 .content { padding-bottom: 10mm; }
-  .devis-sig { margin-top: 2mm; }
-  .devis-sig .sigbox { padding-top: 2.5mm; padding-bottom: 1.5mm; }
-  .devis-sig .sigline { margin-top: 1.5mm; }
-
-  .devis-head { display: flex; gap: 4mm; margin: 0 0 3mm 0; }
-  .devis-head .dbox { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-left: 1.2mm solid var(--purple2); border-radius: 0 2mm 2mm 0; padding: 2.5mm 4mm; }
-  .dbox .dlab { font-size: 7.5pt; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple2); font-weight: 700; }
-  .dbox .dval { font-size: 11pt; font-weight: 700; color: var(--dark); margin-top: 0.8mm; }
-  .dbox .dsub { font-size: 8.8pt; color: var(--grey); margin-top: 0.5mm; }
 
   .annexe-head { display: flex; align-items: baseline; gap: 4mm; border-bottom: 2px solid var(--purple); padding-bottom: 3mm; margin-bottom: 6mm; }
   .annexe-head .tag { font-size: 9pt; font-weight: 700; color: #fff; background: var(--purple); padding: 1.2mm 3mm; border-radius: 1.5mm; letter-spacing: 1px; }
@@ -120,6 +102,32 @@
   .price-tag { display: inline-block; background: var(--lilac); color: var(--purple); font-weight: 700; padding: 2mm 4mm; border-radius: 1.5mm; font-size: 10pt; }
   .two { display: flex; gap: 6mm; }
   .two > div { flex: 1; }
+
+  /* ---------- DEVIS FORMEL ---------- */
+  .dv-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4mm; }
+  .dv-head img { width: 38mm; margin-top: 1.5mm; }
+  .dv-title { text-align: right; }
+  .dv-title .t { font-size: 21pt; font-weight: 700; letter-spacing: 6px; color: var(--dark); }
+  .dv-title .m { margin-top: 2mm; font-size: 9pt; color: var(--grey); line-height: 1.6; }
+  .dv-title .m b { color: var(--dark); }
+  .dv-meta { display: flex; border: 1px solid var(--line); border-radius: 2mm; overflow: hidden; margin-bottom: 5mm; flex-shrink: 0; }
+  .dv-meta > div { flex: 1; padding: 3mm 4.5mm; }
+  .dv-meta > div + div { border-left: 1px solid var(--line); }
+  .dv-meta .lbl { font-size: 7.8pt; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple2); font-weight: 700; margin-bottom: 1.2mm; }
+  .dv-meta p { font-size: 9pt; margin: 0; line-height: 1.5; }
+  .dv-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 2.5mm 0 3mm 0; }
+  .dv-table th { background: var(--purple); color: #fff; padding: 2.8mm 3.5mm; font-weight: 600; font-size: 9pt; text-align: left; border: 1px solid var(--purple); }
+  .dv-table td { border: 1px solid var(--line); padding: 2mm 3.5mm; vertical-align: top; }
+  .dv-table .r { text-align: right; white-space: nowrap; }
+  .dv-table th.r { text-align: right; }
+  .dv-tot td { background: var(--lilac); font-weight: 700; color: var(--purple); }
+  .dv-h3 { font-size: 11pt; color: var(--purple); margin: 3mm 0 1.2mm 0; font-weight: 700; }
+  .dv-note { font-size: 9pt; color: var(--grey); }
+  .dvfoot { margin-top: auto; border-top: 1.5px solid var(--purple); padding-top: 2.5mm; font-size: 7.6pt; color: var(--grey); line-height: 1.55; display: flex; justify-content: space-between; gap: 8mm; }
+  .dvfoot .pg { text-align: right; white-space: nowrap; font-weight: 600; color: var(--purple2); }
+  .dv-sig { border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2mm 2mm; padding: 3.5mm 5mm 7mm 5mm; margin-top: auto; }
+  .dv-sig .t { font-weight: 700; color: var(--purple); font-size: 11pt; margin-bottom: 2mm; }
+  .dv-sig p { font-size: 9.3pt; margin-bottom: 2mm; }
 </style>
 </head>
 <body>
@@ -129,21 +137,21 @@
   <div class="bar"></div>
   <div class="inner">
     <img class="logo" src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
-    <div class="kicker">Proposition commerciale</div>
+    <div class="kicker">Proposition commerciale · Première estimation</div>
     <h1>Vos tâches répétitives,<br>prises en charge par l'IA<span class="dot">.</span></h1>
-    <div class="sub">Un socle d'automatisation IA construit avec vos équipes, qui démarre par un pilote concret (la gestion des e-mails de la Direction) avant de s'étendre à l'ensemble de vos besoins. Chaque étape est validée ensemble, sans engagement sur les lots suivants.</div>
+    <div class="sub">Un socle d'automatisation construit avec vos équipes, qui démarre par un pilote concret (la gestion des e-mails de la Direction) avant de s'étendre à l'ensemble de vos besoins. Chaque étape est validée ensemble, sans engagement sur les lots suivants.</div>
     <div class="cards">
       <div class="card">
-        <div class="big">12 900&nbsp;€ <span class="u">HT</span></div>
-        <div class="lbl">Phase pilote forfaitaire<br>de 21,5 jours de réalisation</div>
+        <div class="big">12&nbsp;900&nbsp;€ <span class="u">HT</span></div>
+        <div class="lbl">Phase pilote forfaitaire<br>de 21,5 jours de réalisation<br>15&nbsp;480&nbsp;€ toutes taxes comprises</div>
       </div>
       <div class="card">
-        <div class="big">Décembre</div>
-        <div class="lbl">Pilote réel en conditions d'usage dès les premiers jours, auprès de M.&nbsp;Chemla</div>
+        <div class="big">Février 2027</div>
+        <div class="lbl">Déploiement final du service<br>pilote auprès de M.&nbsp;Chemla dès janvier,<br>ouverture aux équipes début février</div>
       </div>
       <div class="card">
         <div class="big">20&nbsp;€ <span class="u">HT/mois</span></div>
-        <div class="lbl">par utilisateur, 10&nbsp;€ de consommation IA inclus<br>dès janvier 2027,<br>20 utilisateurs et 100 Go</div>
+        <div class="lbl">par utilisateur, 10&nbsp;€ de consommation IA inclus<br>dès février 2027,<br>20 utilisateurs : 400&nbsp;€ HT par mois (480&nbsp;€ TTC)</div>
       </div>
     </div>
     <div class="toc">
@@ -154,85 +162,65 @@
     </div>
     <div class="foot">
       <div>Préparée pour <b>Biocarmes</b></div>
-      <div>Présentée par <b>Perfusion.dev</b> · Maxime Guyot</div>
-      <div><b>8 octobre 2026</b></div>
+      <div>Présentée par <b>Perfusion.dev</b> · Maxime Guyot<br><span style="font-size:8.3pt">+33&nbsp;6&nbsp;63&nbsp;33&nbsp;82&nbsp;95 · office@perfusion.dev · perfusion.dev</span></div>
+      <div><b>1er novembre 2026</b></div>
     </div>
   </div>
 </div>
 
-<!-- ============ 01 DEVIS ============ -->
-<div class="page tight pb14">
-  <div class="content">
-    <div class="head">
-      <div class="num">01 · DEVIS</div>
-      <h2>Devis de la phase pilote</h2>
-    </div>
-
-    <div class="devis-head">
-      <div class="dbox">
-        <div class="dlab">Émetteur</div>
-        <div class="dval">SARL perfusion.dev</div>
-        <div class="dsub">Maxime Guyot · maxime.guyot@perfusion.dev</div>
-      </div>
-      <div class="dbox">
-        <div class="dlab">Client</div>
-        <div class="dval">SELAS BIOCARMES</div>
-        <div class="dsub">7 rue des Carmes, 14000 Caen</div>
-      </div>
-    </div>
-    <p style="font-size:9pt;color:var(--grey);margin-top:0">Devis établi le 8 octobre 2026, valable jusqu'au 7 novembre 2026 · Règlement par virement en trois échéances.</p>
-
-    <table class="small xdense">
-      <tr><th>Prestation</th><th class="r">Charge estimée</th><th class="r">Montant HT</th></tr>
-      <tr><td>Maquettage, première phase : maquette collaborative</td><td class="r">3 jours</td><td class="r">1 800 €</td></tr>
-      <tr><td>Lot 1 · Socle de la plateforme IA</td><td class="r">8 jours</td><td class="r">4 800 €</td></tr>
-      <tr><td>Lot 2 · Assistant e-mail Direction</td><td class="r">8 jours</td><td class="r">4 800 €</td></tr>
-      <tr><td>Déploiement : mise en place du service sur AWS</td><td class="r">2,5 jours</td><td class="r">1 500 €</td></tr>
-      <tr class="total"><td>Total HT</td><td class="r">21,5 jours</td><td class="r">12 900 €</td></tr>
-      <tr><td>TVA 20 %</td><td class="r"></td><td class="r">2 580 €</td></tr>
-      <tr class="total"><td>Total TTC</td><td class="r"></td><td class="r">15 480 €</td></tr>
-    </table>
-
-    <table class="small xdense">
-      <tr class="future-head"><td colspan="2">À partir du 1er janvier 2027</td></tr>
-      <tr><th>Poste récurrent</th><th class="r">Tarif</th></tr>
-      <tr><td>Abonnement par utilisateur : 10 € de consommation IA inclus, support · pour 20 utilisateurs : 400 € HT par mois</td><td class="r">20 € HT / mois et par utilisateur</td></tr>
-      <tr><td>Consommation IA au-delà de l'inclus : grille tarifaire en page 4</td><td class="r">à l'usage</td></tr>
-    </table>
-
-    <h3>Échéancier de règlement, par virement</h3>
-    <table class="small xdense">
-      <tr><th>Jalon validé par Biocarmes</th><th class="r">Part</th><th class="r">Montant HT</th><th class="r">Montant TTC</th></tr>
-      <tr><td>Lancement du projet</td><td class="r">30 %</td><td class="r">3 870 €</td><td class="r">4 644 €</td></tr>
-      <tr><td>Mise à disposition du pilote</td><td class="r">40 %</td><td class="r">5 160 €</td><td class="r">6 192 €</td></tr>
-      <tr><td>Validation du lot, avant mise en production définitive</td><td class="r">30 %</td><td class="r">3 870 €</td><td class="r">4 644 €</td></tr>
-      <tr class="total"><td>Total</td><td class="r">100 %</td><td class="r">12 900 €</td><td class="r">15 480 €</td></tr>
-    </table>
-
-    <p style="font-size:9pt;color:var(--grey)"><b>Facturation</b> : facture à chaque jalon validé avec coordonnées de virement ; référence : Biocarmes + jalon.</p>
-
-    <p class="nextnote"><b>Estimation à cadrer</b> : montants confirmés après la maquette ; lots futurs en devis séparés.</p>
-
-    <div class="sig devis-sig">
-      <div class="sigbox">
-        <div class="who">Signature du client</div>
-        <div class="sigline">Nom, fonction :</div>
-        <div class="sigline">Date :</div>
-        <div class="sigline">Signature :</div>
+<!-- ============ P1 DEVIS ============ -->
+<div class="page tight">
+  <div class="content" style="padding-top:16mm;padding-bottom:13mm">
+    <div class="dv-head">
+      <img src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
+      <div class="dv-title">
+        <div class="t">DEVIS</div>
+        <div class="m"><b>N° 2026-11-BIOCARMES</b><br>Émis le 1er novembre 2026<br>Valable jusqu'au 30 novembre 2026</div>
       </div>
     </div>
 
-    <div class="legal">
-      <b>SARL perfusion.dev</b>, 11 rue des Trois Tilleuls, 14310 Villers Bocage · Tél : +33 6 63 33 82 95 · maxime.guyot@perfusion.dev<br>
-      SARL au capital de 1 000 € · SIRET 919 991 919 00011 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919<br>
-      Pénalités de retard : taux directeur BCE + 10 points · Indemnité forfaitaire de recouvrement : 40 €.
+    <div class="dv-meta">
+      <div>
+        <div class="lbl">Émetteur</div>
+        <p><b>SARL perfusion.dev</b><br>11 rue des Trois Tilleuls, 14310 Villers Bocage<br>office@perfusion.dev · +33&nbsp;6&nbsp;63&nbsp;33&nbsp;82&nbsp;95</p>
+      </div>
+      <div>
+        <div class="lbl">Client</div>
+        <p><b>SELAS BIOCARMES</b><br>7 rue des Carmes, 14000 Caen</p>
+      </div>
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>1</span></div>
+    <p><b>Objet :</b> phase pilote d'automatisation : maquette collaborative, socle de la plateforme, assistant e-mail de la Direction et déploiement, selon le périmètre des annexes A et B.</p>
+
+    <div class="dv-h3">Détail des prestations</div>
+    <table class="dv-table">
+      <tr><th>Désignation</th><th class="r" style="width:20mm">Quantité</th><th class="r" style="width:30mm">Prix unitaire HT</th><th class="r" style="width:27mm">Total HT</th></tr>
+      <tr><td><b>Maquette collaborative</b>, première phase</td><td class="r">3 jours</td><td class="r">600,00 €</td><td class="r">1 800,00 €</td></tr>
+      <tr><td><b>Lot 1 · Socle de la plateforme</b></td><td class="r">8 jours</td><td class="r">600,00 €</td><td class="r">4 800,00 €</td></tr>
+      <tr><td><b>Lot 2 · Assistant e-mail Direction</b></td><td class="r">8 jours</td><td class="r">600,00 €</td><td class="r">4 800,00 €</td></tr>
+      <tr><td><b>Déploiement</b> : mise en place du service sur AWS</td><td class="r">2,5 jours</td><td class="r">600,00 €</td><td class="r">1 500,00 €</td></tr>
+      <tr class="dv-tot"><td>Total HT</td><td class="r">21,5 jours</td><td></td><td class="r">12 900,00 €</td></tr>
+      <tr><td>TVA 20 %</td><td></td><td></td><td class="r">2 580,00 €</td></tr>
+      <tr class="dv-tot"><td>Total TTC</td><td></td><td></td><td class="r">15 480,00 €</td></tr>
+    </table>
+    <p class="dv-note">Montants confirmés à l'issue de la maquette (cadrage). Taux de TVA en vigueur à la facturation. Lots futurs : devis séparés.</p>
+
+    <p><b>Échéancier de règlement :</b> 30 % au lancement, après signature ; 40 % à la mise à disposition du pilote ; 30 % à la validation du lot, avant mise en production définitive.</p>
+
+    <div class="dv-sig">
+      <div class="t">Bon pour accord</div>
+      <p>Fait à : ......................................... &nbsp;&nbsp;&nbsp; Le : ........ / ........ / ............</p>
+      <p style="margin-bottom:0">Signature, précédée de la mention « Bon pour accord » :</p>
+    </div>
+
+    <div class="dvfoot">
+      <div>Règlement par virement, facture à chaque jalon validé (référence : Biocarmes + jalon), sans escompte ; en cas de retard, pénalités au taux légal et indemnité forfaitaire de 40 € (art. L441-10 du code de commerce). Code source et dépôt Git remis ; droits d'exploitation définis au contrat. Après le pilote, à partir de février 2027 : abonnement de 20 € HT par mois et par utilisateur, 10 € de consommation IA inclus ; consommation au-delà de l'inclus facturée à l'usage selon la grille de la page 4. Évolutions au-delà du périmètre des annexes A et B : lots séparés, chiffrés avant de commencer.<br>SARL perfusion.dev, capital 1 000 € · 11 rue des Trois Tilleuls, 14310 Villers Bocage · SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919 · office@perfusion.dev · perfusion.dev</div>
+      <div class="pg">Page 1</div>
+    </div>
   </div>
 </div>
 
-<!-- ============ P1 ESSENTIEL ============ -->
+<!-- ============ P2 ESSENTIEL ============ -->
 <div class="page tight">
   <div class="content">
     <div class="head">
@@ -241,11 +229,11 @@
     </div>
 
     <h3>Le besoin</h3>
-    <p>Les messages répétitifs mobilisent chaque jour du temps de Direction qui pourrait être consacré à des décisions à plus forte valeur. Notre proposition : <b>une phase pilote composée d'un maquettage initial et des Lots 1 et 2</b>, un premier cas d'usage concret (la préparation des réponses e-mail), pour démontrer rapidement le gain de temps réel avant d'automatiser quoi que ce soit d'autre.</p>
+    <p>Les messages répétitifs mobilisent chaque jour du temps de Direction qui pourrait être consacré à des décisions à plus forte valeur. Notre proposition : <b>une phase pilote composée d'une maquette et des lots 1 et 2</b>, un premier cas d'usage concret (la préparation des réponses e-mail), pour démontrer rapidement le gain de temps réel avant d'automatiser quoi que ce soit d'autre.</p>
 
     <h3>Ce que vos équipes obtiennent</h3>
     <ul>
-      <li>Un <b>chat sécurisé accessible depuis un navigateur</b>, simple et familier, comparable dans son principe à ChatGPT.</li>
+      <li>Un <b>chat sécurisé accessible depuis un navigateur</b>, simple et familier.</li>
       <li>Des <b>réponses appuyées sur vos documents internes</b>, dans la limite des accès autorisés pour chaque utilisateur.</li>
       <li>Des <b>brouillons d'e-mails préparés directement dans Microsoft 365</b> : vous relisez, ajustez et envoyez. Aucun envoi automatique pendant le pilote.</li>
       <li>Une <b>mesure simple des gains</b> (brouillons utilisés, temps économisé) pour objectiver la valeur avant toute extension.</li>
@@ -254,33 +242,33 @@
     <div class="callout">
       <div class="t">Nos garanties pour ce pilote</div>
       <ul style="margin-bottom:0">
-        <li>Vous restez <b>propriétaire de vos données</b>, hébergées en Europe dans un environnement AWS cloisonné.</li>
+        <li>Vos données <b>restent chez Biocarmes</b>, hébergées en Europe dans un environnement AWS cloisonné.</li>
         <li>Le pilote est <b>limité à un utilisateur</b> (M.&nbsp;Chemla) : chaque étape est sécurisée avant d'élargir.</li>
-        <li>À la mi-décembre, <b>vous décidez librement de la suite</b> : ouverture à vos équipes dès le 1er janvier, puis automatisations suivantes.</li>
+        <li>À l'issue du pilote, <b>vous décidez librement de la suite</b> : déploiement final début février, puis automatisations suivantes.</li>
       </ul>
     </div>
 
     <h3>Quatre jalons pour avancer sans risque</h3>
     <div class="steps">
       <div class="step">
-        <div class="when">Semaine du 12 octobre</div>
+        <div class="when">Semaine du 9 novembre</div>
         <div class="what">Maquette collaborative</div>
         <div class="res">3 jours avec vos équipes pour valider concept et interface.</div>
       </div>
       <div class="step">
-        <div class="when">Début décembre 2026</div>
+        <div class="when">Dès janvier 2027</div>
         <div class="what">Pilote réel</div>
         <div class="res">Mise à disposition auprès de M.&nbsp;Chemla et mesure des premiers gains.</div>
       </div>
       <div class="step">
-        <div class="when">Mi-décembre 2026</div>
+        <div class="when">Fin janvier 2027</div>
         <div class="what">Bilan et décision</div>
         <div class="res">Vous validez les résultats, puis choisissez les automatisations suivantes.</div>
       </div>
       <div class="step">
-        <div class="when">Dès le 1er janvier 2027</div>
-        <div class="what">Ouverture à vos équipes</div>
-        <div class="res">Mise en place des nouveaux utilisateurs, puis automatisations retenues.</div>
+        <div class="when">Début février 2027</div>
+        <div class="what">Déploiement final</div>
+        <div class="res">Ouverture aux équipes et mise en place des nouveaux utilisateurs.</div>
       </div>
     </div>
 
@@ -288,7 +276,7 @@
   </div>
 </div>
 
-<!-- ============ P2 BUDGET ============ -->
+<!-- ============ P3 BUDGET ============ -->
 <div class="page">
   <div class="content tight">
     <div class="head">
@@ -296,31 +284,31 @@
       <h2>Un forfait clair, réglé au fil des jalons</h2>
     </div>
 
-    <p>Le budget ci-dessous couvre l'offre actuelle, <b>la phase pilote : le maquettage initial et les Lots 1 et 2</b>, décrits en annexes A et B. Il est forfaitaire et chaque règlement est lié à un jalon que Biocarmes valide.</p>
-
+    <p>Le budget ci-dessous couvre <b>la phase pilote : la maquette et les lots 1 et 2</b>, décrits en annexes A et B. Il est forfaitaire et chaque règlement est lié à un jalon que Biocarmes valide. Montants hors taxes, TVA à 20&nbsp;%.</p>
     <table>
       <tr><th>Prestation</th><th class="r">Charge estimée</th><th class="r">Montant HT</th></tr>
-      <tr><td><b>Maquettage, première phase</b> : maquette collaborative</td><td class="r">3 jours</td><td class="r">1 800 €</td></tr>
-      <tr><td><b>Lot 1 · Socle de la plateforme IA</b> : <b>la fondation réutilisable pour vos futures automatisations</b></td><td class="r">8 jours</td><td class="r">4 800 €</td></tr>
+      <tr><td><b>Maquette collaborative</b>, première phase</td><td class="r">3 jours</td><td class="r">1 800 €</td></tr>
+      <tr><td><b>Lot 1 · Socle de la plateforme</b> : la fondation réutilisable pour vos futures automatisations</td><td class="r">8 jours</td><td class="r">4 800 €</td></tr>
       <tr><td><b>Lot 2 · Assistant e-mail Direction</b> : développement, pilote et ajustements</td><td class="r">8 jours</td><td class="r">4 800 €</td></tr>
       <tr><td><b>Déploiement</b> : mise en place du service sur AWS</td><td class="r">2,5 jours</td><td class="r">1 500 €</td></tr>
-      <tr class="total"><td>Total phase pilote (maquettage + Lots 1 et 2 + déploiement)</td><td class="r">21,5 jours</td><td class="r">12 900 € HT</td></tr>
-      <tr class="future-head"><td colspan="3">Après le pilote : lots futurs, non inclus dans ce chiffrage (dès le 1er janvier 2027)</td></tr>
+      <tr class="total"><td>Total phase pilote, dont TVA 2 580 €</td><td class="r">21,5 jours</td><td class="r">12 900 € HT<br>15 480 € TTC</td></tr>
+      <tr class="future-head"><td colspan="3">Après le déploiement final : lots futurs, non inclus dans ce chiffrage (début février 2027)</td></tr>
       <tr class="future"><td>Lots futurs : cas d'usage définis ensemble</td><td class="r">à cadrer</td><td class="r">à cadrer</td></tr>
     </table>
+    <p class="nextnote"><b>Montants confirmés à l'issue de la maquette</b> ; lots futurs en devis séparés.</p>
 
     <div class="two">
       <div>
         <h3>Après le pilote : exploitation</h3>
         <ul>
-          <li><b>20 € HT par mois et par utilisateur</b> : hébergement, sauvegardes, support, 10 € de consommation IA inclus. Pour 20 utilisateurs : 400 € HT par mois.</li>
+          <li><b>20 € HT par mois et par utilisateur</b>, dès février 2027 : hébergement, sauvegardes, support, 10 € de consommation IA inclus. Pour 20 utilisateurs : 400 € HT par mois (480 € TTC).</li>
           <li>Consommation IA <b>au-delà de l'inclus</b> : facturée chaque mois à l'usage, selon la grille (page 4).</li>
         </ul>
       </div>
       <div>
         <h3>Ce que le pilote n'inclut pas</h3>
         <ul>
-          <li>Nouveaux processus métier, connecteurs ou développements hors des Lots 1 et 2.</li>
+          <li>Nouveaux processus métier, connecteurs ou développements hors des lots 1 et 2.</li>
           <li>Déploiement à d'autres collaborateurs au-delà de la préparation technique.</li>
           <li>Données de santé, sans validation préalable d'un cadre adapté.</li>
         </ul>
@@ -336,7 +324,7 @@
   </div>
 </div>
 
-<!-- ============ P3 EXPLOITATION & CONSOMMATION ============ -->
+<!-- ============ P4 EXPLOITATION ============ -->
 <div class="page">
   <div class="content tight">
     <div class="head">
@@ -344,14 +332,14 @@
       <h2>Exploitation et consommation, en toute clarté</h2>
     </div>
 
-    <p>Après le pilote (mi-décembre), deux lignes de facturation seulement : un <b>abonnement mensuel par utilisateur</b> et une <b>part variable liée à l'usage réel</b>.</p>
+    <p>Après le pilote (fin janvier), deux lignes de facturation seulement : un <b>abonnement mensuel par utilisateur</b> et une <b>part variable liée à l'usage réel</b>.</p>
 
-    <h3>1 · L'abonnement : 20 € HT par mois et par utilisateur, à partir du 1er janvier 2027</h3>
+    <h3>1 · L'abonnement : 20 € HT par mois et par utilisateur, à partir de février 2027</h3>
     <p>Une plateforme fonctionnelle, à jour et entretenue. Pour 20 utilisateurs : <b>400 € HT par mois</b> :</p>
     <table class="small xdense">
       <colgroup><col style="width:34%"><col style="width:66%"></colgroup>
       <tr><th>Inclus dans l'abonnement</th><th>Ce que cela signifie pour vous</th></tr>
-      <tr><td>Consommation IA incluse</td><td><b>10 € par utilisateur et par mois</b>. <b>Estimation</b> : environ 540 e-mails préparés (Claude Haiku 4.5), à confirmer sur l'usage réel.</td></tr>
+      <tr><td>Consommation IA incluse</td><td><b>10 € par utilisateur et par mois</b>, soit environ 540 e-mails préparés, à confirmer sur l'usage réel.</td></tr>
       <tr><td>Hébergement AWS en Europe</td><td>Environnement isolé et cloisonné, dans une région européenne.</td></tr>
       <tr><td>Supervision et sauvegardes</td><td>La plateforme est surveillée en continu et restaurable en cas d'incident.</td></tr>
       <tr><td>Maintenance et mises à jour</td><td>Correctifs de sécurité et maintenance des composants et connecteurs.</td></tr>
@@ -372,18 +360,14 @@
       <tr><td>Mistral Large 3 · Mistral AI</td><td>Alternative européenne</td><td class="r">0,60&nbsp;€</td><td class="r">1,79&nbsp;€</td><td class="r">≈ 1,12&nbsp;€</td></tr>
       <tr class="future"><td colspan="5">D'autres modèles sont accessibles à la demande. La grille peut être révisée si les tarifs des fournisseurs évoluent.</td></tr>
     </table>
-    <p style="font-size:9pt;color:var(--grey)"><b>Estimation des consommations d'e-mails</b>, à confirmer sur l'usage réel. « 100 e-mails préparés » : calcul indicatif (lecture, recherche, reclassement, rédaction, une retouche pour environ un e-mail sur quatre). Lecture par un modèle léger si la rédaction est plus coûteuse. « Entrée » : ce que l'IA lit. « Sortie » : ce qu'elle rédige. Région européenne.</p>
-    <ul>
-      <li><b>Facturation mensuelle de l'usage réel</b> : au-delà des 10 € inclus par utilisateur, consommation relevée et facturée au tarif de la grille. Dans l'inclus, <b>rien à payer en plus</b>.</li>
-    </ul>
-
-    <p class="nextnote"><b>Estimation</b> : les 10 € inclus couvrent un usage régulier de l'assistant e-mail, à confirmer sur l'usage réel. Évolutions et connecteurs : <b>lots séparés</b>, chiffrés à l'avance.</p>
+    <p style="font-size:9pt;color:var(--grey)"><b>Estimation des consommations d'e-mails</b>, à confirmer sur l'usage réel. « 100 e-mails préparés » : calcul indicatif (lecture, recherche, reclassement, rédaction, une retouche pour environ un e-mail sur quatre). « Entrée » : ce que l'IA lit. « Sortie » : ce qu'elle rédige. Région européenne.</p>
+    <p class="nextnote">Les 10 € inclus couvrent un usage régulier de l'assistant e-mail, à confirmer sur l'usage réel. Évolutions et connecteurs : <b>lots séparés</b>, chiffrés à l'avance.</p>
 
     <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>4</span></div>
   </div>
 </div>
 
-<!-- ============ P4 PLANNING ============ -->
+<!-- ============ P5 PLANNING ============ -->
 <div class="page">
   <div class="content">
     <div class="head">
@@ -395,34 +379,34 @@
 
     <table>
       <tr><th>Période</th><th>Étape</th><th>Résultat attendu</th></tr>
-      <tr><td><b>Semaine du 12 octobre</b></td><td>3 jours de maquette collaborative</td><td>Conception avec Maxime Guyot et vos équipes : concept, interface, périmètre validés</td></tr>
-      <tr><td><b>Fin octobre à fin novembre</b></td><td>Réalisation des lots 1 et 2</td><td>Socle, accès, base documentaire et assistant e-mail développés, intégrés et testés</td></tr>
-      <tr><td><b>Début décembre</b></td><td>Pilote sur un utilisateur</td><td>Mise à disposition auprès de M.&nbsp;Chemla uniquement</td></tr>
-      <tr><td><b>Début à mi-décembre</b></td><td>Usage réel et ajustements</td><td>Retours d'usage, corrections, mesure des gains</td></tr>
-      <tr><td><b>Mi-décembre</b></td><td>Bilan et décision</td><td>Décision d'extension et définition du lot correspondant</td></tr>
-      <tr><td><b>Dès le 1er janvier 2027</b></td><td>Nouveaux utilisateurs et autres lots</td><td>Mise en place de nouveaux utilisateurs, lancement progressif des automatisations retenues avec Biocarmes</td></tr>
+      <tr><td><b>Semaine du 9 novembre</b></td><td>3 jours de maquette collaborative</td><td>Conception avec Maxime Guyot et vos équipes : concept, interface, périmètre validés</td></tr>
+      <tr><td><b>Mi-novembre à mi-décembre</b></td><td>Réalisation des lots 1 et 2</td><td>Socle, accès, base documentaire et assistant e-mail développés, intégrés et testés</td></tr>
+      <tr><td><b>Dès janvier 2027</b></td><td>Pilote sur un utilisateur</td><td>Mise à disposition auprès de M.&nbsp;Chemla uniquement</td></tr>
+      <tr><td><b>Janvier</b></td><td>Usage réel et ajustements</td><td>Retours d'usage, corrections, mesure des gains</td></tr>
+      <tr><td><b>Fin janvier</b></td><td>Bilan et décision</td><td>Décision d'extension et définition du lot correspondant</td></tr>
+      <tr><td><b>Début février 2027</b></td><td>Déploiement final</td><td>Ouverture aux équipes, mise en place des nouveaux utilisateurs, lancement progressif des automatisations retenues avec Biocarmes</td></tr>
     </table>
 
     <p style="font-size:9pt;color:var(--grey)">Les dates détaillées seront confirmées au lancement, selon la disponibilité des accès Microsoft 365, des documents retenus et des interlocuteurs de Biocarmes.</p>
 
     <h3>Comment nous travaillerons ensemble</h3>
     <ul>
-      <li><b>Conception avec vos équipes</b> : trois jours d'ateliers en octobre pour construire la maquette et valider le périmètre, éviter tout dérapage.</li>
+      <li><b>Conception avec vos équipes</b> : trois jours d'ateliers en novembre pour construire la maquette et valider le périmètre, éviter tout dérapage.</li>
       <li><b>Périmètre documentaire validé conjointement</b> : vous choisissez les documents et les accès mis à disposition.</li>
       <li><b>Recueil structuré des retours</b> de M.&nbsp;Chemla pendant le pilote individuel.</li>
-      <li><b>Bilan formel à la mi-décembre</b>, puis ouverture à de nouveaux utilisateurs dès le 1er janvier 2027.</li>
+      <li><b>Bilan formel à la fin janvier</b>, puis déploiement final début février 2027.</li>
     </ul>
 
     <div class="callout">
       <div class="t">Ce dont nous aurons besoin de votre côté</div>
-      <p style="margin-bottom:0">La disponibilité des équipes et de M.&nbsp;Chemla pour les ateliers d'octobre, celle de la société Master2i pour l'accès aux connecteurs, un compte Microsoft 365 à connecter, un premier périmètre de documents autorisés et un interlocuteur décisionnaire pour chaque validation.</p>
+      <p style="margin-bottom:0">La disponibilité des équipes et de M.&nbsp;Chemla pour les ateliers de novembre, celle de la société Master2i pour l'accès aux connecteurs, un compte Microsoft 365 à connecter, un premier périmètre de documents autorisés et un interlocuteur décisionnaire pour chaque validation.</p>
     </div>
 
     <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>5</span></div>
   </div>
 </div>
 
-<!-- ============ P4 SECURITE ============ -->
+<!-- ============ P6 SECURITE ============ -->
 <div class="page">
   <div class="content tight">
     <div class="head">
@@ -444,7 +428,7 @@
           <li><b>Hébergement en Europe</b> : les données sont hébergées et traitées dans une région AWS située dans l'Union européenne, selon l'architecture retenue pour le projet.</li>
           <li><b>Chiffrement des données</b> : en transit et au repos.</li>
           <li>Accès limités au strict nécessaire, autorisations par rôle.</li>
-          <li><b>Biocarmes reste propriétaire de ses données</b> et décide de ce que la plateforme peut utiliser.</li>
+          <li><b>Vos données restent chez Biocarmes</b> et vous décidez de ce que la plateforme peut utiliser.</li>
           <li>Modèles d'IA intégrés via AWS Bedrock : <b>vos contenus ne servent jamais à entraîner les modèles</b>.</li>
           <li>Pas de données de santé sans validation préalable du cadre applicable.</li>
         </ul>
@@ -460,13 +444,13 @@
     </div>
 
     <h3>L'exploitation au quotidien</h3>
-    <p>À compter de la validation du pilote (mi-décembre), l'exploitation repose sur <b>deux lignes seulement</b> : un <b>abonnement de 20&nbsp;€ HT par mois et par utilisateur</b> à partir du 1er janvier 2027 (hébergement, supervision, sauvegardes, maintenance, support, reporting, 100&nbsp;Go, 10&nbsp;€ de consommation IA inclus par utilisateur) et la consommation au-delà de l'inclus, facturée à l'usage selon une grille tarifaire transparente. <b>Le détail complet figure en page 4.</b></p>
+    <p>À compter de la validation du pilote (fin janvier), l'exploitation repose sur <b>deux lignes seulement</b> : un <b>abonnement de 20&nbsp;€ HT par mois et par utilisateur</b> à partir de février 2027 (hébergement, supervision, sauvegardes, maintenance, support, reporting, 100&nbsp;Go, 10&nbsp;€ de consommation IA inclus par utilisateur) et la consommation au-delà de l'inclus, facturée à l'usage selon une grille tarifaire transparente. <b>Le détail complet figure en page 4.</b></p>
 
     <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>6</span></div>
   </div>
 </div>
 
-<!-- ============ P5 PROCHAINES ETAPES ============ -->
+<!-- ============ P7 PROCHAINES ETAPES ============ -->
 <div class="page pb14">
   <div class="content tight">
     <div class="head">
@@ -476,26 +460,33 @@
 
     <table class="xdense">
       <tr><th style="width:8mm" class="r">1</th><td><b>Valider le pilote</b> : cas d'usage e-mail, premier utilisateur (M.&nbsp;Chemla) et critères de réussite.</td></tr>
-      <tr><th class="r">2</th><td><b>Planifier les 3 jours de maquette</b> avec Maxime Guyot et les équipes, en octobre 2026.</td></tr>
+      <tr><th class="r">2</th><td><b>Planifier les 3 jours de maquette</b> avec Maxime Guyot et les équipes, en novembre 2026.</td></tr>
       <tr><th class="r">3</th><td><b>Préparer les accès</b> : compte Microsoft 365, documents autorisés, responsables désignés.</td></tr>
-      <tr><th class="r">4</th><td><b>Lancer le pilote début décembre</b> et mesurer les premiers gains en conditions réelles.</td></tr>
-      <tr><th class="r">5</th><td><b>Faire le bilan à la mi-décembre</b> et décider de l'extension du dispositif.</td></tr>
+      <tr><th class="r">4</th><td><b>Lancer le pilote dès janvier</b> et mesurer les premiers gains en conditions réelles.</td></tr>
+      <tr><th class="r">5</th><td><b>Faire le bilan à la fin janvier</b> et valider le déploiement final début février.</td></tr>
     </table>
 
     <h3>Les points à valider et contractualiser</h3>
     <table class="xdense">
       <tr><th>Sujet</th><th>Base proposée</th></tr>
-      <tr><td>Pilote</td><td>Maquettage, déploiement AWS + Lots 1 et 2 : 21,5 jours, forfait de 12 900 € HT</td></tr>
+      <tr><td>Phase pilote</td><td>21,5 jours · 12 900 € HT · 15 480 € TTC, maquette comprise</td></tr>
       <tr><td>Règlement</td><td>30 % au lancement · 40 % à la mise à disposition du pilote · 30 % à la validation</td></tr>
-      <tr><td>Abonnement</td><td>20 € HT par mois et par utilisateur, 10 € de consommation IA inclus ; 20 utilisateurs : 400 € HT par mois, dès le 1er janvier 2027, 100 Go</td></tr>
+      <tr><td>Abonnement</td><td>20 € HT par mois et par utilisateur, 10 € de consommation IA inclus ; 20 utilisateurs : 400 € HT par mois, dès février 2027, 100 Go</td></tr>
       <tr><td>Consommations</td><td>Au-delà des 10 € inclus : facturation à l'usage selon la grille (page 4)</td></tr>
       <tr><td>Confidentialité</td><td>Accord réciproque : AWS Europe, chiffrement en transit et au repos, accès validés</td></tr>
+      <tr><td>Livrables et réversibilité</td><td>Code source et dépôt Git remis. Droits d'exploitation définis au contrat.</td></tr>
+      <tr><td>Déploiement final</td><td>Début février 2027 (indicatif), après le bilan du pilote</td></tr>
       <tr><td>Lots futurs</td><td>Cadrage, budget et validation distincts avant chaque lancement</td></tr>
     </table>
 
     <div class="callout">
       <div class="t">Décision attendue</div>
-      <p style="margin-bottom:0"><b>Valider le devis, signer l'accord de confidentialité et fixer la réunion de lancement.</b> Le projet peut démarrer dès la semaine du 12 octobre.</p>
+      <p style="margin-bottom:0"><b>Valider le devis, signer l'accord de confidentialité et fixer la réunion de lancement.</b> Le projet peut démarrer dès la semaine du 9 novembre. Le devis récapitulatif en page 1 porte le détail, les conditions et le bon pour accord.</p>
+    </div>
+
+    <div class="legal">
+      <b>SARL perfusion.dev</b>, 11 rue des Trois Tilleuls, 14310 Villers Bocage · Téléphone : +33 6 63 33 82 95 · office@perfusion.dev · Capital 1 000 €<br>
+      SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919
     </div>
 
     <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>7</span></div>
@@ -533,7 +524,7 @@
     <h3>Connexion à Microsoft 365</h3>
     <p>Le pilote connecte un premier compte Microsoft 365 pour lire les messages nécessaires au traitement et créer des brouillons dans la messagerie. L'architecture permettra ensuite d'ajouter individuellement d'autres collaborateurs.</p>
 
-    <p style="margin-top:6mm"><span class="price-tag">Forfait du lot 1 : 4 800 € HT · 8 jours de réalisation</span></p>
+    <p style="margin-top:6mm"><span class="price-tag">Lot 1 : 4 800 € HT · 5 760 € TTC · 8 jours</span></p>
 
     <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>Annexe A</span></div>
   </div>
@@ -547,7 +538,7 @@
       <h2>Lot 2 · L'assistant e-mail de la Direction</h2>
     </div>
 
-    <p>La phase démarre par <b>3 jours de maquette collaborative</b> avec vos équipes (semaine du 12 octobre) pour valider le concept et l'interface. Le premier cas d'usage est ensuite déployé début décembre auprès d'un seul utilisateur, M.&nbsp;Chemla. Objectif : réduire le temps consacré aux messages répétitifs, tout en maintenant une validation humaine systématique.</p>
+    <p>La phase démarre par <b>3 jours de maquette collaborative</b> avec vos équipes (semaine du 9 novembre) pour valider le concept et l'interface. Le premier cas d'usage est ensuite déployé dès janvier 2027 auprès d'un seul utilisateur, M.&nbsp;Chemla. Objectif : réduire le temps consacré aux messages répétitifs, tout en maintenant une validation humaine systématique.</p>
 
     <h3>Comment fonctionne l'assistant</h3>
     <table>
@@ -576,7 +567,7 @@
       <tr><td>Temps économisé estimé</td><td>Évaluer le retour sur investissement</td></tr>
     </table>
 
-    <p style="margin-top:6mm"><span class="price-tag">Forfait du lot 2 : 4 800 € HT · 8 jours de réalisation</span></p>
+    <p style="margin-top:4mm"><span class="price-tag">Lot 2 : 4 800 € HT · 5 760 € TTC · 8 jours</span></p>
 
     <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Biocarmes</span><span>Annexe B</span></div>
   </div>
@@ -590,7 +581,7 @@
       <h2>La trajectoire après le pilote</h2>
     </div>
 
-    <p>Le pilote e-mail est le premier usage de la plateforme. Dès le 1er janvier 2027, la plateforme pourra accueillir de nouveaux utilisateurs, et les autres processus retenus avec Biocarmes pourront être intégrés progressivement, chacun avec son périmètre, son budget et son planning validés séparément.</p>
+    <p>Le pilote e-mail est le premier usage de la plateforme. Après le déploiement final (début février 2027), la plateforme pourra accueillir de nouveaux utilisateurs, et les autres processus retenus avec Biocarmes pourront être intégrés progressivement, chacun avec son périmètre, son budget et son planning validés séparément.</p>
 
     <h3>Cas d'usage déjà envisagés avec Biocarmes</h3>
     <ul>
