@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Proposition commerciale Perfusion.dev pour Poum Lab</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --dark: #111111;
+    --dark2: #1C1D22;
+    --purple: #5128A4;
+    --purple2: #9932CD;
+    --lilac: #F4F1FA;
+    --grey: #6B6B76;
+    --line: #E4E1EC;
+  }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #23232B; font-size: 10.5pt; line-height: 1.55; }
+  .page { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  .content { padding: 20mm 18mm 24mm 18mm; height: 100%; display: flex; flex-direction: column; }
+
+  /* ---------- COVER (claire) ---------- */
+  .cover { background: #fff; color: var(--dark); }
+  .cover .bar { position: absolute; top: 0; left: 0; right: 0; height: 4mm; background: linear-gradient(90deg, var(--purple), var(--purple2)); }
+  .cover .inner { padding: 24mm 20mm; height: 100%; display: flex; flex-direction: column; }
+  .cover .logo { width: 58mm; margin-top: 3mm; }
+  .cover .kicker { margin-top: 24mm; font-size: 9.5pt; letter-spacing: 3.5px; text-transform: uppercase; color: var(--purple2); font-weight: 600; }
+  .cover h1 { margin-top: 8mm; font-size: 26pt; line-height: 1.22; font-weight: 700; letter-spacing: -0.3px; color: var(--dark); }
+  .cover h1 .dot { color: var(--purple2); }
+  .cover .sub { margin-top: 6mm; font-size: 11.5pt; color: var(--grey); line-height: 1.65; max-width: 148mm; }
+  .cards { margin-top: 13mm; display: flex; gap: 5mm; }
+  .card { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2.5mm 2.5mm; padding: 6.5mm 6mm; }
+  .card .big { font-size: 16pt; font-weight: 700; color: var(--purple); }
+  .card .big .u { color: var(--purple2); }
+  .card .lbl { margin-top: 2.5mm; font-size: 8.8pt; color: var(--grey); line-height: 1.5; }
+  .cover .foot { margin-top: auto; display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 6mm; font-size: 9pt; color: var(--grey); }
+  .toc { margin-top: 13mm; border: 1px solid var(--line); background: #FAF9FC; border-radius: 2.5mm; padding: 5.5mm 7mm; }
+  .toc-title { font-size: 8.5pt; letter-spacing: 2px; text-transform: uppercase; color: #8B8B96; margin-bottom: 3.5mm; }
+  .toc-items { display: flex; flex-wrap: wrap; gap: 2.5mm 6mm; }
+  .toc-items span { font-size: 9.5pt; color: #3A3A44; }
+  .toc-items span::before { content: ""; display: inline-block; width: 2mm; height: 2mm; border-radius: 0.6mm; background: var(--purple2); margin-right: 2.2mm; vertical-align: 0.3mm; }
+  .cover .foot b { color: var(--dark); font-weight: 600; }
+
+  /* ---------- LIGHT PAGES ---------- */
+  .head { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--purple); padding-bottom: 3mm; margin-bottom: 7mm; }
+  .head .num { font-size: 10pt; font-weight: 700; color: var(--purple2); letter-spacing: 2px; }
+  .head h2 { font-size: 17pt; font-weight: 700; color: var(--dark); letter-spacing: -0.2px; }
+  .mini-logo { width: 30mm; }
+
+  h3 { font-size: 11.5pt; color: var(--purple); margin: 6mm 0 2.5mm 0; font-weight: 700; }
+  p { margin-bottom: 3mm; }
+  ul { margin: 0 0 3mm 0; padding-left: 5mm; list-style: none; }
+  ul li { padding-left: 4.5mm; position: relative; margin-bottom: 1.8mm; }
+  ul li::before { content: ""; position: absolute; left: 0; top: 2mm; width: 2.2mm; height: 2.2mm; border-radius: 0.7mm; background: var(--purple2); }
+
+  .foot { margin-top: auto; border-top: 1px solid var(--line); padding-top: 3mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--grey); }
+
+  /* callout */
+  .callout { background: var(--lilac); border-left: 1.6mm solid var(--purple2); border-radius: 0 2mm 2mm 0; padding: 5mm 6mm; margin: 4mm 0; }
+  .callout .t { font-weight: 700; color: var(--purple); margin-bottom: 1.5mm; font-size: 10.5pt; }
+
+  /* tables */
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 4mm 0; font-size: 10pt; }
+  th { background: var(--purple); color: #fff; text-align: left; padding: 3mm 4mm; font-weight: 600; font-size: 9.5pt; }
+  td { padding: 2.8mm 4mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:nth-child(even) td { background: #FAF9FC; }
+  td.r, th.r { text-align: right; white-space: nowrap; }
+  tr.total td { background: var(--lilac); font-weight: 700; color: var(--purple); border-bottom: none; }
+
+  /* timeline jalons */
+  .steps { display: flex; gap: 4mm; margin: 4mm 0 2mm 0; }
+  .step { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2mm 2mm; padding: 4.5mm 4mm; }
+  .step .when { font-size: 8.5pt; font-weight: 700; color: var(--purple2); text-transform: uppercase; letter-spacing: 0.8px; }
+  .step .what { margin-top: 1.5mm; font-weight: 700; font-size: 10pt; }
+  .step .res { margin-top: 1.2mm; font-size: 8.8pt; color: var(--grey); line-height: 1.45; }
+
+  .legal { margin-top: 3.5mm; font-size: 8.3pt; color: var(--grey); line-height: 1.55; border-top: 1px solid var(--line); padding-top: 3mm; }
+
+  /* compact mode for dense pages */
+  .tight .head { margin-bottom: 5mm; padding-bottom: 2.5mm; }
+  .tight td { padding: 2mm 4mm; }
+  .tight table { margin: 2mm 0 3mm 0; }
+  .nextnote { font-size: 9.8pt; color: var(--grey); background: #FAF9FC; border: 0.3mm solid var(--line); border-radius: 2mm; padding: 2.5mm 4mm; margin: 0 0 3mm 0; }
+  .nextnote b { color: var(--purple); }
+  tr.future-head td { background: #fff; font-weight: 700; font-size: 9.5pt; color: var(--purple); border-bottom: 0.3mm solid var(--line); }
+  tr.future td { background: #FAF9FC; color: var(--grey); font-size: 9.5pt; }
+  table.small { font-size: 9.2pt; }
+  table.small td { padding: 1.8mm 4mm; }
+  .tight h3 { margin: 2.8mm 0 1.6mm 0; }
+  .tight .callout { margin: 3mm 0; padding: 3.5mm 5mm; }
+  .tight p { margin-bottom: 2mm; }
+  .tight ul li { margin-bottom: 1.2mm; }
+  .tight .step { padding: 3.5mm 3.5mm; }
+  .pb14 .content { padding-bottom: 10mm; }
+
+  .annexe-head { display: flex; align-items: baseline; gap: 4mm; border-bottom: 2px solid var(--purple); padding-bottom: 3mm; margin-bottom: 6mm; }
+  .annexe-head .tag { font-size: 9pt; font-weight: 700; color: #fff; background: var(--purple); padding: 1.2mm 3mm; border-radius: 1.5mm; letter-spacing: 1px; }
+  .annexe-head h2 { font-size: 15pt; font-weight: 700; color: var(--dark); }
+  .price-tag { display: inline-block; background: var(--lilac); color: var(--purple); font-weight: 700; padding: 2mm 4mm; border-radius: 1.5mm; font-size: 10pt; }
+  .two { display: flex; gap: 6mm; }
+  .two > div { flex: 1; }
+
+  /* ---------- DEVIS FORMEL ---------- */
+  .dv-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4mm; }
+  .dv-head img { width: 38mm; margin-top: 1.5mm; }
+  .dv-title { text-align: right; }
+  .dv-title .t { font-size: 21pt; font-weight: 700; letter-spacing: 6px; color: var(--dark); }
+  .dv-title .m { margin-top: 2mm; font-size: 9pt; color: var(--grey); line-height: 1.6; }
+  .dv-title .m b { color: var(--dark); }
+  .dv-meta { display: flex; border: 1px solid var(--line); border-radius: 2mm; overflow: hidden; margin-bottom: 5mm; flex-shrink: 0; }
+  .dv-meta > div { flex: 1; padding: 3mm 4.5mm; }
+  .dv-meta > div + div { border-left: 1px solid var(--line); }
+  .dv-meta .lbl { font-size: 7.8pt; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple2); font-weight: 700; margin-bottom: 1.2mm; }
+  .dv-meta p { font-size: 9pt; margin: 0; line-height: 1.5; }
+  .dv-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 2.5mm 0 3mm 0; }
+  .dv-table th { background: var(--purple); color: #fff; padding: 2.8mm 3.5mm; font-weight: 600; font-size: 9pt; text-align: left; border: 1px solid var(--purple); }
+  .dv-table td { border: 1px solid var(--line); padding: 2mm 3.5mm; vertical-align: top; }
+  .dv-table .r { text-align: right; white-space: nowrap; }
+  .dv-table th.r { text-align: right; }
+  .dv-tot td { background: var(--lilac); font-weight: 700; color: var(--purple); }
+  .dv-h3 { font-size: 11pt; color: var(--purple); margin: 3mm 0 1.2mm 0; font-weight: 700; }
+  .dv-note { font-size: 9pt; color: var(--grey); }
+  .dvfoot { margin-top: auto; border-top: 1.5px solid var(--purple); padding-top: 2.5mm; font-size: 7.6pt; color: var(--grey); line-height: 1.55; display: flex; justify-content: space-between; gap: 8mm; }
+  .dvfoot .pg { text-align: right; white-space: nowrap; font-weight: 600; color: var(--purple2); }
+  .dv-sig { border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2mm 2mm; padding: 3.5mm 5mm 7mm 5mm; margin-top: auto; }
+  .dv-sig .t { font-weight: 700; color: var(--purple); font-size: 11pt; margin-bottom: 2mm; }
+  .dv-sig p { font-size: 9.3pt; margin-bottom: 2mm; }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<div class="page cover">
+  <div class="bar"></div>
+  <div class="inner">
+    <img class="logo" src="perfusion-logo.png" alt="Perfusion.dev">
+    <div class="kicker">Proposition commerciale · Première estimation</div>
+    <h1>Vos feuilles de calcul,<br>converties en SaaS sur mesure<span class="dot">.</span></h1>
+    <div class="sub">Poum Lab fabrique des boissons sans alcool à base de pommes à cidre normandes. L'activité se pilote aujourd'hui avec Claude et des feuilles de calcul. Nous proposons de convertir ces feuilles en un SaaS sur mesure, qui devient le point central du business : commandes, production, stocks, clients et conseil, selon le cadrage. Claude peut continuer à alimenter le SaaS via un accès cadré selon vos règles, et le site PrestaShop reste en place, connecté au SaaS.</div>
+    <div class="cards">
+      <div class="card">
+        <div class="big">4&nbsp;800&nbsp;€ <span class="u">HT</span></div>
+        <div class="lbl">Forfait de 8 jours de réalisation<br>cadrage du SaaS et conversion<br>5&nbsp;760&nbsp;€ toutes taxes comprises</div>
+      </div>
+      <div class="card">
+        <div class="big">Décembre 2026</div>
+        <div class="lbl">Démarrage indicatif<br>sans date ferme<br>calendrier fixé à la validation du devis</div>
+      </div>
+      <div class="card">
+        <div class="big">149&nbsp;€ <span class="u">HT/mois</span></div>
+        <div class="lbl">Hébergement et maintenance du SaaS<br>pour un seul utilisateur<br>178,80&nbsp;€ toutes taxes comprises<br>sans engagement de durée</div>
+      </div>
+    </div>
+    <div class="toc">
+      <div class="toc-title">Contenu du document</div>
+      <div class="toc-items">
+        <span>01 Devis</span><span>02 L'essentiel</span><span>03 Budget</span><span>04 Exploitation</span><span>05 Planning</span><span>06 Sécurité</span><span>07 Prochaines étapes</span><span>Annexes A · B · C</span>
+      </div>
+    </div>
+    <div class="foot">
+      <div>Préparée pour <b>Poum Lab</b></div>
+      <div>Présentée par <b>Perfusion.dev</b> · Maxime Guyot<br><span style="font-size:8.3pt">+33&nbsp;6&nbsp;63&nbsp;33&nbsp;82&nbsp;95 · office@perfusion.dev · perfusion.dev</span></div>
+      <div><b>1er novembre 2026</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ P1 DEVIS ============ -->
+<div class="page tight">
+  <div class="content" style="padding-top:16mm;padding-bottom:13mm">
+    <div class="dv-head">
+      <img src="perfusion-logo.png" alt="Perfusion.dev">
+      <div class="dv-title">
+        <div class="t">DEVIS</div>
+        <div class="m"><b>N° 2026-11-POUMLAB</b><br>Émis le 1er novembre 2026<br>Valable jusqu'au 30 novembre 2026</div>
+      </div>
+    </div>
+
+    <div class="dv-meta">
+      <div>
+        <div class="lbl">Émetteur</div>
+        <p><b>SARL perfusion.dev</b><br>11 rue des Trois Tilleuls, 14310 Villers Bocage<br>office@perfusion.dev · +33&nbsp;6&nbsp;63&nbsp;33&nbsp;82&nbsp;95</p>
+      </div>
+      <div>
+        <div class="lbl">Client</div>
+        <p><b>Poum Lab</b><br><span style="background:#F4F1FA;color:var(--purple);font-weight:700;padding:0.5mm 1.5mm;border-radius:1mm">Adresse à compléter</span><br>Contact : Aymeric Lemarchand, aymeric@poumlab.fr<br><span style="color:var(--grey)">Identité de facturation à confirmer avant contrat.</span></p>
+      </div>
+    </div>
+
+    <p><b>Objet :</b> cadrage du SaaS de Poum Lab, puis conversion des feuilles de calcul en un SaaS sur mesure, point central de l'activité, connecté au site PrestaShop et accessible à Claude via un accès cadré, selon le périmètre des annexes A et B.</p>
+
+    <div class="dv-h3">Détail des prestations (estimation à cadrer)</div>
+    <table class="dv-table">
+      <tr><th>Désignation</th><th class="r" style="width:20mm">Quantité</th><th class="r" style="width:30mm">Prix unitaire HT</th><th class="r" style="width:27mm">Total HT</th></tr>
+      <tr><td><b>Jalon 1 · Cadrage du SaaS</b> : travail de fond sur les process, cartographie de l'activité, cadre et règles pour vos IA</td><td class="r">3 jours</td><td class="r">600,00 €</td><td class="r">1 800,00 €</td></tr>
+      <tr><td><b>Jalon 2 · Conversion des feuilles en SaaS</b> : réalisation, mise en service, connexion PrestaShop, accès cadré pour Claude</td><td class="r">5 jours</td><td class="r">600,00 €</td><td class="r">3 000,00 €</td></tr>
+      <tr class="dv-tot"><td>Total HT</td><td class="r">8 jours</td><td></td><td class="r">4 800,00 €</td></tr>
+      <tr><td>TVA 20 %</td><td></td><td></td><td class="r">960,00 €</td></tr>
+      <tr class="dv-tot"><td>Total TTC</td><td></td><td></td><td class="r">5 760,00 €</td></tr>
+    </table>
+    <p class="dv-note">Chiffrage établi à partir des éléments connus ce jour : l'ensemble de vos feuilles de calcul n'a pas encore été vu. Le cadrage sert d'abord à visualiser le chantier de la meilleure façon, puis à confirmer ou ajuster le chiffrage du développement avant de le lancer. Taux de TVA en vigueur à la facturation. Le site PrestaShop existant est conservé.</p>
+
+    <p><b>Échéancier de règlement :</b> 30 % au lancement, après signature, 40 % à la mise à disposition du SaaS, 30 % à la validation de la mise en service.</p>
+
+    <div class="dv-sig">
+      <div class="t">Bon pour accord</div>
+      <p>Fait à : ......................................... &nbsp;&nbsp;&nbsp; Le : ........ / ........ / ............</p>
+      <p style="margin-bottom:0">Signature, précédée de la mention « Bon pour accord » :</p>
+    </div>
+
+    <div class="dvfoot">
+      <div>Règlement par virement, facture à chaque jalon validé (référence : Poum Lab + jalon), sans escompte. En cas de retard, pénalités au taux légal et indemnité forfaitaire de 40 € (art. L441-10 du code de commerce). Code source et dépôt Git remis, droits d'exploitation définis au contrat. Après la mise en service : hébergement et maintenance du SaaS 149 € HT par mois (178,80 € TTC) pour un utilisateur, sans engagement de durée. Évolutions au-delà du périmètre des annexes A et B : lots séparés, chiffrés avant de commencer.<br>SARL perfusion.dev, capital 1 000 € · 11 rue des Trois Tilleuls, 14310 Villers Bocage · SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919 · office@perfusion.dev · perfusion.dev</div>
+      <div class="pg">Page 1</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ P2 ESSENTIEL ============ -->
+<div class="page tight">
+  <div class="content">
+    <div class="head">
+      <h2>L'essentiel en une page</h2>
+      <img class="mini-logo" src="perfusion-logo.png" alt="Perfusion.dev">
+    </div>
+
+    <h3>Le besoin</h3>
+    <p>Poum Lab produit des boissons sans alcool à base de pommes à cidre normandes, sous la marque POUM!, et est incubé chez Normandie Incubation. L'activité se pilote aujourd'hui avec Claude et des feuilles de calcul : les commandes, la production, les stocks, les clients, et l'activité de conseil de M.&nbsp;Lemarchand à côté. Ces feuilles portent le business, mais chacune vit sa vie. Notre proposition : les convertir en <b>un SaaS sur mesure qui devient le point central de votre activité</b>, après un travail de fond sur vos processus pour le cadrer correctement.</p>
+
+    <h3>Ce que vous obtenez</h3>
+    <ul>
+      <li>Une <b>cartographie de votre activité</b> : commandes, production, stocks, clients et conseil, avec la place actuelle de Claude et des feuilles de calcul.</li>
+      <li>Un <b>cadre écrit pour vos IA</b> : les règles qu'elles doivent suivre, ce qu'elles peuvent lire et ce qu'elles peuvent modifier.</li>
+      <li>Une <b>feuille de route</b> : les priorités ordonnées, pour convertir les feuilles pas à pas.</li>
+      <li>Un <b>SaaS sur mesure</b> : vos feuilles de calcul converties en un outil unique, point central du business, sur le périmètre le plus critique choisi au cadrage.</li>
+      <li>Le <b>lien avec votre PrestaShop</b> : les commandes et les clients alimentent le SaaS. Le site reste en place, sans remplacement.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="t">Nos garanties pour ce projet</div>
+      <ul style="margin-bottom:0">
+        <li>Vos données <b>restent chez Poum Lab</b>, hébergées en Europe dans un environnement cloisonné.</li>
+        <li>Le <b>site PrestaShop est conservé</b> : il se connecte au SaaS, il n'est pas remplacé.</li>
+        <li><b>Claude garde un accès cadré</b> au SaaS : il lit et écrit selon vos règles, et vous seul les définissez.</li>
+        <li>Les <b>montants sont estimés</b> et confirmés à l'issue du cadrage.</li>
+      </ul>
+    </div>
+
+    <h3>Trois jalons pour avancer sans risque</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="when">Jalon 1 · 3 jours</div>
+        <div class="what">Cadrage du SaaS</div>
+        <div class="res">Cartographie de l'activité, cadre pour vos IA, feuille de route, feuilles à convertir choisies.</div>
+      </div>
+      <div class="step">
+        <div class="when">Jalon 2 · 5 jours</div>
+        <div class="what">Conversion en SaaS</div>
+        <div class="res">Feuilles converties en SaaS sur mesure, connexion au PrestaShop, accès cadré pour Claude.</div>
+      </div>
+      <div class="step">
+        <div class="when">Jalon 3 · à la suite</div>
+        <div class="what">Mise en service</div>
+        <div class="res">Reprise des données, essais avec Claude et vos outils, validation par Poum Lab.</div>
+      </div>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Poum Lab</span><span>2</span></div>
+  </div>
+</div>
+
+<!-- ============ P3 BUDGET ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="head">
+      <div class="num">03 · BUDGET</div>
+      <h2>Un forfait clair, réglé au fil des jalons</h2>
+    </div>
+
+    <p>Le budget couvre les deux jalons de la proposition, décrits en annexes A et B. Forfait réglé par jalons validés par Poum Lab, montants hors taxes, TVA à 20&nbsp;%.</p>
+    <table>
+      <tr><th>Prestation (estimation à cadrer)</th><th class="r">Charge estimée</th><th class="r">Montant HT</th></tr>
+      <tr><td><b>Jalon 1 · Cadrage du SaaS</b> : travail de fond sur les process, cadre et règles pour vos IA</td><td class="r">3 jours</td><td class="r">1 800 €</td></tr>
+      <tr><td><b>Jalon 2 · Conversion des feuilles en SaaS</b> : réalisation, mise en service, connexion PrestaShop, accès cadré pour Claude</td><td class="r">5 jours</td><td class="r">3 000 €</td></tr>
+      <tr class="total"><td>Total forfaitaire, dont TVA 960 €</td><td class="r">8 jours</td><td class="r">4 800 € HT<br>5 760 € TTC</td></tr>
+      <tr class="future-head"><td colspan="3">Après la mise en service du SaaS : lots futurs, non inclus dans ce chiffrage</td></tr>
+      <tr class="future"><td>Périmètres suivants, selon la feuille de route</td><td class="r">à cadrer</td><td class="r">à cadrer</td></tr>
+    </table>
+    <p class="nextnote"><b>Chiffrage établi à partir des éléments connus ce jour.</b> Toutes les feuilles de calcul n'ont pas encore été vues : le cadrage sert d'abord à visualiser le chantier complet, puis à confirmer ou ajuster le chiffrage du développement avant de le lancer.</p>
+
+    <h3>Échéancier de règlement</h3>
+    <table class="small">
+      <tr><th>Jalon validé par Poum Lab</th><th class="r">Part</th></tr>
+      <tr><td>Lancement, après signature</td><td class="r">30 %</td></tr>
+      <tr><td>Mise à disposition du SaaS</td><td class="r">40 %</td></tr>
+      <tr><td>Validation de la mise en service</td><td class="r">30 %</td></tr>
+      <tr class="total"><td>Total</td><td class="r">100 %</td></tr>
+    </table>
+
+    <div class="two">
+      <div>
+        <h3>Après le projet : exploitation</h3>
+        <ul>
+          <li><b>149 € HT par mois</b>, soit 178,80 € TTC, dès la mise en service : hébergement du SaaS, base hébergée et sauvegardée, maintenance, connexion PrestaShop et support, pour un utilisateur, sans engagement de durée.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Ce que le forfait ne comprend pas</h3>
+        <ul>
+          <li>Le remplacement du PrestaShop : il reste en place et se connecte au SaaS.</li>
+          <li>Les abonnements à vos outils d'IA, qui restent les vôtres.</li>
+          <li>Les évolutions au-delà du périmètre cadré : lots séparés, chiffrés avant de commencer.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Poum Lab</span><span>3</span></div>
+  </div>
+</div>
+
+<!-- ============ P4 EXPLOITATION ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="head">
+      <div class="num">04 · EXPLOITATION</div>
+      <h2>Un forfait mensuel léger, sans surprise</h2>
+    </div>
+
+    <p>Après la mise en service, la facturation tient en une seule ligne mensuelle : l'<b>hébergement et la maintenance du SaaS</b>. Le forfait est calibré pour un utilisateur : Aymeric sera le seul utilisateur du SaaS à ce stade. Sans engagement de durée : Poum Lab peut y mettre fin à l'issue d'un mois commencé.</p>
+
+    <h3>Hébergement et maintenance : 149 € HT par mois, soit 178,80 € TTC</h3>
+    <table class="small">
+      <colgroup><col style="width:34%"><col style="width:66%"></colgroup>
+      <tr><th>Inclus dans le forfait</th><th>Ce que cela signifie pour Poum Lab</th></tr>
+      <tr><td>Hébergement du SaaS</td><td>Le SaaS reste en ligne, hébergé en Europe, avec les ressources adaptées à son usage.</td></tr>
+      <tr><td>Base de données hébergée et sauvegardée</td><td>La base qui porte vos données reste en ligne et bénéficie de copies de secours régulières, restaurables en cas d'incident.</td></tr>
+      <tr><td>Suivi de maintenance</td><td>Le SaaS est surveillé en continu. Les mises à jour de sécurité et techniques, et les correctifs nécessaires, sont appliqués sans intervention de votre côté.</td></tr>
+      <tr><td>Connexion au PrestaShop maintenue</td><td>Le lien avec le site PrestaShop reste en place et est maintenu dans le forfait.</td></tr>
+      <tr><td>Accès cadré pour Claude</td><td>Les règles définies au cadrage restent en place, ajustées avec vous si besoin.</td></tr>
+      <tr><td>Support</td><td>Un interlocuteur attitré pour vos questions et vos incidents.</td></tr>
+    </table>
+
+    <h3>Ce que ce forfait ne couvre pas</h3>
+    <p>L'hébergement du site PrestaShop reste le vôtre, nous n'y touchons pas. Les abonnements à vos outils d'IA, Claude et autres, restent les vôtres. Le nom de domaine reste celui que vous détenez déjà. Les évolutions au-delà du périmètre cadré font l'objet de lots séparés, chiffrés avant de commencer. Si d'autres utilisateurs rejoignent le SaaS plus tard, le forfait est ajusté ensemble.</p>
+
+    <div class="callout">
+      <div class="t">Évolutions futures</div>
+      <p style="margin-bottom:0">Toute évolution au-delà du périmètre cadré fait l'objet d'un <b>lot séparé</b>, chiffré et validé avant de commencer. Le forfait mensuel ne change pas sans accord.</p>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Poum Lab</span><span>4</span></div>
+  </div>
+</div>
+
+<!-- ============ P5 PLANNING ============ -->
+<div class="page">
+  <div class="content">
+    <div class="head">
+      <div class="num">05 · PLANNING</div>
+      <h2>Un démarrage indicatif, à cadrer ensemble</h2>
+    </div>
+
+    <p>Aucune date ferme dans cette proposition. Le démarrage est indiqué <b>à partir de décembre 2026</b>, et le calendrier précis se fixe à la validation du devis, selon vos disponibilités et les nôtres.</p>
+
+    <table>
+      <tr><th>Jalon</th><th>Durée</th><th>Résultat attendu</th></tr>
+      <tr><td><b>Jalon 1 · Cadrage du SaaS</b></td><td>3 jours</td><td>Cartographie de l'activité, cadre et règles pour vos IA, feuille de route, feuilles à convertir choisies</td></tr>
+      <tr><td><b>Jalon 2 · Conversion en SaaS</b></td><td>5 jours</td><td>SaaS sur mesure sur le périmètre choisi, connexion PrestaShop, accès cadré pour Claude</td></tr>
+      <tr><td><b>Jalon 3 · Mise en service</b></td><td>À la suite du jalon 2</td><td>Reprise des données, essais avec Claude et vos outils sur des cas réels, validation par Poum Lab</td></tr>
+    </table>
+
+    <h3>Repères de calendrier, indicatifs</h3>
+    <table class="small">
+      <tr><th style="width:34%">Repère</th><th>Date indicative</th></tr>
+      <tr><td><b>Démarrage</b> indicatif</td><td>À partir de décembre 2026, sans date ferme</td></tr>
+      <tr><td><b>Cadrage</b></td><td>Trois jours, à partir du démarrage</td></tr>
+      <tr><td><b>Mise en service</b> indicative</td><td>À la suite de la conversion, selon l'avancement validé ensemble</td></tr>
+    </table>
+    <p style="font-size:9pt;color:var(--grey)">Ces repères valent sous réserve d'une signature sans tarder : le devis est valable jusqu'au 30 novembre 2026.</p>
+
+    <h3>Comment nous travaillerons ensemble</h3>
+    <ul>
+      <li><b>Le cadrage d'abord</b> : rien n'est développé avant votre validation du périmètre du SaaS.</li>
+      <li><b>Un interlocuteur unique</b> : Maxime Guyot, du cadrage à la mise en service.</li>
+      <li><b>Vos outils restent en place</b> : le PrestaShop et vos abonnements d'IA ne bougent pas.</li>
+      <li><b>La feuille de route comme plan commun</b> : les périmètres suivants se décident avec elle, chacun à son rythme.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="t">Ce dont nous aurons besoin de votre côté</div>
+      <p style="margin-bottom:0">Votre disponibilité pour les échanges du cadrage, des copies de vos feuilles de calcul, un accès de lecture au PrestaShop pour les commandes et les clients, et la liste de vos outils d'IA avec la manière dont vous les utilisez aujourd'hui.</p>
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Poum Lab</span><span>5</span></div>
+  </div>
+</div>
+
+<!-- ============ P6 SECURITE ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="head">
+      <div class="num">06 · SÉCURITÉ</div>
+      <h2>Vos données, sous votre contrôle</h2>
+    </div>
+
+    <p>La protection des informations de Poum Lab est intégrée dès la conception. Le SaaS fonctionne dans un environnement cloisonné, <b>hébergé dans une région européenne</b>, accessible uniquement aux composants et aux utilisateurs que vous autorisez.</p>
+
+    <div class="two">
+      <div>
+        <h3>Principes retenus</h3>
+        <ul>
+          <li><b>Hébergement en Europe</b> : les données sont hébergées et traitées dans l'Union européenne.</li>
+          <li><b>Chiffrement des données</b> : en transit et au repos.</li>
+          <li>Accès limités au strict nécessaire, autorisations par rôle.</li>
+          <li><b>Vos données restent chez Poum Lab</b> : vous décidez de ce que le SaaS et vos IA peuvent faire.</li>
+          <li><b>L'accès de vos IA est cadré</b> : Claude et vos autres outils lisent et écrivent selon vos règles, rien au-delà.</li>
+          <li><b>Le site PrestaShop n'est pas modifié</b> : la connexion se fait en lecture maîtrisée.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Cadre contractuel</h3>
+        <ul>
+          <li><b>Accord de confidentialité réciproque</b> signé avant tout accès à vos données ou systèmes : feuilles de calcul, PrestaShop, informations métier, limités aux besoins de la mission.</li>
+          <li><b>Cadre RGPD clair</b> : Poum Lab responsable du traitement, Perfusion.dev sous-traitant, dans la limite du périmètre validé.</li>
+          <li><b>Responsabilités partagées</b> : Poum Lab valide les accès et les règles des IA, Perfusion.dev met en œuvre les accès convenus et signale toute adaptation nécessaire.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>L'exploitation au quotidien</h3>
+    <p>À compter de la mise en service, l'exploitation repose sur une seule ligne mensuelle : l'<b>hébergement et la maintenance du SaaS</b>, 149&nbsp;€ HT par mois (178,80&nbsp;€ TTC) pour un utilisateur, sans engagement de durée, base hébergée et sauvegardée, connexion PrestaShop et support compris. <b>Le détail complet figure en page 4.</b></p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Poum Lab</span><span>6</span></div>
+  </div>
+</div>
+
+<!-- ============ P7 PROCHAINES ETAPES ============ -->
+<div class="page pb14">
+  <div class="content tight">
+    <div class="head">
+      <div class="num">07 · PROCHAINES ÉTAPES</div>
+      <h2>Cinq décisions pour démarrer</h2>
+    </div>
+
+    <table class="xdense">
+      <tr><th style="width:8mm" class="r">1</th><td><b>Valider le principe</b> : cadrer le SaaS puis convertir les feuilles de calcul, forfait de 4 800 € HT.</td></tr>
+      <tr><th class="r">2</th><td><b>Confirmer l'identité et l'adresse de facturation</b> de Poum Lab, et les modalités de financement via Normandie Incubation.</td></tr>
+      <tr><th class="r">3</th><td><b>Fixer le démarrage indicatif</b>, à partir de décembre 2026, sans date ferme.</td></tr>
+      <tr><th class="r">4</th><td><b>Préparer les accès</b> : copies des feuilles de calcul, accès de lecture au PrestaShop, liste des outils d'IA dont Claude.</td></tr>
+      <tr><th class="r">5</th><td><b>Valider le devis</b> avant le 30 novembre 2026, date de fin de validité.</td></tr>
+    </table>
+
+    <h3>Les points à valider et contractualiser</h3>
+    <table class="xdense">
+      <tr><th>Sujet</th><th>Base proposée</th></tr>
+      <tr><td>Cadrage et conversion en SaaS</td><td>8 jours · 4 800 € HT · 5 760 € TTC, cadrage compris (estimation à cadrer)</td></tr>
+      <tr><td>Règlement</td><td>30 % au lancement · 40 % à la mise à disposition · 30 % à la validation de la mise en service</td></tr>
+      <tr><td>Hébergement et maintenance</td><td>149 € HT par mois (178,80 € TTC), pour un utilisateur, sans engagement de durée</td></tr>
+      <tr><td>Planning</td><td>Démarrage indicatif à partir de décembre 2026, sans date ferme</td></tr>
+      <tr><td>Périmètre PrestaShop</td><td>Le site existant est conservé et se connecte au SaaS, jamais remplacé</td></tr>
+      <tr><td>Livrables et réversibilité</td><td>Code source et dépôt Git remis. Droits d'exploitation définis au contrat.</td></tr>
+      <tr><td>Lots futurs</td><td>Cadrage, budget et validation distincts avant chaque lancement</td></tr>
+    </table>
+
+    <div class="callout">
+      <div class="t">Décision attendue</div>
+      <p style="margin-bottom:0"><b>Valider le devis et fixer le démarrage.</b> Le montant est confirmé à l'issue du cadrage. Le devis récapitulatif en page 1 porte le détail, les conditions et le bon pour accord.</p>
+    </div>
+
+    <div class="legal">
+      <b>SARL perfusion.dev</b>, 11 rue des Trois Tilleuls, 14310 Villers Bocage · Téléphone : +33 6 63 33 82 95 · office@perfusion.dev · Capital 1 000 €<br>
+      SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919
+    </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Poum Lab</span><span>7</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE A ============ -->
+<div class="page">
+  <div class="content">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE A</span>
+      <h2>Jalon 1 · Cadrage du SaaS</h2>
+    </div>
+
+    <p>Le cadrage est un travail de fond sur vos processus, avant tout développement. Il donne à Poum Lab une vision claire de son activité, un cadre écrit pour ses IA, et la feuille de route qui oriente la conversion des feuilles de calcul en SaaS.</p>
+
+    <h3>Cartographie de l'activité</h3>
+    <ul>
+      <li><b>Les commandes</b> : celles du site PrestaShop et des autres canaux, du premier contact à la livraison.</li>
+      <li><b>La production et les stocks</b> : les volumes, les matières, les rythmes et les ruptures.</li>
+      <li><b>Les clients</b> : particuliers et professionnels, historiques et attentes.</li>
+      <li><b>L'activité de conseil</b> de M.&nbsp;Lemarchand, distincte de POUM! et à suivre à part.</li>
+      <li><b>La place actuelle de Claude et des feuilles de calcul</b> : ce qui marche, ce qui coince, ce qui se perd.</li>
+    </ul>
+
+    <h3>Le cadre et les règles pour vos IA</h3>
+    <ul>
+      <li>Ce que <b>Claude et vos autres IA</b> peuvent <b>lire</b>, et ce qu'ils peuvent <b>modifier</b>, périmètre par périmètre.</li>
+      <li>Les <b>règles de conduite</b> qu'ils doivent respecter, écrites et vérifiables.</li>
+      <li>Les <b>limites</b> : ce qui reste toujours validé par un humain avant d'être engagé.</li>
+    </ul>
+
+    <h3>La feuille de route et le périmètre du SaaS</h3>
+    <ul>
+      <li>Les <b>priorités ordonnées</b>, du plus critique au reste.</li>
+      <li>Les <b>feuilles de calcul à convertir en premier</b>, et celles qui restent en l'état.</li>
+      <li>Les <b>périmètres suivants</b>, chacun avec son cadrage, son budget et sa validation propres.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="t">Un chiffrage confirmé au cadrage</div>
+      <p>Le forfait de 8 jours est une estimation, établie à partir des éléments dont nous disposons ce jour : toutes vos feuilles de calcul n'ont pas encore été vues. Si le chantier s'avère plus important que prévu, le chiffrage évolue, en toute transparence. C'est précisément le rôle du jalon 1 : visualiser le chantier de la meilleure façon, puis confirmer ou ajuster le chiffrage du développement avant de le lancer.</p>
+    </div>
+
+    <p style="margin-top:4mm"><span class="price-tag">Jalon 1 : 1 800 € HT · 2 160 € TTC · 3 jours</span></p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Poum Lab</span><span>Annexe A</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE B ============ -->
+<div class="page">
+  <div class="content">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE B</span>
+      <h2>Jalon 2 · Conversion des feuilles en SaaS</h2>
+    </div>
+
+    <p>À la suite du cadrage, les feuilles de calcul du périmètre choisi sont converties en <b>un SaaS sur mesure, point central de l'activité</b>. Objectif : un outil unique et fiable à la place des feuilles, sans changer votre site PrestaShop.</p>
+
+    <h3>Le SaaS sur mesure</h3>
+    <ul>
+      <li>Un <b>outil unique, accessible depuis un navigateur</b>, à la place des feuilles de calcul sur le périmètre choisi.</li>
+      <li>Les <b>commandes, la production, les stocks, les clients et le conseil</b>, selon le cadrage.</li>
+      <li>Des <b>règles de saisie simples</b>, pour que les données restent propres dans le temps.</li>
+      <li>La <b>reprise des données utiles</b> depuis vos feuilles actuelles.</li>
+    </ul>
+
+    <h3>La connexion au PrestaShop</h3>
+    <ul>
+      <li>Les <b>commandes et les clients</b> du site alimentent le SaaS, sans ressaisie.</li>
+      <li>Une connexion <b>en lecture maîtrisée</b> : le site PrestaShop reste en place et n'est pas modifié.</li>
+    </ul>
+
+    <h3>L'accès cadré pour vos IA</h3>
+    <ul>
+      <li><b>Claude peut continuer à alimenter le SaaS</b>, selon les règles écrites au cadrage.</li>
+      <li>Il <b>lit et écrit dans la limite de ce que vous autorisez</b>, rien au-delà.</li>
+      <li>Toute action reste <b>traçable et vérifiable</b>.</li>
+    </ul>
+
+    <h3>La mise en service</h3>
+    <ul>
+      <li><b>Essais avec Claude et vos outils</b> sur des cas réels de votre activité.</li>
+      <li><b>Ajustements</b> à partir des premiers usages.</li>
+      <li><b>Validation de la mise en service</b> par Poum Lab, jalon de fin du forfait.</li>
+    </ul>
+
+    <p style="margin-top:4mm"><span class="price-tag">Jalon 2 : 3 000 € HT · 3 600 € TTC · 5 jours</span></p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Poum Lab</span><span>Annexe B</span></div>
+  </div>
+</div>
+
+<!-- ============ ANNEXE C ============ -->
+<div class="page">
+  <div class="content tight">
+    <div class="annexe-head">
+      <span class="tag">ANNEXE C</span>
+      <h2>La trajectoire après la mise en service</h2>
+    </div>
+
+    <p>Le SaaS démarre sur le périmètre le plus critique. Les autres périmètres suivent ensuite, intégrés au même outil, chacun avec son cadrage, son budget et sa validation propres, dans l'ordre fixé par la feuille de route.</p>
+
+    <h3>Périmètres possibles ensuite</h3>
+    <ul>
+      <li>La <b>conversion des autres feuilles de calcul</b>, intégrée au même SaaS, périmètre par périmètre.</li>
+      <li>Des <b>indicateurs de production et de stocks</b>, pour piloter au jour le jour.</li>
+      <li>Le <b>suivi de l'activité de conseil</b>, tenue à part de POUM!.</li>
+      <li>Tout ce que la feuille de route aura placé <b>en priorité</b>.</li>
+    </ul>
+
+    <h3>Points à confirmer au cadrage</h3>
+    <table class="small">
+      <tr><th style="width:8mm" class="r">#</th><th>Point</th><th style="width:30mm">Effet</th></tr>
+      <tr><td class="r">1</td><td>Raison sociale, SIREN et adresse de facturation de Poum Lab : à compléter avant signature.</td><td>Contrat, factures</td></tr>
+      <tr><td class="r">2</td><td>Modalités de financement via Normandie Incubation, à confirmer.</td><td>Financement</td></tr>
+      <tr><td class="r">3</td><td>Feuilles de calcul à convertir en premier, choisies à l'issue du cadrage.</td><td>Jalon 2</td></tr>
+      <tr><td class="r">4</td><td>Accès de lecture au PrestaShop, commandes et clients.</td><td>Connexion</td></tr>
+      <tr><td class="r">5</td><td>Liste des outils d'IA utilisés et usages actuels, dont Claude.</td><td>Règles des IA</td></tr>
+      <tr><td class="r">6</td><td>Chiffrage du développement : confirmé ou ajusté à l'issue du cadrage, selon le chantier constaté.</td><td>Budget du jalon 2</td></tr>
+    </table>
+
+    <div class="callout">
+      <div class="t">Prochaine étape</div>
+      <p style="margin-bottom:0">Valider le devis, confirmer les points ci-dessus et fixer le démarrage indicatif. Le cadrage est compris dans le forfait de 4 800 € HT, et le montant est confirmé à l'issue du cadrage.</p>
+    </div>
+
+    <p style="font-size:9pt;color:var(--grey);margin-top:3mm">Document établi le 1er novembre 2026 à partir des échanges avec Aymeric Lemarchand. Montants hors taxes, TVA à 20 %. Estimés, confirmés après le cadrage. L'adresse de facturation est à compléter avant signature.</p>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour Poum Lab</span><span>Annexe C</span></div>
+  </div>
+</div>
+
+</body>
+</html>
