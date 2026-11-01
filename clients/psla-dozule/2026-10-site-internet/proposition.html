@@ -106,6 +106,32 @@
   .price-tag { display: inline-block; background: var(--lilac); color: var(--purple); font-weight: 700; padding: 2mm 4mm; border-radius: 1.5mm; font-size: 10pt; }
   .two { display: flex; gap: 6mm; }
   .two > div { flex: 1; }
+
+  /* ---------- DEVIS FORMEL ---------- */
+  .dv-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4mm; }
+  .dv-head img { width: 38mm; margin-top: 1.5mm; }
+  .dv-title { text-align: right; }
+  .dv-title .t { font-size: 21pt; font-weight: 700; letter-spacing: 6px; color: var(--dark); }
+  .dv-title .m { margin-top: 2mm; font-size: 9pt; color: var(--grey); line-height: 1.6; }
+  .dv-title .m b { color: var(--dark); }
+  .dv-meta { display: flex; border: 1px solid var(--line); border-radius: 2mm; overflow: hidden; margin-bottom: 5mm; flex-shrink: 0; }
+  .dv-meta > div { flex: 1; padding: 3mm 4.5mm; }
+  .dv-meta > div + div { border-left: 1px solid var(--line); }
+  .dv-meta .lbl { font-size: 7.8pt; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple2); font-weight: 700; margin-bottom: 1.2mm; }
+  .dv-meta p { font-size: 9pt; margin: 0; line-height: 1.5; }
+  .dv-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 2.5mm 0 3mm 0; }
+  .dv-table th { background: var(--purple); color: #fff; padding: 2.8mm 3.5mm; font-weight: 600; font-size: 9pt; text-align: left; border: 1px solid var(--purple); }
+  .dv-table td { border: 1px solid var(--line); padding: 2mm 3.5mm; vertical-align: top; }
+  .dv-table .r { text-align: right; white-space: nowrap; }
+  .dv-table th.r { text-align: right; }
+  .dv-tot td { background: var(--lilac); font-weight: 700; color: var(--purple); }
+  .dv-h3 { font-size: 11pt; color: var(--purple); margin: 3mm 0 1.2mm 0; font-weight: 700; }
+  .dv-note { font-size: 9pt; color: var(--grey); }
+  .dvfoot { margin-top: auto; border-top: 1.5px solid var(--purple); padding-top: 2.5mm; font-size: 7.6pt; color: var(--grey); line-height: 1.55; display: flex; justify-content: space-between; gap: 8mm; }
+  .dvfoot .pg { text-align: right; white-space: nowrap; font-weight: 600; color: var(--purple2); }
+  .dv-sig { border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2mm 2mm; padding: 3.5mm 5mm 7mm 5mm; margin-top: auto; }
+  .dv-sig .t { font-weight: 700; color: var(--purple); font-size: 11pt; margin-bottom: 2mm; }
+  .dv-sig p { font-size: 9.3pt; margin-bottom: 2mm; }
 </style>
 </head>
 <body>
@@ -124,8 +150,8 @@
         <div class="lbl">Forfait de 8 jours de réalisation<br>site public et espace professionnels<br>5&nbsp;760&nbsp;€ toutes taxes comprises</div>
       </div>
       <div class="card">
-        <div class="big">Début février 2027</div>
-        <div class="lbl">Ouverture du site<br>démarrage courant janvier 2027<br>cinq semaines de réalisation</div>
+        <div class="big">Mars 2027</div>
+        <div class="lbl">Ouverture indicative du site<br>démarrage indicatif : février 2027<br>cinq semaines de réalisation</div>
       </div>
       <div class="card">
         <div class="big">50&nbsp;€ <span class="u">HT/mois</span></div>
@@ -135,7 +161,7 @@
     <div class="toc">
       <div class="toc-title">Contenu du document</div>
       <div class="toc-items">
-        <span>01 L'essentiel</span><span>02 Budget</span><span>03 Exploitation</span><span>04 Planning</span><span>05 Données de santé</span><span>06 Prochaines étapes</span><span>Annexes A · B · C</span>
+        <span>01 L'essentiel</span><span>02 Devis</span><span>03 Budget</span><span>04 Exploitation</span><span>05 Planning</span><span>06 Données de santé</span><span>07 Prochaines étapes</span><span>Annexes A · B · C</span>
       </div>
     </div>
     <div class="foot">
@@ -209,11 +235,64 @@
   </div>
 </div>
 
+<!-- ============ P2 DEVIS ============ -->
+<div class="page tight">
+  <div class="content" style="padding-top:16mm;padding-bottom:13mm">
+    <div class="dv-head">
+      <img src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
+      <div class="dv-title">
+        <div class="t">DEVIS</div>
+        <div class="m"><b>N° 2026-10-PSLA</b><br>Émis le 31 octobre 2026<br>Valable jusqu'au 30 novembre 2026</div>
+      </div>
+    </div>
+
+    <div class="dv-meta">
+      <div>
+        <div class="lbl">Émetteur</div>
+        <p><b>SARL perfusion.dev</b><br>11 rue des Trois Tilleuls, 14310 Villers Bocage<br>office@perfusion.dev · +33&nbsp;6&nbsp;63&nbsp;33&nbsp;82&nbsp;95</p>
+      </div>
+      <div>
+        <div class="lbl">Client</div>
+        <p><b>Société interprofessionnelle de soins ambulatoires</b><br>PSLA de Dozulé, 111 Grande Rue, 14430 Dozulé<br><span style="color:var(--grey)">Identité de facturation à confirmer avant contrat.</span></p>
+      </div>
+    </div>
+
+    <p><b>Objet :</b> réalisation du site internet public du pôle de santé libéral ambulatoire de Dozulé et de l'espace réservé aux professionnels, formation et mise en ligne, selon le périmètre des annexes A et B.</p>
+
+    <div class="dv-h3">Détail des prestations (estimation à cadrer)</div>
+    <table class="dv-table">
+      <tr><th>Désignation</th><th class="r" style="width:20mm">Quantité</th><th class="r" style="width:30mm">Prix unitaire HT</th><th class="r" style="width:27mm">Total HT</th></tr>
+      <tr><td><b>Cadrage et maquette</b> des pages et de l'interface</td><td class="r">1 jour</td><td class="r">600,00 €</td><td class="r">600,00 €</td></tr>
+      <tr><td><b>Socle</b> : mise en page, comptes, hébergement</td><td class="r">1,5 jour</td><td class="r">600,00 €</td><td class="r">900,00 €</td></tr>
+      <tr><td><b>Contenus</b> : annuaire, actualités, orientation, interface</td><td class="r">2,5 jours</td><td class="r">600,00 €</td><td class="r">1 500,00 €</td></tr>
+      <tr><td><b>Espace professionnels</b> : documents et calendrier</td><td class="r">2 jours</td><td class="r">600,00 €</td><td class="r">1 200,00 €</td></tr>
+      <tr><td><b>Recette, formation et mise en ligne</b></td><td class="r">1 jour</td><td class="r">600,00 €</td><td class="r">600,00 €</td></tr>
+      <tr class="dv-tot"><td>Total HT</td><td class="r">8 jours</td><td></td><td class="r">4 800,00 €</td></tr>
+      <tr><td>TVA 20 %</td><td></td><td></td><td class="r">960,00 €</td></tr>
+      <tr class="dv-tot"><td>Total TTC</td><td></td><td></td><td class="r">5 760,00 €</td></tr>
+    </table>
+    <p class="dv-note">Montants estimés, confirmés à l'issue du jalon 1 (cadrage). Taux de TVA en vigueur à la facturation.</p>
+
+    <p><b>Échéancier de règlement :</b> 30 % au lancement, après signature ; 40 % à la mise à disposition du site ; 30 % à la validation de recette.</p>
+
+    <div class="dv-sig">
+      <div class="t">Bon pour accord</div>
+      <p>Fait à : ......................................... &nbsp;&nbsp;&nbsp; Le : ........ / ........ / ............</p>
+      <p style="margin-bottom:0">Signature, précédée de la mention « Bon pour accord » :</p>
+    </div>
+
+    <div class="dvfoot">
+      <div>Règlement par virement, facture à chaque jalon validé, sans escompte ; en cas de retard, pénalités au taux légal et indemnité forfaitaire de 40 € (art. L441-10 du code de commerce). Code source et dépôt Git remis au pôle ; droits d'exploitation définis au contrat. Après la mise en ligne : maintien et hébergement 50 € HT par mois (60 € TTC), sans engagement de durée ; nom de domaine au coût réel. Évolutions au-delà du périmètre des annexes A et B : lots séparés, chiffrés avant de commencer.<br>SARL perfusion.dev, capital 1 000 € · 11 rue des Trois Tilleuls, 14310 Villers Bocage · SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919 · office@perfusion.dev · perfusion.dev</div>
+      <div class="pg">Page 2</div>
+    </div>
+  </div>
+</div>
+
 <!-- ============ P2 BUDGET ============ -->
 <div class="page">
   <div class="content tight">
     <div class="head">
-      <div class="num">02 · BUDGET</div>
+      <div class="num">03 · BUDGET</div>
       <h2>Un forfait clair, réglé au fil des jalons</h2>
     </div>
 
@@ -251,13 +330,13 @@
         <h3>Ce qu'il ne comprend pas</h3>
         <ul>
           <li>Le <b>nom de domaine</b> : à définir, facturé au coût réel. Les abonnements de rendez-vous restent des comptes du pôle.</li>
-          <li>Un <b>hébergement certifié de données de santé</b> : hors de ce projet (page 5).</li>
+          <li>Un <b>hébergement certifié de données de santé</b> : hors de ce projet (page 6).</li>
           <li>Les <b>évolutions au-delà du périmètre</b> : lots séparés, chiffrés avant de commencer.</li>
         </ul>
       </div>
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>2</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>3</span></div>
   </div>
 </div>
 
@@ -265,7 +344,7 @@
 <div class="page">
   <div class="content tight">
     <div class="head">
-      <div class="num">03 · EXPLOITATION</div>
+      <div class="num">04 · EXPLOITATION</div>
       <h2>Un maintien léger, sans surprise</h2>
     </div>
 
@@ -289,7 +368,7 @@
       <p style="margin-bottom:0">Toute évolution au-delà du site et de l'espace professionnels fait l'objet d'un <b>lot séparé</b>, chiffré et validé avant de commencer. Le forfait mensuel ne change pas sans accord.</p>
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>3</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>4</span></div>
   </div>
 </div>
 
@@ -297,25 +376,32 @@
 <div class="page">
   <div class="content">
     <div class="head">
-      <div class="num">04 · PLANNING</div>
-      <h2>Démarrage courant janvier, ouverture début février</h2>
+      <div class="num">05 · PLANNING</div>
+      <h2>Cinq semaines, du cadrage à l'ouverture</h2>
     </div>
 
-    <p>Projection pour 8 jours de réalisation, répartis sur cinq semaines à partir de courant janvier 2027. Chaque étape produit un livrable vérifiable avant de passer à la suivante. Les dates se figent au cadrage, selon la disponibilité des textes et des interlocuteurs.</p>
+    <p>La réalisation s'étale sur <b>cinq semaines</b> à compter du démarrage. Les semaines précises se figent au cadrage, selon nos autres engagements et la disponibilité des textes.</p>
 
     <table>
-      <tr><th>Période indicative</th><th>Étape</th><th>Résultat attendu</th></tr>
-      <tr><td><b>Semaine du 4 janvier</b></td><td>Cadrage et maquette (jalon 1)</td><td>Pages, annuaire et interface validés, montant confirmé</td></tr>
-      <tr><td><b>Semaines du 11 au 29 janvier</b></td><td>Réalisation (jalons 2, 3 et 4)</td><td>Site utilisable avec les premiers contenus, puis espace professionnels</td></tr>
-      <tr><td><b>Semaine du 1er février</b></td><td>Formation et mise en ligne (jalon 5)</td><td>Rédacteurs autonomes, site ouvert au public</td></tr>
-      <tr><td><b>Cible</b></td><td>Ouverture</td><td><b>Début février 2027</b></td></tr>
+      <tr><th>Semaine</th><th>Étape</th><th>Résultat attendu</th></tr>
+      <tr><td><b>Semaine 1</b></td><td>Cadrage et maquette (jalon 1)</td><td>Pages, annuaire et interface validés, montant confirmé</td></tr>
+      <tr><td><b>Semaines 2 à 4</b></td><td>Réalisation (jalons 2, 3 et 4)</td><td>Site utilisable avec les premiers contenus, puis espace professionnels</td></tr>
+      <tr><td><b>Semaine 5</b></td><td>Formation et mise en ligne (jalon 5)</td><td>Rédacteurs autonomes, site ouvert au public</td></tr>
     </table>
+
+    <h3>Repères de calendrier, indicatifs</h3>
+    <table class="small">
+      <tr><th style="width:34%">Repère</th><th>Date indicative</th></tr>
+      <tr><td><b>Début</b> indicatif</td><td>Février 2027, à confirmer selon nos autres projets en cours</td></tr>
+      <tr><td><b>Ouverture</b> indicative</td><td>Mars 2027, soit cinq semaines après le démarrage</td></tr>
+    </table>
+    <p style="font-size:9pt;color:var(--grey)">Ces repères valent sous réserve d'une signature sans tarder : un report du démarrage décale d'autant l'ouverture.</p>
 
     <h3>Comment nous travaillerons ensemble</h3>
     <ul>
       <li><b>Un interlocuteur unique</b> : Maxime Guyot, du cadrage à la mise en ligne.</li>
       <li><b>La maquette d'abord</b> : la réalisation ne commence qu'une fois les pages validées par le pôle.</li>
-      <li><b>Les textes viennent de l'équipe</b> : nous les mettons en page, sans rédiger nous-mêmes les contenus de santé.</li>
+      <li><b>Les textes viennent de l'équipe</b> : nous les mettons en page.</li>
       <li><b>Plusieurs lieux dès le départ</b> : un changement d'adresse se fait dans l'interface, sans refaire le site.</li>
       <li><b>Des textes factuels</b> : horaires, accès, prévention. Pas de promesse de résultat.</li>
     </ul>
@@ -325,7 +411,7 @@
       <p style="margin-bottom:0">Une personne décisionnaire, la liste des professionnels avec l'accord de chacun pour publier ses coordonnées, les textes et photos du pôle, le plan d'accès, les liens de rendez-vous, le choix du nom de domaine, et deux ou trois personnes disponibles pour la formation.</p>
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>4</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>5</span></div>
   </div>
 </div>
 
@@ -333,7 +419,7 @@
 <div class="page">
   <div class="content tight">
     <div class="head">
-      <div class="num">05 · DONNÉES DE SANTÉ</div>
+      <div class="num">06 · DONNÉES DE SANTÉ</div>
       <h2>La limite à tenir</h2>
     </div>
 
@@ -373,7 +459,7 @@
     <h3>Espace professionnels</h3>
     <p>L'espace est inclus dans cette proposition. Il sert à partager des documents sans nom de patient et le calendrier du pôle, avec un rappel de la règle à chaque connexion. Le jour où un fichier identifie une personne et un soin, il faut un hébergement certifié : c'est un autre projet, avec un autre budget.</p>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>5</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>6</span></div>
   </div>
 </div>
 
@@ -381,15 +467,15 @@
 <div class="page">
   <div class="content tight">
     <div class="head">
-      <div class="num">06 · PROCHAINES ÉTAPES</div>
+      <div class="num">07 · PROCHAINES ÉTAPES</div>
       <h2>Cinq décisions pour avancer</h2>
     </div>
 
     <table>
       <tr><th style="width:8mm" class="r">1</th><td><b>Retenir le principe</b> : site public et espace professionnels, forfait estimé à 4 800 € HT.</td></tr>
-      <tr><th class="r">2</th><td><b>Fixer le démarrage</b> du cadrage à courant janvier 2027.</td></tr>
+      <tr><th class="r">2</th><td><b>Fixer le créneau de démarrage</b> : février 2027 (indicatif).</td></tr>
       <tr><th class="r">3</th><td><b>Désigner</b> la personne décisionnaire et deux ou trois personnes qui mettront le site à jour.</td></tr>
-      <tr><th class="r">4</th><td><b>Confirmer la limite</b> : aucune donnée de patient, rendez-vous laissés à l'outil de chaque professionnel.</td></tr>
+      <tr><th class="r">4</th><td><b>Confirmer la limite</b> : aucune donnée de patient, rendez-vous chez chaque professionnel.</td></tr>
       <tr><th class="r">5</th><td><b>Préparer les contenus</b> : textes, photos, plan d'accès et liens de rendez-vous.</td></tr>
     </table>
 
@@ -400,29 +486,14 @@
       <tr><td>Règlement</td><td>30 % lancement · 40 % mise à disposition · 30 % validation de recette</td></tr>
       <tr><td>Maintien et hébergement</td><td>50 € HT par mois (60 € TTC), sans engagement de durée</td></tr>
       <tr><td>Nom de domaine</td><td>À définir, facturé au coût réel, hors maintien</td></tr>
-      <tr><td>Mise en ligne</td><td>Indicative : démarrage courant janvier 2027, ouverture début février 2027</td></tr>
+      <tr><td>Mise en ligne</td><td>Indicative : démarrage février 2027, ouverture mars 2027, sous réserve d'une signature sans tarder</td></tr>
       <tr><td>Livrables et réversibilité</td><td>Code source et dépôt Git remis. Droits d'exploitation définis au contrat.</td></tr>
       <tr><td>Données de santé</td><td>Hors périmètre. Un hébergement certifié serait un projet distinct.</td></tr>
     </table>
 
     <div class="callout">
       <div class="t">Décision attendue</div>
-      <p style="margin-bottom:0"><b>Valider le principe et fixer le démarrage.</b> Le montant est confirmé à l'issue du cadrage.</p>
-    </div>
-
-    <div class="sig" style="margin-top:2mm">
-      <div class="sigbox" style="padding-bottom:4mm">
-        <div class="who">Pour le PSLA de Dozulé</div>
-        <div class="sigline" style="margin-top:2.5mm">Nom, fonction :</div>
-        <div class="sigline">Date :</div>
-        <div class="sigline">Signature :</div>
-      </div>
-      <div class="sigbox" style="padding-bottom:4mm">
-        <div class="who">Pour Perfusion.dev</div>
-        <div class="sigline" style="margin-top:2.5mm">Maxime Guyot</div>
-        <div class="sigline">Date :</div>
-        <div class="sigline">Signature :</div>
-      </div>
+      <p style="margin-bottom:0"><b>Valider le principe et fixer le démarrage.</b> Le montant est confirmé à l'issue du cadrage. Le devis récapitulatif en page 2 porte le détail, les conditions et le bon pour accord.</p>
     </div>
 
     <div class="legal">
@@ -430,7 +501,7 @@
       SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>6</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour le PSLA de Dozulé</span><span>7</span></div>
   </div>
 </div>
 
@@ -533,7 +604,7 @@
 
     <div class="callout">
       <div class="t">Prochaine étape</div>
-      <p style="margin-bottom:0">Fixer le démarrage à courant janvier. Le cadrage est compris dans le forfait de 4 800 € HT. Le montant est confirmé à la fin de ce cadrage, avant le reste de la réalisation.</p>
+      <p style="margin-bottom:0">Fixer le créneau de démarrage. Le cadrage est compris dans le forfait de 4 800 € HT. Le montant est confirmé à la fin de ce cadrage, avant le reste de la réalisation.</p>
     </div>
 
     <p style="font-size:9pt;color:var(--grey);margin-top:3mm">Document établi le 31 octobre 2026 à partir du message de Quentin Piard du 20 octobre 2026. Montants hors taxes, TVA à 20 %. Première estimation, confirmée après le cadrage. L'identité de facturation du point 1 est à vérifier avant le contrat.</p>
