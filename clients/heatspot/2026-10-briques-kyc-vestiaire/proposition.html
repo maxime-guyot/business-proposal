@@ -9,8 +9,8 @@
   :root {
     --dark: #111111;
     --dark2: #1C1D22;
-    --accent: #5128A4;
-    --accent2: #9932CD;
+    --purple: #5128A4;
+    --purple2: #9932CD;
     --lilac: #F4F1FA;
     --grey: #6B6B76;
     --line: #E4E1EC;
@@ -19,61 +19,62 @@
   .page { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always; }
   .page:last-child { page-break-after: auto; }
   .content { padding: 20mm 18mm 24mm 18mm; height: 100%; display: flex; flex-direction: column; }
-  .page.budget-page .content { padding-top: 14mm; padding-bottom: 16mm; }
 
+  /* ---------- COVER (claire) ---------- */
   .cover { background: #fff; color: var(--dark); }
-  .cover .bar { position: absolute; top: 0; left: 0; right: 0; height: 4mm; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+  .cover .bar { position: absolute; top: 0; left: 0; right: 0; height: 4mm; background: linear-gradient(90deg, var(--purple), var(--purple2)); }
   .cover .inner { padding: 24mm 20mm; height: 100%; display: flex; flex-direction: column; }
   .cover .logo { width: 58mm; margin-top: 3mm; }
-  .cover .kicker { margin-top: 22mm; font-size: 9.5pt; letter-spacing: 3.5px; text-transform: uppercase; color: var(--accent2); font-weight: 600; }
-  .cover h1 { margin-top: 8mm; font-size: 23pt; line-height: 1.22; font-weight: 700; letter-spacing: -0.3px; color: var(--dark); }
-  .cover h1 .dot { color: var(--accent2); }
+  .cover .kicker { margin-top: 22mm; font-size: 9.5pt; letter-spacing: 3.5px; text-transform: uppercase; color: var(--purple2); font-weight: 600; }
+  .cover h1 { margin-top: 8mm; font-size: 24pt; line-height: 1.22; font-weight: 700; letter-spacing: -0.3px; color: var(--dark); }
+  .cover h1 .dot { color: var(--purple2); }
   .cover .sub { margin-top: 6mm; font-size: 11.5pt; color: var(--grey); line-height: 1.65; max-width: 158mm; }
   .cards { margin-top: 11mm; display: flex; gap: 5mm; }
-  .card { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-top: 1.4mm solid var(--accent2); border-radius: 0 0 2.5mm 2.5mm; padding: 6mm 6mm; }
-  .card .big { font-size: 14.5pt; font-weight: 700; color: var(--accent); }
-  .card .big .u { color: var(--accent2); }
+  .card { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2.5mm 2.5mm; padding: 6mm 6mm; }
+  .card .big { font-size: 14.5pt; font-weight: 700; color: var(--purple); }
+  .card .big .u { color: var(--purple2); }
   .card .lbl { margin-top: 2.5mm; font-size: 8.8pt; color: var(--grey); line-height: 1.5; }
   .cover .foot { margin-top: auto; display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 6mm; font-size: 9pt; color: var(--grey); }
   .toc { margin-top: 11mm; border: 1px solid var(--line); background: #FAF9FC; border-radius: 2.5mm; padding: 5.5mm 7mm; }
   .toc-title { font-size: 8.5pt; letter-spacing: 2px; text-transform: uppercase; color: #8B8B96; margin-bottom: 3.5mm; }
   .toc-items { display: flex; flex-wrap: wrap; gap: 2.5mm 6mm; }
   .toc-items span { font-size: 9.5pt; color: #3A3A44; }
-  .toc-items span::before { content: ""; display: inline-block; width: 2mm; height: 2mm; border-radius: 0.6mm; background: var(--accent2); margin-right: 2.2mm; vertical-align: 0.3mm; }
+  .toc-items span::before { content: ""; display: inline-block; width: 2mm; height: 2mm; border-radius: 0.6mm; background: var(--purple2); margin-right: 2.2mm; vertical-align: 0.3mm; }
   .cover .foot b { color: var(--dark); font-weight: 600; }
 
-  .head { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--accent); padding-bottom: 3mm; margin-bottom: 7mm; }
-  .head .num { font-size: 10pt; font-weight: 700; color: var(--accent2); letter-spacing: 2px; }
+  /* ---------- LIGHT PAGES ---------- */
+  .head { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--purple); padding-bottom: 3mm; margin-bottom: 7mm; }
+  .head .num { font-size: 10pt; font-weight: 700; color: var(--purple2); letter-spacing: 2px; }
   .head h2 { font-size: 17pt; font-weight: 700; color: var(--dark); letter-spacing: -0.2px; }
   .mini-logo { width: 30mm; }
 
-  h3 { font-size: 11.5pt; color: var(--accent); margin: 6mm 0 2.5mm 0; font-weight: 700; }
+  h3 { font-size: 11.5pt; color: var(--purple); margin: 6mm 0 2.5mm 0; font-weight: 700; }
   p { margin-bottom: 3mm; }
   ul { margin: 0 0 3mm 0; padding-left: 5mm; list-style: none; }
   ul li { padding-left: 4.5mm; position: relative; margin-bottom: 1.8mm; }
-  ul li::before { content: ""; position: absolute; left: 0; top: 2mm; width: 2.2mm; height: 2.2mm; border-radius: 0.7mm; background: var(--accent2); }
+  ul li::before { content: ""; position: absolute; left: 0; top: 2mm; width: 2.2mm; height: 2.2mm; border-radius: 0.7mm; background: var(--purple2); }
 
   .foot { margin-top: auto; border-top: 1px solid var(--line); padding-top: 3mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--grey); }
 
-  .callout { background: var(--lilac); border-left: 1.6mm solid var(--accent2); border-radius: 0 2mm 2mm 0; padding: 5mm 6mm; margin: 4mm 0; }
-  .callout .t { font-weight: 700; color: var(--accent); margin-bottom: 1.5mm; font-size: 10.5pt; }
+  .callout { background: var(--lilac); border-left: 1.6mm solid var(--purple2); border-radius: 0 2mm 2mm 0; padding: 5mm 6mm; margin: 4mm 0; }
+  .callout .t { font-weight: 700; color: var(--purple); margin-bottom: 1.5mm; font-size: 10.5pt; }
 
   table { width: 100%; border-collapse: collapse; margin: 3mm 0 4mm 0; font-size: 10pt; }
-  th { background: var(--accent); color: #fff; text-align: left; padding: 3mm 4mm; font-weight: 600; font-size: 9.5pt; }
+  th { background: var(--purple); color: #fff; text-align: left; padding: 3mm 4mm; font-weight: 600; font-size: 9.5pt; }
   td { padding: 2.8mm 4mm; border-bottom: 1px solid var(--line); vertical-align: top; }
   tr:nth-child(even) td { background: #FAF9FC; }
   td.r, th.r { text-align: right; white-space: nowrap; }
-  tr.total td { background: var(--lilac); font-weight: 700; color: var(--accent); border-bottom: none; }
+  tr.total td { background: var(--lilac); font-weight: 700; color: var(--purple); border-bottom: none; }
 
   .steps { display: flex; gap: 4mm; margin: 4mm 0 2mm 0; }
-  .step { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-top: 1.4mm solid var(--accent2); border-radius: 0 0 2mm 2mm; padding: 4.5mm 4mm; }
-  .step .when { font-size: 8.5pt; font-weight: 700; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.8px; }
+  .step { flex: 1; background: #FAF9FC; border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2mm 2mm; padding: 4.5mm 4mm; }
+  .step .when { font-size: 8.5pt; font-weight: 700; color: var(--purple2); text-transform: uppercase; letter-spacing: 0.8px; }
   .step .what { margin-top: 1.5mm; font-weight: 700; font-size: 10pt; }
   .step .res { margin-top: 1.2mm; font-size: 8.8pt; color: var(--grey); line-height: 1.45; }
 
   .sig { display: flex; gap: 6mm; margin-top: 4mm; }
   .sigbox { flex: 1; border: 1px solid var(--line); border-radius: 2mm; padding: 4mm 5mm 9mm 5mm; }
-  .sigbox .who { font-weight: 700; color: var(--accent); margin-bottom: 3mm; }
+  .sigbox .who { font-weight: 700; color: var(--purple); margin-bottom: 3mm; }
   .sigline { margin-top: 5mm; font-size: 9.5pt; color: var(--grey); border-bottom: 1px dotted #B9B6C4; padding-bottom: 1.2mm; }
   .legal { margin-top: 3.5mm; font-size: 8.3pt; color: var(--grey); line-height: 1.55; border-top: 1px solid var(--line); padding-top: 3mm; }
 
@@ -81,37 +82,52 @@
   .tight td { padding: 2mm 4mm; }
   .tight table { margin: 2mm 0 3mm 0; }
   .nextnote { font-size: 9.8pt; color: var(--grey); background: #FAF9FC; border: 0.3mm solid var(--line); border-radius: 2mm; padding: 2.5mm 4mm; margin: 0 0 3mm 0; }
-  .nextnote b { color: var(--accent); }
-  tr.future td { background: #FAF9FC; color: var(--grey); font-size: 9.5pt; }
+  .nextnote b { color: var(--purple); }
   table.small { font-size: 9.2pt; }
   table.small td { padding: 1.8mm 4mm; }
   .tight h3 { margin: 3.5mm 0 2mm 0; }
   .tight .callout { margin: 3mm 0; padding: 3.5mm 5mm; }
   .tight p { margin-bottom: 2mm; }
   .tight ul li { margin-bottom: 1.2mm; }
+  .tight .step { padding: 3.5mm 3.5mm; }
   .tight .sigbox { padding-bottom: 7mm; }
   .tight .sigline { margin-top: 4mm; }
   .tight .sig { margin-top: 3mm; }
   .tight .legal { margin-top: 2.5mm; padding-top: 2.5mm; }
+  tr.future td { background: #FAF9FC; color: var(--grey); font-size: 9.5pt; }
 
-  .dense td { padding: 1.6mm 4mm; }
-  .dense table { margin: 2mm 0 2.5mm 0; }
-  .dense h3 { margin: 3mm 0 1.5mm 0; }
-  .dense p { margin-bottom: 1.8mm; }
-  .dense ul li { margin-bottom: 1mm; }
-  .dense .callout { margin: 2.5mm 0; padding: 2.5mm 4.5mm; }
-  .dense { font-size: 10pt; line-height: 1.5; }
-  .dense table { font-size: 9.4pt; }
-  .dense table.small { font-size: 8.9pt; }
-  .dense .head { margin-bottom: 5mm; }
-  .dense .foot { padding-top: 2.5mm; }
-
-  .annexe-head { display: flex; align-items: baseline; gap: 4mm; border-bottom: 2px solid var(--accent); padding-bottom: 3mm; margin-bottom: 6mm; }
-  .annexe-head .tag { font-size: 9pt; font-weight: 700; color: #fff; background: var(--accent); padding: 1.2mm 3mm; border-radius: 1.5mm; letter-spacing: 1px; }
+  .annexe-head { display: flex; align-items: baseline; gap: 4mm; border-bottom: 2px solid var(--purple); padding-bottom: 3mm; margin-bottom: 6mm; }
+  .annexe-head .tag { font-size: 9pt; font-weight: 700; color: #fff; background: var(--purple); padding: 1.2mm 3mm; border-radius: 1.5mm; letter-spacing: 1px; }
   .annexe-head h2 { font-size: 15pt; font-weight: 700; color: var(--dark); }
-  .price-tag { display: inline-block; background: var(--lilac); color: var(--accent); font-weight: 700; padding: 2mm 4mm; border-radius: 1.5mm; font-size: 10pt; }
+  .price-tag { display: inline-block; background: var(--lilac); color: var(--purple); font-weight: 700; padding: 2mm 4mm; border-radius: 1.5mm; font-size: 10pt; }
   .two { display: flex; gap: 6mm; }
   .two > div { flex: 1; }
+
+  /* ---------- DEVIS FORMEL ---------- */
+  .dv-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 3mm; }
+  .dv-head img { width: 38mm; margin-top: 1.5mm; }
+  .dv-title { text-align: right; }
+  .dv-title .t { font-size: 21pt; font-weight: 700; letter-spacing: 6px; color: var(--dark); }
+  .dv-title .m { margin-top: 2mm; font-size: 9pt; color: var(--grey); line-height: 1.6; }
+  .dv-title .m b { color: var(--dark); }
+  .dv-meta { display: flex; border: 1px solid var(--line); border-radius: 2mm; overflow: hidden; margin-bottom: 4mm; flex-shrink: 0; }
+  .dv-meta > div { flex: 1; padding: 3mm 4.5mm; }
+  .dv-meta > div + div { border-left: 1px solid var(--line); }
+  .dv-meta .lbl { font-size: 7.8pt; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple2); font-weight: 700; margin-bottom: 1.2mm; }
+  .dv-meta p { font-size: 9pt; margin: 0; line-height: 1.5; }
+  .dv-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 2.5mm 0 3mm 0; }
+  .dv-table th { background: var(--purple); color: #fff; padding: 2.2mm 3.5mm; font-weight: 600; font-size: 9pt; text-align: left; border: 1px solid var(--purple); }
+  .dv-table td { border: 1px solid var(--line); padding: 1.6mm 3.5mm; vertical-align: top; }
+  .dv-table .r { text-align: right; white-space: nowrap; }
+  .dv-table th.r { text-align: right; }
+  .dv-tot td { background: var(--lilac); font-weight: 700; color: var(--purple); }
+  .dv-h3 { font-size: 11pt; color: var(--purple); margin: 3mm 0 1.2mm 0; font-weight: 700; }
+  .dv-note { font-size: 9pt; color: var(--grey); }
+  .dvfoot { margin-top: auto; border-top: 1.5px solid var(--purple); padding-top: 2.5mm; font-size: 7.6pt; color: var(--grey); line-height: 1.55; display: flex; justify-content: space-between; gap: 8mm; }
+  .dvfoot .pg { text-align: right; white-space: nowrap; font-weight: 600; color: var(--purple2); }
+  .dv-sig { border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2mm 2mm; padding: 3mm 5mm 4mm 5mm; margin-top: auto; }
+  .dv-sig .t { font-weight: 700; color: var(--purple); font-size: 11pt; margin-bottom: 2mm; }
+  .dv-sig p { font-size: 9.3pt; margin-bottom: 2mm; }
 </style>
 </head>
 <body>
@@ -123,40 +139,94 @@
     <img class="logo" src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
     <div class="kicker">Devis complémentaire · Estimation</div>
     <h1>HEATSPOT : contrôle d'identité,<br>red flags et vestiaire digital<span class="dot">.</span></h1>
-    <div class="sub">Deux briques à ajouter à votre socle existant : un contrôle d'identité volontaire avec signalement des profils à risque, et un vestiaire digital où un ticket correspond à un numéro de vestiaire et à un cintre numéroté. Le partage des signalements entre clubs est traité avec une approche prudente, détaillée en page Conformité.</div>
+    <div class="sub">Deux briques à ajouter à votre socle existant : un contrôle d'identité volontaire avec signalement des profils à risque, et un vestiaire digital où un ticket correspond à un numéro de vestiaire et à un cintre numéroté. Le partage des signalements entre clubs est traité avec une approche prudente, détaillée en page Conformité. Le devis figure en page 1.</div>
     <div class="cards">
       <div class="card">
-        <div class="big">12 120&nbsp;€ <span class="u">HT</span></div>
-        <div class="lbl">Les deux briques, net après déduction de l'encours maintenance (estimation à cadrer)<br>32 jours · 19 200 € HT avant déduction</div>
+        <div class="big">13&nbsp;920&nbsp;€ <span class="u">HT</span></div>
+        <div class="lbl">Atelier et briques, net de l'encours maintenance (estimation à cadrer)<br>21&nbsp;000&nbsp;€ HT avant déduction<br>16&nbsp;704&nbsp;€ toutes taxes comprises</div>
       </div>
       <div class="card">
         <div class="big">Janvier 2027</div>
         <div class="lbl">Livraison indicative<br>si lancement sous 2 semaines</div>
       </div>
       <div class="card">
-        <div class="big">1&nbsp;800&nbsp;€ <span class="u">HT</span></div>
-        <div class="lbl">Atelier de cadrage, 3 jours<br>facturé, sans remise</div>
+        <div class="big">7&nbsp;080&nbsp;€ <span class="u">HT</span></div>
+        <div class="lbl">Encours maintenance déduit (devis n° 19)<br>base de 3 mois à 340&nbsp;€ HT conservée</div>
       </div>
     </div>
     <div class="toc">
       <div class="toc-title">Contenu du document</div>
       <div class="toc-items">
-        <span>01 L'essentiel</span><span>02 Budget</span><span>03 Conformité RGPD</span><span>04 Planning</span><span>05 Prochaines étapes</span><span>Annexes A · B</span>
+        <span>01 Devis</span><span>02 L'essentiel</span><span>03 Budget</span><span>04 Conformité RGPD</span><span>05 Planning</span><span>06 Prochaines étapes</span><span>Annexes A · B</span>
       </div>
     </div>
     <div class="foot">
       <div>Préparée pour <b>HEATSPOT</b></div>
-      <div>Présentée par <b>Perfusion.dev</b> · Maxime Guyot</div>
+      <div>Présentée par <b>Perfusion.dev</b> · Maxime Guyot<br><span style="font-size:8.3pt">+33&nbsp;6&nbsp;63&nbsp;33&nbsp;82&nbsp;95 · office@perfusion.dev · perfusion.dev</span></div>
       <div><b>31 octobre 2026</b></div>
     </div>
   </div>
 </div>
 
-<!-- ============ P1 ESSENTIEL ============ -->
+<!-- ============ P1 DEVIS ============ -->
+<div class="page tight">
+  <div class="content" style="padding-top:16mm;padding-bottom:13mm">
+    <div class="dv-head">
+      <img src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
+      <div class="dv-title">
+        <div class="t">DEVIS</div>
+        <div class="m"><b>N° 2026-10-HEATSPOT</b><br>Émis le 31 octobre 2026<br>Valable jusqu'au 30 novembre 2026</div>
+      </div>
+    </div>
+
+    <div class="dv-meta">
+      <div>
+        <div class="lbl">Émetteur</div>
+        <p><b>SARL perfusion.dev</b><br>11 rue des Trois Tilleuls, 14310 Villers Bocage<br>office@perfusion.dev · +33&nbsp;6&nbsp;63&nbsp;33&nbsp;82&nbsp;95</p>
+      </div>
+      <div>
+        <div class="lbl">Client</div>
+        <p><b>HEATSPOT</b><br>Contact : Yann Buet, co-fondateur<br><span style="color:var(--grey)">Raison sociale et adresse de facturation à confirmer avant contrat.</span></p>
+      </div>
+    </div>
+
+    <p><b>Objet :</b> réalisation de deux briques sur la plateforme HEATSPOT existante : contrôle d'identité volontaire avec signalement des profils à risque, et vestiaire digital, précédées d'un atelier de cadrage (annexe A).</p>
+
+    <div class="dv-h3">Détail des prestations (estimation à cadrer)</div>
+    <table class="dv-table">
+      <tr><th>Désignation</th><th class="r" style="width:20mm">Quantité</th><th class="r" style="width:30mm">Prix unitaire HT</th><th class="r" style="width:27mm">Total HT</th></tr>
+      <tr><td><b>Atelier de cadrage</b> : parcours, écrans clés, fichage, RGPD</td><td class="r">3 jours</td><td class="r">600,00 €</td><td class="r">1 800,00 €</td></tr>
+      <tr><td><b>Contrôle d'identité</b> : KYC Stripe Identity, statut, back-office</td><td class="r">10 jours</td><td class="r">600,00 €</td><td class="r">6 000,00 €</td></tr>
+      <tr><td><b>Red flags</b> : signalement, motifs, contrôle suivant, partage</td><td class="r">9 jours</td><td class="r">600,00 €</td><td class="r">5 400,00 €</td></tr>
+      <tr><td><b>Vestiaire digital</b> : ticket, vestiaire, cintre, restitution, parc</td><td class="r">8 jours</td><td class="r">600,00 €</td><td class="r">4 800,00 €</td></tr>
+      <tr><td><b>Recette, déploiement et documentation</b></td><td class="r">5 jours</td><td class="r">600,00 €</td><td class="r">3 000,00 €</td></tr>
+      <tr class="dv-tot"><td>Total HT</td><td class="r">35 jours</td><td></td><td class="r">21 000,00 €</td></tr>
+      <tr><td>Déduction : encours maintenance devis n° 19</td><td></td><td></td><td class="r">- 7 080,00 €</td></tr>
+      <tr class="dv-tot"><td>Net HT</td><td></td><td></td><td class="r">13 920,00 €</td></tr>
+      <tr><td>TVA 20 %</td><td></td><td></td><td class="r">2 784,00 €</td></tr>
+      <tr class="dv-tot"><td>Total TTC</td><td></td><td></td><td class="r">16 704,00 €</td></tr>
+    </table>
+    <p class="dv-note">Montants estimés, confirmés à l'issue de l'atelier de cadrage. Déduction portant sur les seules briques : atelier facturé sans remise, maintenance de base conservée (3 × 340&nbsp;€ HT). Taux de TVA en vigueur à la facturation.</p>
+
+    <p><b>Échéancier de règlement :</b> atelier facturé à sa réalisation ; briques (net) : 30 % au lancement, 40 % à la mise à disposition en recette, 30 % à la validation de recette.</p>
+
+    <div class="dv-sig">
+      <div class="t">Bon pour accord</div>
+      <p>Fait à : ......................................... &nbsp;&nbsp;&nbsp; Le : ........ / ........ / ............</p>
+      <p style="margin-bottom:0">Signature, précédée de la mention « Bon pour accord » :</p>
+    </div>
+
+    <div class="dvfoot">
+      <div>Règlement par virement, facture à chaque jalon validé, sans escompte ; en cas de retard, pénalités au taux légal et indemnité forfaitaire de 40 € (art. L441-10 du code de commerce). L'atelier de cadrage est facturé à sa réalisation, sans remise et sans déduction. Vérifications Stripe Identity facturées au réel par Stripe (annexe B). Code source et dépôt Git remis ; droits d'exploitation définis au contrat. Évolutions au-delà de l'annexe A : lots séparés, chiffrés avant de commencer.<br>SARL perfusion.dev, capital 1 000 € · 11 rue des Trois Tilleuls, 14310 Villers Bocage · SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA FR43 919991919 · office@perfusion.dev · perfusion.dev</div>
+      <div class="pg">Page 1</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ P2 ESSENTIEL ============ -->
 <div class="page tight">
   <div class="content">
     <div class="head">
-      <div class="num">01 · L'ESSENTIEL</div>
       <h2>L'essentiel en une page</h2>
       <img class="mini-logo" src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
     </div>
@@ -173,70 +243,70 @@
       <li>Un <b>statut « identité vérifiée »</b> fiable, affiché aux équipes sur place lors du contrôle, sans ralentir les entrées des clubbers vérifiés.</li>
       <li>Un <b>signalement structuré et opposable</b> : motifs prédéfinis, faits horodatés, auteur identifié, visible immédiatement lors du contrôle suivant.</li>
       <li>Un <b>vestiaire traçé de bout en bout</b> : plus de litiges sur les numéros, une vision en temps réel des vestiaires et cintres disponibles par club.</li>
-      <li>Un <b>cadre RGPD travaillé dès la conception</b> : information des personnes, durées de conservation, droit de contestation (page 03).</li>
+      <li>Un <b>cadre RGPD travaillé dès la conception</b> : information des personnes, durées de conservation, droit de contestation (page 4).</li>
     </ul>
 
     <div class="callout">
       <div class="t">Nos garanties pour ce devis</div>
       <ul style="margin-bottom:0">
         <li>Le <b>code source et le dépôt Git vous sont remis</b>, vos données restent chez HEATSPOT ; droits d'exploitation et réversibilité définis au contrat.</li>
-        <li>Le chiffrage est une <b>estimation</b> (32 jours, confirmée à l'issue de l'atelier de cadrage) ; le SLA et l'astreinte 24/7 restent à cadrer, jamais inclus d'office.</li>
-        <li>Le partage des red flags entre clubs suit une <b>approche en deux temps</b>, conditionnée à la validation juridique (page 03).</li>
+        <li>Le chiffrage est une <b>estimation</b> (35 jours, atelier inclus, confirmée à l'issue de l'atelier de cadrage) ; le SLA et l'astreinte 24/7 restent à cadrer, jamais inclus d'office.</li>
+        <li>Le partage des red flags entre clubs suit une <b>approche en deux temps</b>, conditionnée à la validation juridique (page 4).</li>
       </ul>
     </div>
 
-    <h3>Quatre jalons pour livrer les deux briques</h3>
+    <h3>Cinq jalons pour livrer les deux briques</h3>
     <div class="steps">
       <div class="step">
         <div class="when">Jalon 1</div>
+        <div class="what">Atelier de cadrage</div>
+        <div class="res">Parcours, écrans clés, règles de fichage et RGPD figés.</div>
+      </div>
+      <div class="step">
+        <div class="when">Jalon 2</div>
         <div class="what">Contrôle d'identité</div>
         <div class="res">KYC Stripe Identity, statut vérifié, suivi back-office.</div>
       </div>
       <div class="step">
-        <div class="when">Jalon 2</div>
+        <div class="when">Jalon 3</div>
         <div class="what">Red flags</div>
         <div class="res">Signalements, contrôle suivant, partage réseau, garde-fous.</div>
       </div>
       <div class="step">
-        <div class="when">Jalon 3</div>
+        <div class="when">Jalon 4</div>
         <div class="what">Vestiaire digital</div>
         <div class="res">Ticket, vestiaire, cintre numéroté, gestion du parc.</div>
       </div>
       <div class="step">
-        <div class="when">Jalon 4</div>
+        <div class="when">Jalon 5</div>
         <div class="what">Recette &amp; déploiement</div>
         <div class="res">Tests, mise en production, documentation.</div>
       </div>
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>1</span></div>
+    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>2</span></div>
   </div>
 </div>
 
-<!-- ============ P2 BUDGET ============ -->
-<div class="page budget-page">
+<!-- ============ P3 BUDGET ============ -->
+<div class="page tight">
   <div class="content tight dense xdense">
     <div class="head">
-      <div class="num">02 · BUDGET</div>
+      <div class="num">03 · BUDGET</div>
       <h2>Une estimation claire, brique par brique</h2>
     </div>
 
-    <p>Estimation TJM <b>600&nbsp;€ HT</b>, ancrée à <b>32 jours / 19&nbsp;200&nbsp;€ HT</b> (fourchette 17 à 21&nbsp;k€ HT), confirmée à l'atelier.</p>
+    <p>Estimation TJM <b>600&nbsp;€ HT</b>, ancrée à <b>35 jours / 21&nbsp;000&nbsp;€ HT</b> (fourchette 18 à 22&nbsp;k€ HT), confirmée à l'issue de l'atelier de cadrage.</p>
 
-    <h3>Étape préalable (facturée, sans remise)</h3>
-    <table class="small">
-      <tr><th>Prestation</th><th class="r">Charge</th><th class="r">Montant HT</th></tr>
-      <tr><td><b>Atelier de cadrage</b> : parcours et écrans clés, règles de fichage, motifs, cadre RGPD, priorités</td><td class="r">3 jours</td><td class="r">1 800 €</td></tr>
-    </table>
-
-    <h3>Les deux briques (estimation à cadrer)</h3>
+    <h3>Les cinq jalons (estimation à cadrer)</h3>
     <table>
       <tr><th>Jalon</th><th class="r">Jours</th><th class="r">Montant HT</th></tr>
-      <tr><td><b>1 · Contrôle d'identité</b> : Stripe Identity, statut vérifié, back-office, RGPD</td><td class="r">10</td><td class="r">6 000 €</td></tr>
-      <tr><td><b>2 · Red flags</b> : signalement, motifs, contrôle suivant, partage réseau</td><td class="r">9</td><td class="r">5 400 €</td></tr>
-      <tr><td><b>3 · Vestiaire digital</b> : ticket, vestiaire, cintre, restitution, gestion du parc</td><td class="r">8</td><td class="r">4 800 €</td></tr>
-      <tr><td><b>4 · Recette, déploiement, documentation</b></td><td class="r">5</td><td class="r">3 000 €</td></tr>
-      <tr class="total"><td>Total briques</td><td class="r">32 jours</td><td class="r">19 200 € HT<br>23 040 € TTC</td></tr>
+      <tr><td><b>1 · Atelier de cadrage</b> : parcours et écrans clés, règles de fichage, motifs, RGPD, priorités</td><td class="r">3</td><td class="r">1 800 €</td></tr>
+      <tr><td><b>2 · Contrôle d'identité</b> : Stripe Identity, statut vérifié, back-office, RGPD</td><td class="r">10</td><td class="r">6 000 €</td></tr>
+      <tr><td><b>3 · Red flags</b> : signalement, motifs, contrôle suivant, partage réseau</td><td class="r">9</td><td class="r">5 400 €</td></tr>
+      <tr><td><b>4 · Vestiaire digital</b> : ticket, vestiaire, cintre, restitution, gestion du parc</td><td class="r">8</td><td class="r">4 800 €</td></tr>
+      <tr><td><b>5 · Recette, déploiement, documentation</b></td><td class="r">5</td><td class="r">3 000 €</td></tr>
+      <tr class="total"><td>Total</td><td class="r">35 jours</td><td class="r">21 000 € HT<br>25 200 € TTC</td></tr>
     </table>
 
     <h3>Déduction de l'encours de maintenance (estimation)</h3>
@@ -244,28 +314,28 @@
       <tr><th>Ligne</th><th class="r">Montant HT</th></tr>
       <tr><td>Solde disponible sur le devis n° 19 (maintenance en cours)</td><td class="r">- 8 100 €</td></tr>
       <tr><td>Base de maintenance conservée : 3 mois à 340 € HT, non déductible</td><td class="r">+ 1 020 €</td></tr>
-      <tr class="total"><td>Net à payer pour les briques</td><td class="r">12 120 € HT<br>14 544 € TTC</td></tr>
+      <tr class="total"><td>Net à payer, atelier et briques</td><td class="r">13 920 € HT<br>16 704 € TTC</td></tr>
     </table>
-    <p class="nextnote">Maintenance de base conservée : 340&nbsp;€ HT par mois pendant la réalisation (3&nbsp;mois).</p>
 
-    <h3>Échéancier de règlement (briques, sur le net)</h3>
+    <h3>Échéancier de règlement (estimation à cadrer)</h3>
     <table class="small">
       <tr><th>Jalon validé par HEATSPOT</th><th class="r">Part</th><th class="r">Montant HT</th></tr>
-      <tr><td>Lancement du projet (après signature)</td><td class="r">30 %</td><td class="r">3 636 €</td></tr>
+      <tr><td>Atelier de cadrage, à sa réalisation</td><td class="r">forfait</td><td class="r">1 800 €</td></tr>
+      <tr><td>Lancement des briques (après signature)</td><td class="r">30 %</td><td class="r">3 636 €</td></tr>
       <tr><td>Mise à disposition des briques en recette</td><td class="r">40 %</td><td class="r">4 848 €</td></tr>
       <tr><td>Validation de recette, avant mise en production</td><td class="r">30 %</td><td class="r">3 636 €</td></tr>
-      <tr class="future"><td colspan="3">Montants HT, TVA 20&nbsp;% en sus, sur le net. Atelier facturé séparément (1&nbsp;800&nbsp;€ HT).</td></tr>
+      <tr class="future"><td colspan="3">Montants HT, TVA 20&nbsp;% en sus, sur le net après déduction. Atelier facturé sans remise.</td></tr>
     </table>
 
-    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>2</span></div>
+    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>3</span></div>
   </div>
 </div>
 
-<!-- ============ P3 CONFORMITE ============ -->
+<!-- ============ P4 CONFORMITE ============ -->
 <div class="page tight">
   <div class="content">
     <div class="head">
-      <div class="num">03 · CONFORMITÉ</div>
+      <div class="num">04 · CONFORMITÉ</div>
       <h2>Des briques conçues pour rester dans les rails</h2>
     </div>
 
@@ -302,26 +372,26 @@
       <p style="margin-bottom:0">Nous livrons les briques <b>avec les garde-fous techniques</b> : motifs prédéfinis, double lecture au contrôle, journal d'audit, purge automatique, paramétrage de l'activation du partage (désactivable par défaut). En revanche, l'<b>AIPD formelle</b> et le <b>conseil juridique externe</b> ne sont pas inclus ; ils peuvent faire l'objet d'un lot séparé si vous souhaitez les confier à un tiers ou à nous-mêmes.</p>
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>3</span></div>
+    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>4</span></div>
   </div>
 </div>
 
-<!-- ============ P4 PLANNING ============ -->
+<!-- ============ P5 PLANNING ============ -->
 <div class="page">
   <div class="content">
     <div class="head">
-      <div class="num">04 · PLANNING</div>
+      <div class="num">05 · PLANNING</div>
       <h2>Un calendrier calibré pour 1 à 2 mois</h2>
     </div>
 
-    <p>Les dates ci-dessous sont une <b>projection</b> pour 32 jours de réalisation, avec une équipe senior dédiée. Le planning détaillé sera figé à l'issue de l'atelier de cadrage.</p>
+    <p>Les dates ci-dessous sont une <b>projection</b> pour 35 jours de réalisation, avec une équipe senior dédiée. Le planning détaillé sera figé à l'issue de l'atelier de cadrage.</p>
 
     <table>
       <tr><th>Période indicative</th><th>Étape</th><th>Résultat attendu</th></tr>
-      <tr><td><b>Semaine 1</b></td><td>Signature + atelier de cadrage (3 j)</td><td>Parcours et écrans clés, règles de fichage, motifs, cadre RGPD</td></tr>
-      <tr><td><b>Semaines 2 à 4</b></td><td>Contrôle d'identité (jalon 1)</td><td>KYC Stripe Identity actif sur app et billetterie</td></tr>
-      <tr><td><b>Semaines 4 à 6</b></td><td>Red flags (jalon 2) + vestiaire (jalon 3)</td><td>Signalements et vestiaire digital opérationnels</td></tr>
-      <tr><td><b>Semaine 7</b></td><td>Recette, déploiement, doc (jalon 4)</td><td>Mise en production sur les clubs pilotes</td></tr>
+      <tr><td><b>Semaine 1</b></td><td>Atelier de cadrage (jalon 1)</td><td>Parcours et écrans clés, règles de fichage, motifs, cadre RGPD</td></tr>
+      <tr><td><b>Semaines 2 à 4</b></td><td>Contrôle d'identité (jalon 2)</td><td>KYC Stripe Identity actif sur app et billetterie</td></tr>
+      <tr><td><b>Semaines 4 à 6</b></td><td>Red flags (jalon 3) + vestiaire (jalon 4)</td><td>Signalements et vestiaire digital opérationnels</td></tr>
+      <tr><td><b>Semaine 7</b></td><td>Recette, déploiement, doc (jalon 5)</td><td>Mise en production sur les clubs pilotes</td></tr>
       <tr><td><b>Cible</b></td><td>Livraison indicative</td><td><b>Janvier 2027</b> si lancement sous 2 semaines</td></tr>
     </table>
 
@@ -338,24 +408,24 @@
       <p style="margin-bottom:0">L'accès au dépôt et aux environnements de la plateforme existante, un compte Stripe au nom de HEATSPOT avec Identity activé, un interlocuteur métier pour figer les motifs de signalement et les règles de gestion du vestiaire, et la fourniture des cintres numérotés par vos équipes.</p>
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>4</span></div>
+    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>5</span></div>
   </div>
 </div>
 
-<!-- ============ P5 PROCHAINES ETAPES ============ -->
-<div class="page tight dense xdense">
+<!-- ============ P6 PROCHAINES ETAPES ============ -->
+<div class="page tight">
   <div class="content">
     <div class="head">
-      <div class="num">05 · PROCHAINES ÉTAPES</div>
+      <div class="num">06 · PROCHAINES ÉTAPES</div>
       <h2>Cinq décisions pour avancer</h2>
     </div>
 
     <table>
-      <tr><th style="width:8mm" class="r">1</th><td><b>Valider le principe de ce devis</b> : deux briques, 12&nbsp;120&nbsp;€ HT net après déduction de l'encours maintenance.</td></tr>
+      <tr><th style="width:8mm" class="r">1</th><td><b>Valider le principe de ce devis</b> : atelier et deux briques, 13&nbsp;920&nbsp;€ HT net après déduction de l'encours maintenance.</td></tr>
       <tr><th class="r">2</th><td><b>Planifier l'atelier de cadrage</b> (3 jours, 1&nbsp;800&nbsp;€ HT facturé, sans remise).</td></tr>
       <tr><th class="r">3</th><td><b>Figer les motifs de signalement</b> et la durée de conservation avec votre interlocuteur métier.</td></tr>
       <tr><th class="r">4</th><td><b>Activer Stripe Identity</b> sur le compte Stripe de HEATSPOT (ou nous donner accès pour le faire).</td></tr>
-      <tr><th class="r">5</th><td><b>Signer et lancer</b> : 30&nbsp;% / 40&nbsp;% / 30&nbsp;%, livraison indicative janvier&nbsp;2027.</td></tr>
+      <tr><th class="r">5</th><td><b>Signer et lancer</b> : atelier à la réalisation, briques 30&nbsp;% / 40&nbsp;% / 30&nbsp;%, livraison indicative janvier&nbsp;2027.</td></tr>
     </table>
 
     <h3>Récapitulatif contractuel proposé</h3>
@@ -363,30 +433,16 @@
       <tr><th>Sujet</th><th>Base proposée</th></tr>
       <tr><td>Atelier de cadrage</td><td>3 jours · 1 800 € HT (2 160 € TTC), facturé sans remise</td></tr>
       <tr><td>Briques identité, red flags et vestiaire</td><td>Estimation à cadrer : 32 jours · 19 200 € HT / 23 040 € TTC (TVA 20 %, fourchette 17 à 21 k€)</td></tr>
-      <tr><td>Encours maintenance (devis n° 19)</td><td>7 080 € HT déduits des briques (8 100 € moins 1 020 € de base maintenance conservée sur 3 mois) · net à payer 12 120 € HT / 14 544 € TTC</td></tr>
-      <tr><td>Règlement briques</td><td>30 % lancement · 40 % mise à disposition · 30 % validation recette, sur le net</td></tr>
+      <tr><td>Encours maintenance (devis n° 19)</td><td>7 080 € HT déduits des briques (8 100 € moins 1 020 € de base maintenance conservée sur 3 mois)</td></tr>
+      <tr class="total"><td>Total net à payer, atelier inclus</td><td class="r">13 920 € HT · 16 704 € TTC</td></tr>
+      <tr><td>Règlement</td><td>Atelier à la réalisation · briques 30 % lancement · 40 % mise à disposition · 30 % validation recette, sur le net</td></tr>
       <tr><td>Vérifications Stripe Identity</td><td>Facturées au réel sur le compte HEATSPOT (annexe B)</td></tr>
       <tr><td>Livrables et réversibilité</td><td>Code source et dépôt Git remis à HEATSPOT ; droits d'exploitation définis au contrat</td></tr>
     </table>
 
     <div class="callout">
       <div class="t">Décision attendue</div>
-      <p style="margin-bottom:0"><b>Valider le principe et fixer la date de l'atelier de cadrage</b> ; montants confirmés à l'issue de l'atelier, avant engagement des jalons.</p>
-    </div>
-
-    <div class="sig">
-      <div class="sigbox">
-        <div class="who">Pour HEATSPOT</div>
-        <div class="sigline">Nom, fonction :</div>
-        <div class="sigline">Date :</div>
-        <div class="sigline">Signature :</div>
-      </div>
-      <div class="sigbox">
-        <div class="who">Pour Perfusion.dev</div>
-        <div class="sigline">Maxime Guyot</div>
-        <div class="sigline">Date :</div>
-        <div class="sigline">Signature :</div>
-      </div>
+      <p style="margin-bottom:0"><b>Valider le principe et fixer la date de l'atelier de cadrage</b> ; montants confirmés à l'issue de l'atelier. Le devis récapitulatif en page 1 porte le détail, les conditions et le bon pour accord.</p>
     </div>
 
     <div class="legal">
@@ -394,7 +450,7 @@
       SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>5</span></div>
+    <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>6</span></div>
   </div>
 </div>
 
@@ -418,7 +474,7 @@
     <ul>
       <li>Signalement posé par le videur ou le staff depuis l'app de contrôle : motif prédéfini, commentaire factuel, horodatage, auteur.</li>
       <li>Mise en avant automatique du signalement lors du prochain contrôle du même clubber.</li>
-      <li>Partage entre clubs du réseau HEATSPOT : technique livrée mais désactivée par défaut, activée après validation juridique (page 03).</li>
+      <li>Partage entre clubs du réseau HEATSPOT : technique livrée mais désactivée par défaut, activée après validation juridique (page 4).</li>
       <li>Journal d'audit des signalements et des consultations, purge automatique à l'échéance fixée à l'atelier.</li>
     </ul>
 
@@ -438,7 +494,7 @@
       <li>AIPD formelle et conseil juridique externe (lot séparé possible) ; SLA 99,9&nbsp;% et astreinte 24/7 (à cadrer).</li>
     </ul>
 
-    <p style="margin-top:4mm"><span class="price-tag">Estimation briques à cadrer : 19 200 € HT · 32 jours</span></p>
+    <p style="margin-top:4mm"><span class="price-tag">Estimation à cadrer : 21 000 € HT · 35 jours, atelier inclus</span></p>
 
     <div class="foot"><span>Perfusion.dev · Devis complémentaire pour HEATSPOT</span><span>Annexe A</span></div>
   </div>

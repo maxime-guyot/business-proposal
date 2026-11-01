@@ -11,14 +11,32 @@
     {{PRESTATAIRE_INFORMATIQUE}}   prestataire informatique du client (connecteurs)
 
   Sections à adapter pour chaque proposition :
-    1. Couverture : titre, sous-titre, les 3 cartes (total HT, jalon pilote, infogérance)
-    2. Page 1     : le besoin, ce que les équipes obtiennent, les 3 jalons
-    3. Page 2     : tableau des prestations (lignes, jours, montants), échéancier 30/40/30
-    4. Page 3     : exploitation (forfait d'infogérance + grille de consommation variable)
-    5. Page 4     : planning (dates à adapter : lancement, maquette, pilote, bilan)
-    6. Page 5     : sécurité + "Ce dont nous aurons besoin de votre côté"
-    7. Page 6     : prochaines étapes + récapitulatif contractuel (jours, forfait, règlement)
-    8. Annexes    : A/B/C lots (étiquettes de forfait en fin d'annexe)
+    1. Couverture : titre, sous-titre, les 3 cartes, sommaire (01 Devis en premier)
+    2. Page 1     : DEVIS formel, juste après la couverture (numéro, dates, émetteur/client,
+                    tableau des prestations, totaux HT/TVA/TTC, échéancier 30/40/30,
+                    bon pour accord, conditions et mentions légales en pied de page)
+    3. Page 2     : le besoin, ce que les équipes obtiennent, les jalons
+    4. Page 3     : tableau des prestations détaillé (lignes, jours, montants), échéancier
+    5. Page 4     : exploitation (forfait d'infogérance + grille de consommation variable)
+    6. Page 5     : planning (dates à adapter : lancement, maquette, pilote, bilan)
+    7. Page 6     : sécurité + "Ce dont nous aurons besoin de votre côté"
+    8. Page 7     : prochaines étapes + récapitulatif contractuel (jours, forfait, règlement)
+    9. Annexes    : A/B/C lots (étiquettes de forfait en fin d'annexe)
+
+  Règles de la page devis (styles dv-*) :
+    - Placeholders du devis : {{N_DEVIS}} (format AAAA-MM-CLIENT), {{DATE_EMISSION}},
+      {{DATE_VALIDITE}} (30 jours), {{RAISON_SOCIALE_CLIENT}}, {{ADRESSE_CLIENT}},
+      {{OBJET_EN_UNE_LIGNE}}, lignes {{PRESTATION_i}}/{{DETAIL_i}}/{{QTE_i}}/{{PU_i}}/{{TOTAL_i}},
+      {{TOTAL_JOURS}}, {{TOTAL_HT}}, {{TVA}}, {{TOTAL_TTC}}.
+    - Chaque montant porte un marqueur d'estimation (« estimation à cadrer »).
+    - Une seule page : désignations sur une ligne chacune ; si la page déborde, raccourcir
+      les désignations et la note, puis réduire les paddings, jamais supprimer une information
+      sans validation.
+    - Pas de signature Perfusion.dev : seul le bloc « Bon pour accord » du client figure.
+    - Les conditions réglementaires et la ligne légale vivent en pied de page (dvfoot),
+      en petits caractères ; ne les modifier qu'après validation de Maxime.
+    - Les pages suivantes sont numérotées à partir de 2 : mettre à jour les pieds de page,
+      les renvois (« page N ») et le sommaire de couverture.
 
   Générer le PDF (depuis le dossier du devis) :
     ../../build.sh
@@ -134,6 +152,32 @@
   .price-tag { display: inline-block; background: var(--lilac); color: var(--purple); font-weight: 700; padding: 2mm 4mm; border-radius: 1.5mm; font-size: 10pt; }
   .two { display: flex; gap: 6mm; }
   .two > div { flex: 1; }
+
+  /* ---------- DEVIS FORMEL (page 1, juste après la couverture) ---------- */
+  .dv-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4mm; }
+  .dv-head img { width: 38mm; margin-top: 1.5mm; }
+  .dv-title { text-align: right; }
+  .dv-title .t { font-size: 21pt; font-weight: 700; letter-spacing: 6px; color: var(--dark); }
+  .dv-title .m { margin-top: 2mm; font-size: 9pt; color: var(--grey); line-height: 1.6; }
+  .dv-title .m b { color: var(--dark); }
+  .dv-meta { display: flex; border: 1px solid var(--line); border-radius: 2mm; overflow: hidden; margin-bottom: 5mm; flex-shrink: 0; }
+  .dv-meta > div { flex: 1; padding: 3mm 4.5mm; }
+  .dv-meta > div + div { border-left: 1px solid var(--line); }
+  .dv-meta .lbl { font-size: 7.8pt; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple2); font-weight: 700; margin-bottom: 1.2mm; }
+  .dv-meta p { font-size: 9pt; margin: 0; line-height: 1.5; }
+  .dv-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 2.5mm 0 3mm 0; }
+  .dv-table th { background: var(--purple); color: #fff; padding: 2.8mm 3.5mm; font-weight: 600; font-size: 9pt; text-align: left; border: 1px solid var(--purple); }
+  .dv-table td { border: 1px solid var(--line); padding: 2mm 3.5mm; vertical-align: top; }
+  .dv-table .r { text-align: right; white-space: nowrap; }
+  .dv-table th.r { text-align: right; }
+  .dv-tot td { background: var(--lilac); font-weight: 700; color: var(--purple); }
+  .dv-h3 { font-size: 11pt; color: var(--purple); margin: 3mm 0 1.2mm 0; font-weight: 700; }
+  .dv-note { font-size: 9pt; color: var(--grey); }
+  .dvfoot { margin-top: auto; border-top: 1.5px solid var(--purple); padding-top: 2.5mm; font-size: 7.6pt; color: var(--grey); line-height: 1.55; display: flex; justify-content: space-between; gap: 8mm; }
+  .dvfoot .pg { text-align: right; white-space: nowrap; font-weight: 600; color: var(--purple2); }
+  .dv-sig { border: 1px solid var(--line); border-top: 1.4mm solid var(--purple2); border-radius: 0 0 2mm 2mm; padding: 3.5mm 5mm 9mm 5mm; margin-top: auto; }
+  .dv-sig .t { font-weight: 700; color: var(--purple); font-size: 11pt; margin-bottom: 2mm; }
+  .dv-sig p { font-size: 9.3pt; margin-bottom: 2mm; }
 </style>
 </head>
 <body>
@@ -163,13 +207,70 @@
     <div class="toc">
       <div class="toc-title">Contenu du document</div>
       <div class="toc-items">
-        <span>01 L'essentiel</span><span>02 Budget</span><span>03 Exploitation</span><span>04 Planning</span><span>05 Sécurité</span><span>06 Prochaines étapes</span><span>Annexes A · B · C</span>
+        <span>01 Devis</span><span>02 L'essentiel</span><span>03 Budget</span><span>04 Exploitation</span><span>05 Planning</span><span>06 Sécurité</span><span>07 Prochaines étapes</span><span>Annexes A · B · C</span>
       </div>
     </div>
     <div class="foot">
       <div>Préparée pour <b>{{CLIENT}}</b></div>
       <div>Présentée par <b>Perfusion.dev</b> · Maxime Guyot<br><span style="font-size:8.3pt">+33&nbsp;6&nbsp;63&nbsp;33&nbsp;82&nbsp;95 · maxime.guyot@perfusion.dev · perfusion.dev</span></div>
       <div><b>6 octobre 2026</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ P1 DEVIS (formel, toujours juste après la couverture) ============ -->
+<!--
+  À adapter : numéro (AAAA-MM-CLIENT), dates, identité client, objet, lignes du tableau,
+  totaux. Désignations sur une ligne chacune. Échéancier standard 30/40/30.
+  Pas de signature Perfusion.dev. Conditions et mentions légales : pied de page, ne pas
+  modifier sans validation. Renuméroter les pages suivantes à partir de 2.
+-->
+<div class="page tight">
+  <div class="content" style="padding-top:16mm;padding-bottom:13mm">
+    <div class="dv-head">
+      <img src="file:///Users/maxime/Projects/externals/perfusion.dev/www/dist/presskit/perfusion-logo.png" alt="Perfusion.dev">
+      <div class="dv-title">
+        <div class="t">DEVIS</div>
+        <div class="m"><b>N° {{N_DEVIS}}</b><br>Émis le {{DATE_EMISSION}}<br>Valable jusqu'au {{DATE_VALIDITE}}</div>
+      </div>
+    </div>
+
+    <div class="dv-meta">
+      <div>
+        <div class="lbl">Émetteur</div>
+        <p><b>SARL perfusion.dev</b><br>11 rue des Trois Tilleuls, 14310 Villers Bocage<br>office@perfusion.dev · +33&nbsp;6&nbsp;63&nbsp;33&nbsp;82&nbsp;95</p>
+      </div>
+      <div>
+        <div class="lbl">Client</div>
+        <p><b>{{RAISON_SOCIALE_CLIENT}}</b><br>{{ADRESSE_CLIENT}}<br><span style="color:var(--grey)">Identité de facturation à confirmer avant contrat.</span></p>
+      </div>
+    </div>
+
+    <p><b>Objet :</b> {{OBJET_EN_UNE_LIGNE}}.</p>
+
+    <div class="dv-h3">Détail des prestations (estimation à cadrer)</div>
+    <table class="dv-table">
+      <tr><th>Désignation</th><th class="r" style="width:20mm">Quantité</th><th class="r" style="width:30mm">Prix unitaire HT</th><th class="r" style="width:27mm">Total HT</th></tr>
+      <tr><td><b>{{PRESTATION_1}}</b> : {{DETAIL_1}}</td><td class="r">{{QTE_1}}</td><td class="r">{{PU_1}}</td><td class="r">{{TOTAL_1}}</td></tr>
+      <tr><td><b>{{PRESTATION_2}}</b> : {{DETAIL_2}}</td><td class="r">{{QTE_2}}</td><td class="r">{{PU_2}}</td><td class="r">{{TOTAL_2}}</td></tr>
+      <tr><td><b>{{PRESTATION_3}}</b> : {{DETAIL_3}}</td><td class="r">{{QTE_3}}</td><td class="r">{{PU_3}}</td><td class="r">{{TOTAL_3}}</td></tr>
+      <tr class="dv-tot"><td>Total HT</td><td class="r">{{TOTAL_JOURS}}</td><td></td><td class="r">{{TOTAL_HT}}</td></tr>
+      <tr><td>TVA 20 %</td><td></td><td></td><td class="r">{{TVA_20}}</td></tr>
+      <tr class="dv-tot"><td>Total TTC</td><td></td><td></td><td class="r">{{TOTAL_TTC}}</td></tr>
+    </table>
+    <p class="dv-note">Montants estimés, confirmés à l'issue du jalon 1 (cadrage). Taux de TVA en vigueur à la facturation.</p>
+
+    <p><b>Échéancier de règlement :</b> 30 % au lancement, après signature ; 40 % à la mise à disposition ; 30 % à la validation de recette.</p>
+
+    <div class="dv-sig">
+      <div class="t">Bon pour accord</div>
+      <p>Fait à : ......................................... &nbsp;&nbsp;&nbsp; Le : ........ / ........ / ............</p>
+      <p style="margin-bottom:0">Signature, précédée de la mention « Bon pour accord » :</p>
+    </div>
+
+    <div class="dvfoot">
+      <div>Règlement par virement, facture à chaque jalon validé, sans escompte ; en cas de retard, pénalités au taux légal et indemnité forfaitaire de 40 € (art. L441-10 du code de commerce). Code source et dépôt Git remis au client ; droits d'exploitation définis au contrat. Après la mise en ligne : maintien et hébergement selon le forfait mensuel proposé ; nom de domaine au coût réel. Évolutions au-delà du périmètre : lots séparés, chiffrés avant de commencer.<br>SARL perfusion.dev, capital 1 000 € · 11 rue des Trois Tilleuls, 14310 Villers Bocage · SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919 · office@perfusion.dev · perfusion.dev</div>
+      <div class="pg">Page 1</div>
     </div>
   </div>
 </div>
@@ -226,7 +327,7 @@
       </div>
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>1</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>2</span></div>
   </div>
 </div>
 
@@ -234,7 +335,7 @@
 <div class="page">
   <div class="content tight">
     <div class="head">
-      <div class="num">02 · BUDGET</div>
+      <div class="num">03 · BUDGET</div>
       <h2>Un forfait clair, réglé au fil des jalons</h2>
     </div>
 
@@ -282,7 +383,7 @@
       <p style="margin-bottom:0">Le socle est construit une fois : vos futures automatisations s'appuient dessus au lieu de repartir de zéro. C'est ce qui rend les lots suivants rapides et abordables.</p>
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>2</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>3</span></div>
   </div>
 </div>
 
@@ -290,7 +391,7 @@
 <div class="page">
   <div class="content tight">
     <div class="head">
-      <div class="num">03 · EXPLOITATION</div>
+      <div class="num">04 · EXPLOITATION</div>
       <h2>Exploitation et consommation, en toute clarté</h2>
     </div>
 
@@ -328,7 +429,7 @@
 
     <p class="nextnote">En dehors de ces deux lignes : évolutions et connecteurs font l'objet de <b>lots séparés</b>, chiffrés à l'avance.</p>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>3</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>4</span></div>
   </div>
 </div>
 
@@ -336,7 +437,7 @@
 <div class="page">
   <div class="content">
     <div class="head">
-      <div class="num">04 · PLANNING</div>
+      <div class="num">05 · PLANNING</div>
       <h2>Un calendrier à validation progressive</h2>
     </div>
 
@@ -367,7 +468,7 @@
       <p style="margin-bottom:0">La disponibilité des équipes et de M.&nbsp;{{UTILISATEUR_PILOTE}} pour les ateliers d'octobre, celle de la société {{PRESTATAIRE_INFORMATIQUE}} pour l'accès aux connecteurs, un compte Microsoft 365 à connecter, un premier périmètre de documents autorisés et un interlocuteur décisionnaire pour chaque validation.</p>
     </div>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>4</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>5</span></div>
   </div>
 </div>
 
@@ -375,7 +476,7 @@
 <div class="page">
   <div class="content tight">
     <div class="head">
-      <div class="num">05 · SÉCURITÉ</div>
+      <div class="num">06 · SÉCURITÉ</div>
       <h2>Vos données, sous votre contrôle</h2>
     </div>
 
@@ -409,9 +510,9 @@
     </div>
 
     <h3>L'exploitation au quotidien</h3>
-    <p>À compter de la validation du pilote (mi-décembre), l'exploitation repose sur <b>deux lignes seulement</b> : un <b>forfait d'infogérance</b> de 490&nbsp;€ HT par mois à partir du 1er janvier 2027 (hébergement, supervision, sauvegardes, maintenance, support, reporting, 100&nbsp;Go) et les consommations IA et cloud facturées à l'usage selon une grille tarifaire transparente. <b>Le détail complet figure en page 3.</b></p>
+    <p>À compter de la validation du pilote (mi-décembre), l'exploitation repose sur <b>deux lignes seulement</b> : un <b>forfait d'infogérance</b> de 490&nbsp;€ HT par mois à partir du 1er janvier 2027 (hébergement, supervision, sauvegardes, maintenance, support, reporting, 100&nbsp;Go) et les consommations IA et cloud facturées à l'usage selon une grille tarifaire transparente. <b>Le détail complet figure en page 4.</b></p>
 
-    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>5</span></div>
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>6</span></div>
   </div>
 </div>
 
@@ -419,7 +520,7 @@
 <div class="page">
   <div class="content tight">
     <div class="head">
-      <div class="num">06 · PROCHAINES ÉTAPES</div>
+      <div class="num">07 · PROCHAINES ÉTAPES</div>
       <h2>Cinq décisions pour démarrer</h2>
     </div>
 
@@ -437,7 +538,7 @@
       <tr><td>Pilote</td><td>Maquettage, déploiement AWS + Lots 1 et 2 : 21,5 jours, forfait de 12 900 € HT</td></tr>
       <tr><td>Règlement</td><td>30 % au lancement · 40 % à la mise à disposition du pilote · 30 % à la validation</td></tr>
       <tr><td>Infogérance</td><td>490 € HT par mois à partir du 1er janvier 2027, jusqu'à 10 utilisateurs et 100 Go</td></tr>
-      <tr><td>Consommations</td><td>Tarif d'usage IA et cloud selon une grille transparente (page 3), relevé et facturé chaque mois</td></tr>
+      <tr><td>Consommations</td><td>Tarif d'usage IA et cloud selon une grille transparente (page 4), relevé et facturé chaque mois</td></tr>
       <tr><td>Confidentialité</td><td>Accord réciproque : AWS Europe, chiffrement en transit et au repos, accès validés</td></tr>
       <tr><td>Lots futurs</td><td>Cadrage, budget et validation distincts avant chaque lancement</td></tr>
     </table>
@@ -447,26 +548,13 @@
       <p style="margin-bottom:0"><b>Valider le devis, signer l'accord de confidentialité et fixer la réunion de lancement.</b> Le projet peut démarrer dès la semaine du 12 octobre.</p>
     </div>
 
-    <div class="sig">
-      <div class="sigbox">
-        <div class="who">Pour {{CLIENT}}</div>
-        <div class="sigline">Nom, fonction :</div>
-        <div class="sigline">Date :</div>
-        <div class="sigline">Signature :</div>
-      </div>
-      <div class="sigbox">
-        <div class="who">Pour Perfusion.dev</div>
-        <div class="sigline">Maxime Guyot</div>
-        <div class="sigline">Date :</div>
-        <div class="sigline">Signature :</div>
-      </div>
-    </div>
-
     <div class="legal">
       <b>SARL perfusion.dev</b>, 11 rue des Trois Tilleuls, 14310 Villers Bocage<br>
       Tél : +33 6 63 33 82 95 · office@perfusion.dev<br>
       SARL au capital de 1 000 € · SIREN 919 991 919 · RCS Caen · NAF 6202A · TVA intracommunautaire FR43 919991919
     </div>
+
+    <div class="foot"><span>Perfusion.dev · Proposition commerciale pour {{CLIENT}}</span><span>7</span></div>
   </div>
 </div>
 
