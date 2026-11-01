@@ -11,6 +11,13 @@
 set -euo pipefail
 
 CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+if [ ! -x "$CHROME" ]; then
+  CHROME="$(command -v google-chrome-stable || command -v google-chrome || command -v chromium || command -v chromium-browser)"
+fi
+if [ -z "$CHROME" ]; then
+  echo "Erreur : Chrome introuvable" >&2
+  exit 1
+fi
 DIR="${1:-.}"
 
 if [ -f "$DIR/proposition.html" ]; then
